@@ -1,0 +1,159 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://1ntmi7kh56ji"]
+
+[ext_resource type="Texture2D" uid="uid://bpeh4kj410bh3" path="res://Sprites/Import/Asian girl.png" id="1_c34my"]
+[ext_resource type="Texture2D" uid="uid://duhb7i5m4bquw" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/east/frame_000.png" id="2_8hemp"]
+[ext_resource type="Texture2D" uid="uid://bonwsemegfcbv" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/east/frame_001.png" id="3_ey2so"]
+[ext_resource type="Texture2D" uid="uid://del18nottdocn" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/east/frame_002.png" id="4_fassq"]
+[ext_resource type="Texture2D" uid="uid://7b3kkq5v1d2e" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/east/frame_003.png" id="5_nbo8r"]
+[ext_resource type="Texture2D" uid="uid://dkyn6gi8blrd" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/east/frame_004.png" id="6_ibqpu"]
+[ext_resource type="Texture2D" uid="uid://c4bo5v5xj6buu" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/east/frame_005.png" id="7_uk8v3"]
+[ext_resource type="Texture2D" uid="uid://cna4wnvni0l2n" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/north/frame_000.png" id="8_5qihd"]
+[ext_resource type="Texture2D" uid="uid://vk51u11noxkl" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/north/frame_001.png" id="9_wwq2g"]
+[ext_resource type="Texture2D" uid="uid://cd1ykfhc3oy80" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/north/frame_002.png" id="10_4mn8q"]
+[ext_resource type="Texture2D" uid="uid://dhegv2gh42u3v" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/north/frame_003.png" id="11_qjo0c"]
+[ext_resource type="Texture2D" uid="uid://htnwtkyprai7" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/north/frame_004.png" id="12_npx4x"]
+[ext_resource type="Texture2D" uid="uid://r4ixhdsp00pw" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/north/frame_005.png" id="13_ririw"]
+[ext_resource type="Texture2D" uid="uid://c46tr5gkwdepv" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/north-east/frame_000.png" id="14_oislh"]
+[ext_resource type="Texture2D" uid="uid://bw02yikqlh6ra" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/north-east/frame_001.png" id="15_qnn62"]
+[ext_resource type="Texture2D" uid="uid://b16aebkhlcx32" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/north-east/frame_002.png" id="16_15p2u"]
+[ext_resource type="Texture2D" uid="uid://hj7ey6obnfd" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/north-east/frame_003.png" id="17_6yq8r"]
+[ext_resource type="Texture2D" uid="uid://wurd2ulheqho" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/north-east/frame_004.png" id="18_ljet8"]
+[ext_resource type="Texture2D" uid="uid://ym2lh77br2vy" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/north-east/frame_005.png" id="19_f58uo"]
+[ext_resource type="Texture2D" uid="uid://bnpvq0m4037rf" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/south/frame_000.png" id="20_frqm6"]
+[ext_resource type="Texture2D" uid="uid://c3j4pwlxlwiu5" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/south/frame_001.png" id="21_jy8mv"]
+[ext_resource type="Texture2D" uid="uid://c4axbesybg71u" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/south/frame_002.png" id="22_n46hp"]
+[ext_resource type="Texture2D" uid="uid://d2xwlti5xk0yl" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/south/frame_003.png" id="23_we1nk"]
+[ext_resource type="Texture2D" uid="uid://33iyh8o0uell" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/south/frame_004.png" id="24_igwig"]
+[ext_resource type="Texture2D" uid="uid://byrnls0sxxl0c" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/south/frame_005.png" id="25_q01ym"]
+[ext_resource type="Texture2D" uid="uid://che6vkya2f2cb" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/south-east/frame_000.png" id="26_ggs1h"]
+[ext_resource type="Texture2D" uid="uid://bbyqjob50mqnf" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/south-east/frame_001.png" id="27_t6mut"]
+[ext_resource type="Texture2D" uid="uid://bt1entm4xpny1" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/south-east/frame_002.png" id="28_8qu6b"]
+[ext_resource type="Texture2D" uid="uid://cl2sjrlctb2o3" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/south-east/frame_003.png" id="29_g0flr"]
+[ext_resource type="Texture2D" uid="uid://b5d5mucujve37" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/south-east/frame_004.png" id="30_bf4dd"]
+[ext_resource type="Texture2D" uid="uid://cvd2cgpiq62qo" path="res://Sprites/Import/Character/Asian girl/animations/Running-cc943f0c/south-east/frame_005.png" id="31_4phqb"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_c34my")
+}],
+"loop": true,
+"name": &"16 Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_8hemp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ey2so")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_fassq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nbo8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ibqpu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_uk8v3")
+}],
+"loop": true,
+"name": &"Run East",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_5qihd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_wwq2g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_4mn8q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_qjo0c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_npx4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ririw")
+}],
+"loop": true,
+"name": &"Run North",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_oislh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_qnn62")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_15p2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_6yq8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ljet8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_f58uo")
+}],
+"loop": true,
+"name": &"Run NorthEast",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_frqm6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_jy8mv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_n46hp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_we1nk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_igwig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_q01ym")
+}],
+"loop": true,
+"name": &"Run South",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_ggs1h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_t6mut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_8qu6b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_g0flr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_bf4dd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_4phqb")
+}],
+"loop": true,
+"name": &"Run SouthEast",
+"speed": 8.0
+}]

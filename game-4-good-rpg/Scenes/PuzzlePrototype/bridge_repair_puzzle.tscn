@@ -1,0 +1,263 @@
+[gd_scene format=3 uid="uid://bxvau5lrw7qu5"]
+
+[ext_resource type="Script" uid="uid://3evhmnxe0wlj" path="res://Scripts/bridge_repair_puzzle.gd" id="1_wl3o3"]
+[ext_resource type="Texture2D" uid="uid://bbykb730lstxj" path="res://Assets/BridgeRepair/broken_bridge_reference.png" id="2"]
+[ext_resource type="Script" uid="uid://bkpmpc3xm7jyj" path="res://Scripts/drop_zone.gd" id="3"]
+[ext_resource type="Script" uid="uid://bvvvltst0lmwo" path="res://Scripts/dragndrop.gd" id="4"]
+[ext_resource type="Texture2D" uid="uid://cnt5r47e54go1" path="res://Assets/BridgeRepair/completed_bridge_reference.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://baitansh6wl4d" path="res://Assets/BridgeRepair/bridge_top_tile.png" id="6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_plank"]
+size = Vector2(84, 52)
+
+[node name="BridgeRepairPuzzle" type="Node2D" unique_id=901597612]
+script = ExtResource("1_wl3o3")
+
+[node name="BrokenBridgeReference" type="Sprite2D" parent="." unique_id=89080816]
+texture = ExtResource("2")
+centered = false
+
+[node name="CompletedBridgeReference" type="Sprite2D" parent="." unique_id=1539491012]
+visible = false
+scale = Vector2(1.3758621, 1.2589743)
+texture = ExtResource("5")
+centered = false
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1841598700]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1713471758]
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 385.0
+offset_bottom = 58.0
+
+[node name="Instructions" type="Label" parent="CanvasLayer/Panel" unique_id=2077523699]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 10.0
+offset_right = 360.0
+offset_bottom = 40.0
+text = "Drag the 9 wooden planks into the bridge gap."
+
+[node name="CompleteLabel" type="Label" parent="CanvasLayer" unique_id=272847281]
+visible = false
+offset_left = 12.0
+offset_top = 64.0
+offset_right = 270.0
+offset_bottom = 96.0
+text = "Bridge repaired!"
+
+[node name="DropZones" type="Node2D" parent="." unique_id=1020612522]
+
+[node name="DropZone1" type="Marker2D" parent="DropZones" unique_id=154945993 groups=["bridge_zone", "zone"]]
+position = Vector2(271, 213)
+script = ExtResource("3")
+zone_id = 1
+
+[node name="DropZone2" type="Marker2D" parent="DropZones" unique_id=887955995 groups=["bridge_zone", "zone"]]
+position = Vector2(328, 246)
+script = ExtResource("3")
+zone_id = 2
+
+[node name="DropZone3" type="Marker2D" parent="DropZones" unique_id=1657435505 groups=["bridge_zone", "zone"]]
+position = Vector2(400, 277)
+script = ExtResource("3")
+zone_id = 3
+
+[node name="DropZone4" type="Marker2D" parent="DropZones" unique_id=691068216 groups=["bridge_zone", "zone"]]
+position = Vector2(396, 146)
+script = ExtResource("3")
+zone_id = 4
+
+[node name="DropZone5" type="Marker2D" parent="DropZones" unique_id=16482830 groups=["bridge_zone", "zone"]]
+position = Vector2(455, 182)
+script = ExtResource("3")
+zone_id = 5
+
+[node name="DropZone6" type="Marker2D" parent="DropZones" unique_id=292708879 groups=["bridge_zone", "zone"]]
+position = Vector2(511, 211)
+script = ExtResource("3")
+zone_id = 6
+
+[node name="DropZone7" type="Marker2D" parent="DropZones" unique_id=459232411 groups=["bridge_zone", "zone"]]
+position = Vector2(515, 79)
+script = ExtResource("3")
+zone_id = 7
+
+[node name="DropZone8" type="Marker2D" parent="DropZones" unique_id=193897755 groups=["bridge_zone", "zone"]]
+position = Vector2(578, 115)
+script = ExtResource("3")
+zone_id = 8
+
+[node name="DropZone9" type="Marker2D" parent="DropZones" unique_id=1214533624 groups=["bridge_zone", "zone"]]
+position = Vector2(636, 145)
+script = ExtResource("3")
+zone_id = 9
+
+[node name="Planks" type="Node2D" parent="." unique_id=1422643605]
+
+[node name="Plank1" type="Node2D" parent="Planks" unique_id=1425254102 groups=["bridge_plank"]]
+z_index = 50
+position = Vector2(512, 407)
+script = ExtResource("4")
+plank_id = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Planks/Plank1" unique_id=1332417751]
+position = Vector2(7.499979, 0.06250179)
+scale = Vector2(1.6538457, 1.7980771)
+texture = ExtResource("6")
+
+[node name="Area2D" type="Area2D" parent="Planks/Plank1" unique_id=316163765]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planks/Plank1/Area2D" unique_id=922694998]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_plank")
+
+[node name="Plank2" type="Node2D" parent="Planks" unique_id=1358304740 groups=["bridge_plank"]]
+z_index = 50
+position = Vector2(587, 375)
+script = ExtResource("4")
+plank_id = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Planks/Plank2" unique_id=501314784]
+position = Vector2(-1, -1.0000153)
+scale = Vector2(1.448718, 1.6410255)
+texture = ExtResource("6")
+
+[node name="Area2D" type="Area2D" parent="Planks/Plank2" unique_id=2006615977]
+position = Vector2(1, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planks/Plank2/Area2D" unique_id=1771332841]
+position = Vector2(1, 3)
+shape = SubResource("RectangleShape2D_plank")
+
+[node name="Plank3" type="Node2D" parent="Planks" unique_id=791529028 groups=["bridge_plank"]]
+z_index = 50
+position = Vector2(646, 341)
+script = ExtResource("4")
+plank_id = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="Planks/Plank3" unique_id=1795626701]
+position = Vector2(1, -1)
+scale = Vector2(1.3589743, 1.6858972)
+texture = ExtResource("6")
+
+[node name="Area2D" type="Area2D" parent="Planks/Plank3" unique_id=657867554]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planks/Plank3/Area2D" unique_id=508594426]
+shape = SubResource("RectangleShape2D_plank")
+
+[node name="Plank4" type="Node2D" parent="Planks" unique_id=323175314 groups=["bridge_plank"]]
+z_index = 50
+position = Vector2(582, 444)
+script = ExtResource("4")
+plank_id = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="Planks/Plank4" unique_id=1922919793]
+position = Vector2(1.0000067, -1.9073486e-05)
+scale = Vector2(1.5128205, 1.6666665)
+texture = ExtResource("6")
+
+[node name="Area2D" type="Area2D" parent="Planks/Plank4" unique_id=469628720]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planks/Plank4/Area2D" unique_id=103849752]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_plank")
+
+[node name="Plank5" type="Node2D" parent="Planks" unique_id=2006935648 groups=["bridge_plank"]]
+z_index = 50
+position = Vector2(644, 409)
+script = ExtResource("4")
+plank_id = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="Planks/Plank5" unique_id=497587532]
+position = Vector2(0, -3.0517578e-05)
+scale = Vector2(1.3974359, 1.7307693)
+texture = ExtResource("6")
+
+[node name="Area2D" type="Area2D" parent="Planks/Plank5" unique_id=1240836033]
+position = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planks/Plank5/Area2D" unique_id=37850683]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_plank")
+
+[node name="Plank6" type="Node2D" parent="Planks" unique_id=2145324013 groups=["bridge_plank"]]
+z_index = 50
+position = Vector2(706, 376)
+script = ExtResource("4")
+plank_id = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="Planks/Plank6" unique_id=1491253058]
+position = Vector2(-1.9999847, 1.5258789e-05)
+scale = Vector2(1.487179, 1.641026)
+texture = ExtResource("6")
+
+[node name="Area2D" type="Area2D" parent="Planks/Plank6" unique_id=1321495457]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planks/Plank6/Area2D" unique_id=862756823]
+position = Vector2(-3.0517578e-05, 0)
+shape = SubResource("RectangleShape2D_plank")
+
+[node name="Plank7" type="Node2D" parent="Planks" unique_id=880912488 groups=["bridge_plank"]]
+z_index = 50
+position = Vector2(645, 471)
+script = ExtResource("4")
+plank_id = 7
+
+[node name="Sprite2D" type="Sprite2D" parent="Planks/Plank7" unique_id=768508436]
+position = Vector2(-0.5, 4.9999657)
+scale = Vector2(1.5256408, 1.5384617)
+texture = ExtResource("6")
+
+[node name="Area2D" type="Area2D" parent="Planks/Plank7" unique_id=768845414]
+position = Vector2(1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planks/Plank7/Area2D" unique_id=1305308933]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_plank")
+
+[node name="Plank8" type="Node2D" parent="Planks" unique_id=1550549332 groups=["bridge_plank"]]
+z_index = 50
+position = Vector2(705, 443)
+script = ExtResource("4")
+plank_id = 8
+
+[node name="Sprite2D" type="Sprite2D" parent="Planks/Plank8" unique_id=868368499]
+position = Vector2(-7.6293945e-06, -2.2888184e-05)
+scale = Vector2(1.5128204, 1.5897434)
+texture = ExtResource("6")
+
+[node name="Area2D" type="Area2D" parent="Planks/Plank8" unique_id=1220955471]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planks/Plank8/Area2D" unique_id=200056017]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_plank")
+
+[node name="Plank9" type="Node2D" parent="Planks" unique_id=1954320538 groups=["bridge_plank"]]
+z_index = 50
+position = Vector2(770, 408)
+script = ExtResource("4")
+plank_id = 9
+
+[node name="Sprite2D" type="Sprite2D" parent="Planks/Plank9" unique_id=1904379588]
+position = Vector2(-0.9999962, 2)
+scale = Vector2(1.5128205, 1.7435895)
+texture = ExtResource("6")
+
+[node name="Area2D" type="Area2D" parent="Planks/Plank9" unique_id=1252536654]
+position = Vector2(1, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Planks/Plank9/Area2D" unique_id=286570176]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_plank")
+
+[connection signal="input_event" from="Planks/Plank1/Area2D" to="Planks/Plank1" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="Planks/Plank2/Area2D" to="Planks/Plank2" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="Planks/Plank3/Area2D" to="Planks/Plank3" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="Planks/Plank4/Area2D" to="Planks/Plank4" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="Planks/Plank5/Area2D" to="Planks/Plank5" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="Planks/Plank6/Area2D" to="Planks/Plank6" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="Planks/Plank7/Area2D" to="Planks/Plank7" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="Planks/Plank8/Area2D" to="Planks/Plank8" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="Planks/Plank9/Area2D" to="Planks/Plank9" method="_on_area_2d_input_event"]

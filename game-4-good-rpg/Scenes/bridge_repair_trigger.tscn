@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dbexl2wsicxt3"]
+
+[ext_resource type="Script" uid="uid://bac2hu1d1ruef" path="res://Scenes/bridge_repair_trigger.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://dokql1fxr7vpw" path="res://Assets/BridgeRepair/bridge_warning_icon.png" id="2_warning"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_passage_block"]
+size = Vector2(325.5, 252.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bridge_interaction"]
+radius = 193.0026
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_talk_hint"]
+bg_color = Color(0, 0, 0, 0.65)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="BridgeRepairTrigger" type="Area2D" unique_id=959286525]
+collision_layer = 16
+script = ExtResource("1_script")
+
+[node name="PassageBlocker" type="StaticBody2D" parent="." unique_id=14429679]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PassageBlocker" unique_id=9603312]
+position = Vector2(42, -71)
+shape = SubResource("RectangleShape2D_passage_block")
+
+[node name="WarningIcon" type="Sprite2D" parent="." unique_id=1000359284]
+z_index = 20
+position = Vector2(231.00003, -194)
+scale = Vector2(0.7216796, 0.68535155)
+texture = ExtResource("2_warning")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=321876040]
+shape = SubResource("CircleShape2D_bridge_interaction")
+
+[node name="TalkHintLayer" type="CanvasLayer" parent="." unique_id=33373130]
+
+[node name="TalkHintPanel" type="PanelContainer" parent="TalkHintLayer" unique_id=32593303]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -165.0
+offset_top = -82.0
+offset_right = 165.0
+offset_bottom = -26.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_talk_hint")
+
+[node name="TalkHintLabel" type="Label" parent="TalkHintLayer/TalkHintPanel" unique_id=599511307]
+layout_mode = 2
+theme_override_font_sizes/font_size = 28
+text = "Press Space to repair the bridge"
+horizontal_alignment = 1

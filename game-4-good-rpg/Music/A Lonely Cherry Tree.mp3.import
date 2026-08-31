@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://rppq1u5vnrqv"
+path="res://.godot/imported/A Lonely Cherry Tree.mp3-dac5982d8981352b6b6a83b2544b3120.mp3str"
+
+[deps]
+
+source_file="res://Music/A Lonely Cherry Tree.mp3"
+dest_files=["res://.godot/imported/A Lonely Cherry Tree.mp3-dac5982d8981352b6b6a83b2544b3120.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

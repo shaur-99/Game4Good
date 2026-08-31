@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://chfx2i51458r7"]
+
+[ext_resource type="Script" uid="uid://d030lse8wkew4" path="res://character/Traveller/human.gd" id="1_uyjct"]
+[ext_resource type="PackedScene" uid="uid://t8nci0q725tp" path="res://helpers/Actionable.tscn" id="2_35bq3"]
+[ext_resource type="Texture2D" uid="uid://ohqk6paasi86" path="res://character/Traveller/arub_boy.png" id="2_866mf"]
+[ext_resource type="Resource" uid="uid://bn8tk18yvoarj" path="res://dialogue.dialogue" id="3_uak4t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_placeholder"]
+font_size = 24
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_866mf"]
+size = Vector2(41, 21)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vhmko"]
+radius = 70.00714
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_talk_hint"]
+bg_color = Color(0, 0, 0, 0.65)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Human" type="StaticBody2D" unique_id=2008200534]
+y_sort_enabled = true
+position = Vector2(-1, 21)
+script = ExtResource("1_uyjct")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1926833598]
+y_sort_enabled = true
+position = Vector2(0, -20)
+scale = Vector2(2.2619042, 2.0833333)
+texture = ExtResource("2_866mf")
+
+[node name="PlaceholderName" type="Label" parent="." unique_id=1241094849]
+offset_left = -67.0
+offset_top = -111.0
+offset_right = 63.0
+offset_bottom = -77.0
+text = "TRAVELER"
+label_settings = SubResource("LabelSettings_placeholder")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=404378259]
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=277913006]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1567367511]
+y_sort_enabled = true
+position = Vector2(1.5, 32.5)
+shape = SubResource("RectangleShape2D_866mf")
+
+[node name="Actionable2" parent="." unique_id=687985467 instance=ExtResource("2_35bq3")]
+position = Vector2(-1037, -141)
+dialogue_resource = ExtResource("3_uak4t")
+dialogue_start = "traveller_start"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable2" unique_id=1709042896]
+position = Vector2(1038, 119)
+shape = SubResource("CircleShape2D_vhmko")
+
+[node name="TalkHintLayer" type="CanvasLayer" parent="." unique_id=185997651]
+
+[node name="TalkHintPanel" type="PanelContainer" parent="TalkHintLayer" unique_id=1368835001]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -82.0
+offset_right = 140.0
+offset_bottom = -26.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_talk_hint")
+
+[node name="TalkHintLabel" type="Label" parent="TalkHintLayer/TalkHintPanel" unique_id=11620371]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Press Space to talk"
+horizontal_alignment = 1

@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://c6qlnj8u8xhw4"]
+
+[ext_resource type="Script" uid="uid://bbd007mef74ub" path="res://character/Friend/friend.gd" id="1_npc"]
+[ext_resource type="PackedScene" uid="uid://t8nci0q725tp" path="res://helpers/Actionable.tscn" id="2_act"]
+[ext_resource type="Texture2D" uid="uid://brfoedfean0gn" path="res://character/Arden_Steven_Villagers/Copilot_20260422_195137.png" id="3_tex"]
+[ext_resource type="Resource" uid="uid://bn8tk18yvoarj" path="res://dialogue.dialogue" id="4_dlg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_placeholder"]
+font_size = 18
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(176, 22)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_talk"]
+radius = 106.01887
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_talk_hint"]
+bg_color = Color(0, 0, 0, 0.65)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="ArdenStevenVillagers" type="StaticBody2D" unique_id=303224989]
+position = Vector2(1, 2)
+script = ExtResource("1_npc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1390872900]
+scale = Vector2(0.22, 0.22)
+texture = ExtResource("3_tex")
+
+[node name="PlaceholderName" type="Label" parent="." unique_id=1334648365]
+offset_left = -140.0
+offset_top = -138.0
+offset_right = 140.0
+offset_bottom = -108.0
+text = "COUNCIL GROUP"
+label_settings = SubResource("LabelSettings_placeholder")
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1838914863]
+position = Vector2(-1, 56)
+shape = SubResource("RectangleShape2D_body")
+
+[node name="Actionable2" parent="." unique_id=1299612319 instance=ExtResource("2_act")]
+collision_mask = 0
+dialogue_resource = ExtResource("4_dlg")
+dialogue_start = "arden_steven_villagers_start"
+chapter1_gate = 3
+dialogue_chapter2_start = "arden_steven_villagers_ch2_start"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable2" unique_id=354919141]
+shape = SubResource("CircleShape2D_talk")
+
+[node name="TalkHintLayer" type="CanvasLayer" parent="." unique_id=472528199]
+
+[node name="TalkHintPanel" type="PanelContainer" parent="TalkHintLayer" unique_id=1620217975]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -82.0
+offset_right = 140.0
+offset_bottom = -26.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_talk_hint")
+
+[node name="TalkHintLabel" type="Label" parent="TalkHintLayer/TalkHintPanel" unique_id=1208180360]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Press Space to talk"
+horizontal_alignment = 1

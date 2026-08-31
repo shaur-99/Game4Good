@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://Scripts/chapter2/sign_assembly_interactable.gd" id="1_script"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sign_body"]
+size = Vector2(220, 340)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_interact"]
+radius = 170.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hint"]
+bg_color = Color(0, 0, 0, 0.65)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="SignAssemblyInteractable" type="Area2D"]
+z_index = 5
+y_sort_enabled = true
+collision_layer = 16
+script = ExtResource("1_script")
+
+[node name="IncompleteSign" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="SignSprite" type="Sprite2D" parent="IncompleteSign"]
+y_sort_enabled = true
+scale = Vector2(0.38, 0.38)
+
+[node name="CompletedSign" type="Node2D" parent="."]
+visible = false
+y_sort_enabled = true
+
+[node name="SignSprite" type="Sprite2D" parent="CompletedSign"]
+y_sort_enabled = true
+scale = Vector2(0.38, 0.38)
+modulate = Color(1, 1, 1, 1)
+
+[node name="SignCollider" type="StaticBody2D" parent="."]
+collision_layer = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SignCollider"]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_sign_body")
+
+[node name="InteractionCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_interact")
+
+[node name="TalkHintLayer" type="CanvasLayer" parent="."]
+
+[node name="TalkHintPanel" type="PanelContainer" parent="TalkHintLayer"]
+visible = false
+offset_left = -170.0
+offset_top = -240.0
+offset_right = 170.0
+offset_bottom = -200.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hint")
+
+[node name="TalkHintLabel" type="Label" parent="TalkHintLayer/TalkHintPanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Press Space to assemble the sign"
+horizontal_alignment = 1

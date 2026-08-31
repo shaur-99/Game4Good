@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://sb7ce5q2v1ei"]
+
+[ext_resource type="PackedScene" uid="uid://b1nc7qon6tjbm" path="res://Scenes/PuzzlePrototype/drop_zone.tscn" id="1_v6ib0"]
+[ext_resource type="PackedScene" uid="uid://b6ngpudcxdn01" path="res://Scenes/PuzzlePrototype/dragndrop.tscn" id="2_2v7go"]
+[ext_resource type="Texture2D" uid="uid://bhsvp3ipx013k" path="res://Sprites/TileMaps/brokenBridge.png" id="3_2v7go"]
+
+[node name="Node2D" type="Node2D" unique_id=959813644]
+
+[node name="drop_zone" parent="." unique_id=1183835845 instance=ExtResource("1_v6ib0")]
+position = Vector2(471, 381)
+
+[node name="drop_zone2" parent="." unique_id=703655427 instance=ExtResource("1_v6ib0")]
+position = Vector2(550, 444)
+
+[node name="drop_zone3" parent="." unique_id=349105503 instance=ExtResource("1_v6ib0")]
+position = Vector2(512, 413)
+
+[node name="drop_zone4" parent="." unique_id=484814127 instance=ExtResource("1_v6ib0")]
+position = Vector2(586, 481)
+
+[node name="drop_zone5" parent="." unique_id=1739853422 instance=ExtResource("1_v6ib0")]
+position = Vector2(621, 512)
+
+[node name="Node2D" parent="." unique_id=892476415 instance=ExtResource("2_2v7go")]
+position = Vector2(92, 81)
+
+[node name="BrokenBridge" type="Sprite2D" parent="." unique_id=466836231]
+position = Vector2(434, 849)
+texture = ExtResource("3_2v7go")

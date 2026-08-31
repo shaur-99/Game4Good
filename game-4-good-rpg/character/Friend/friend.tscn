@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://drxfovylj05ic"]
+
+[ext_resource type="Script" uid="uid://bbd007mef74ub" path="res://character/Friend/friend.gd" id="1_friend_script"]
+[ext_resource type="PackedScene" uid="uid://t8nci0q725tp" path="res://helpers/Actionable.tscn" id="2_actionable"]
+[ext_resource type="Texture2D" uid="uid://cl2u85fnl14yj" path="res://character/Friend/White girl.png" id="2_ly7if"]
+[ext_resource type="Resource" uid="uid://bn8tk18yvoarj" path="res://dialogue.dialogue" id="4_dialogue"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_placeholder"]
+font_size = 24
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_friend_body"]
+size = Vector2(36, 24)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_friend_interaction"]
+radius = 73.02739
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_talk_hint"]
+bg_color = Color(0, 0, 0, 0.65)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Friend" type="StaticBody2D" unique_id=514691783]
+y_sort_enabled = true
+position = Vector2(-1040, -316)
+script = ExtResource("1_friend_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=512681378]
+y_sort_enabled = true
+position = Vector2(794.7381, 152.33333)
+scale = Vector2(1.9832247, 1.7575756)
+texture = ExtResource("2_ly7if")
+
+[node name="PlaceholderName" type="Label" parent="." unique_id=1328156077]
+offset_left = 737.0
+offset_top = 52.0
+offset_right = 853.0
+offset_bottom = 86.0
+text = "ADELE"
+label_settings = SubResource("LabelSettings_placeholder")
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1703588319]
+y_sort_enabled = true
+position = Vector2(794, 209)
+shape = SubResource("RectangleShape2D_friend_body")
+
+[node name="Actionable2" parent="." unique_id=929853927 instance=ExtResource("2_actionable")]
+dialogue_resource = ExtResource("4_dialogue")
+dialogue_start = "friend_start"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable2" unique_id=976817691]
+position = Vector2(793, 154)
+shape = SubResource("CircleShape2D_friend_interaction")
+
+[node name="TalkHintLayer" type="CanvasLayer" parent="." unique_id=1856045488]
+
+[node name="TalkHintPanel" type="PanelContainer" parent="TalkHintLayer" unique_id=483740628]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -82.0
+offset_right = 140.0
+offset_bottom = -26.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_talk_hint")
+
+[node name="TalkHintLabel" type="Label" parent="TalkHintLayer/TalkHintPanel" unique_id=1281901531]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Press Space to talk"
+horizontal_alignment = 1

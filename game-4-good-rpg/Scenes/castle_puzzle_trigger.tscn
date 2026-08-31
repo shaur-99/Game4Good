@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://b3k7ixb34cr74"]
+
+[ext_resource type="Script" uid="uid://cbmkhqt2s6hd8" path="res://Scenes/castle_puzzle_trigger.gd" id="1_script"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_castle_interaction"]
+radius = 150.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_talk_hint"]
+bg_color = Color(0, 0, 0, 0.65)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="CastlePuzzleTrigger" type="Area2D" unique_id=926641990]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_script")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1669065382]
+shape = SubResource("CircleShape2D_castle_interaction")
+
+[node name="TalkHintLayer" type="CanvasLayer" parent="." unique_id=153608208]
+
+[node name="TalkHintPanel" type="PanelContainer" parent="TalkHintLayer" unique_id=1870043438]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -145.0
+offset_top = -82.0
+offset_right = 145.0
+offset_bottom = -26.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_talk_hint")
+
+[node name="TalkHintLabel" type="Label" parent="TalkHintLayer/TalkHintPanel" unique_id=442791327]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Press Space to Solve puzzle"
+horizontal_alignment = 1

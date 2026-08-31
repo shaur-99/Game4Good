@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://d5nm8ubav8ew"]
+
+[ext_resource type="Script" uid="uid://bbd007mef74ub" path="res://character/Friend/friend.gd" id="1_npc"]
+[ext_resource type="PackedScene" uid="uid://t8nci0q725tp" path="res://helpers/Actionable.tscn" id="2_act"]
+[ext_resource type="Texture2D" uid="uid://cv2yww6n6fma8" path="res://character/Jessica/south.png" id="3_tex"]
+[ext_resource type="Resource" uid="uid://bn8tk18yvoarj" path="res://dialogue.dialogue" id="4_dlg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_placeholder"]
+font_size = 24
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(22, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_talk"]
+radius = 63.007935
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_talk_hint"]
+bg_color = Color(0, 0, 0, 0.65)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="Jessica" type="StaticBody2D" unique_id=796007970]
+script = ExtResource("1_npc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=971516156]
+position = Vector2(-1, 1)
+scale = Vector2(1.7673159, 1.5871211)
+texture = ExtResource("3_tex")
+
+[node name="PlaceholderName" type="Label" parent="." unique_id=1751802665]
+offset_left = -52.0
+offset_top = -94.0
+offset_right = 52.0
+offset_bottom = -62.0
+text = "JESSICA"
+label_settings = SubResource("LabelSettings_placeholder")
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=749059361]
+position = Vector2(-1, 33)
+shape = SubResource("RectangleShape2D_body")
+
+[node name="Actionable2" parent="." unique_id=189587112 instance=ExtResource("2_act")]
+dialogue_resource = ExtResource("4_dlg")
+dialogue_start = "jessica_start"
+dialogue_chapter2_start = "jessica_ch2_start"
+dialogue_chapter3_start = "jessica_ch3_home_visits_start"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable2" unique_id=774206662]
+shape = SubResource("CircleShape2D_talk")
+
+[node name="TalkHintLayer" type="CanvasLayer" parent="." unique_id=1873729171]
+
+[node name="TalkHintPanel" type="PanelContainer" parent="TalkHintLayer" unique_id=1311314990]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -82.0
+offset_right = 140.0
+offset_bottom = -26.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_talk_hint")
+
+[node name="TalkHintLabel" type="Label" parent="TalkHintLayer/TalkHintPanel" unique_id=966773599]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Press Space to talk"
+horizontal_alignment = 1

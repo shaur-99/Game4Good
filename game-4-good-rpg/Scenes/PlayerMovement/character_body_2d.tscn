@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://d1skljlv2mige"]
+
+[ext_resource type="Script" uid="uid://dao06xuuvxo22" path="res://Scripts/PlayerScript.gd" id="1_ymxaj"]
+[ext_resource type="SpriteFrames" uid="uid://bccl0boobqjip" path="res://Sprites/Player Sprites/DefaultSS/LGBT2.tres" id="2_7c1s5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7c1s5"]
+size = Vector2(8.125, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_action_finder"]
+radius = 33.01515
+
+[node name="Player" type="CharacterBody2D" unique_id=1301413091]
+y_sort_enabled = true
+script = ExtResource("1_ymxaj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=82941369]
+position = Vector2(3.5762787e-06, -1.9073486e-06)
+scale = Vector2(0.89090914, 0.8681819)
+sprite_frames = ExtResource("2_7c1s5")
+animation = &"16 Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=59239980]
+position = Vector2(0, 33)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_7c1s5")
+
+[node name="Direction" type="Marker2D" parent="." unique_id=1409215425]
+
+[node name="ActionableFinder" type="Area2D" parent="Direction" unique_id=1114041869]
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/ActionableFinder" unique_id=174632430]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_action_finder")

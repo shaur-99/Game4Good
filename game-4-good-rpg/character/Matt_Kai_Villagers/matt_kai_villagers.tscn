@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://00ek6snrodnk"]
+
+[ext_resource type="Script" uid="uid://bbd007mef74ub" path="res://character/Friend/friend.gd" id="1_npc"]
+[ext_resource type="Texture2D" uid="uid://ckg2nbrhvekxo" path="res://character/Matt_Kai_Villagers/Kai_Matt_Villagers.png" id="2_5hfkv"]
+[ext_resource type="PackedScene" uid="uid://t8nci0q725tp" path="res://helpers/Actionable.tscn" id="2_act"]
+[ext_resource type="Resource" uid="uid://bn8tk18yvoarj" path="res://dialogue.dialogue" id="3_dlg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_placeholder"]
+font_size = 18
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(150.46875, 113.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_talk"]
+radius = 87.05171
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_talk_hint"]
+bg_color = Color(0, 0, 0, 0.65)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="MattKaiVillagers" type="StaticBody2D" unique_id=698313014]
+script = ExtResource("1_npc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=568860526]
+position = Vector2(-1, 1.9073486e-06)
+scale = Vector2(0.12438996, 0.10724481)
+texture = ExtResource("2_5hfkv")
+
+[node name="PlaceholderName" type="Label" parent="." unique_id=1945221721]
+offset_left = -120.0
+offset_top = -126.0
+offset_right = 120.0
+offset_bottom = -94.0
+text = "MATT + KAI + VILLAGERS"
+label_settings = SubResource("LabelSettings_placeholder")
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=657787861]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_body")
+
+[node name="Actionable2" parent="." unique_id=163265287 instance=ExtResource("2_act")]
+dialogue_resource = ExtResource("3_dlg")
+dialogue_start = "matt_kai_villagers_ch2_quest4_start"
+chapter1_gate = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable2" unique_id=107223378]
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_talk")
+
+[node name="TalkHintLayer" type="CanvasLayer" parent="." unique_id=1414642757]
+
+[node name="TalkHintPanel" type="PanelContainer" parent="TalkHintLayer" unique_id=596098515]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -82.0
+offset_right = 140.0
+offset_bottom = -26.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_talk_hint")
+
+[node name="TalkHintLabel" type="Label" parent="TalkHintLayer/TalkHintPanel" unique_id=110169186]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Press Space to talk"
+horizontal_alignment = 1

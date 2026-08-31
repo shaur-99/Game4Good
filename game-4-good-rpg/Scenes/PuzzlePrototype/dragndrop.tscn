@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b6ngpudcxdn01"]
+
+[ext_resource type="Script" uid="uid://bvvvltst0lmwo" path="res://Scripts/dragndrop.gd" id="1_qshwd"]
+[ext_resource type="Texture2D" uid="uid://0ku34rhme1t8" path="res://Sprites/icon.svg" id="2_bmpm7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nve1h"]
+radius = 60.0
+
+[node name="Node2D" type="Node2D" unique_id=892476415]
+script = ExtResource("1_qshwd")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1877625884]
+texture = ExtResource("2_bmpm7")
+
+[node name="Area2D" type="Area2D" parent="Icon" unique_id=955035494]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Icon/Area2D" unique_id=666340810]
+shape = SubResource("CircleShape2D_nve1h")
+
+[connection signal="input_event" from="Icon/Area2D" to="." method="_on_area_2d_input_event"]

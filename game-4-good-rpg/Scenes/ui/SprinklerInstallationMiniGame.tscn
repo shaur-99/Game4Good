@@ -1,0 +1,102 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://Scripts/ui/sprinkler_installation_minigame.gd" id="1_script"]
+
+[node name="SprinklerInstallationMiniGame" type="CanvasLayer"]
+script = ExtResource("1_script")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Dimmer" type="ColorRect" parent="Root"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.35)
+
+[node name="Panel" type="PanelContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -360.0
+offset_top = -270.0
+offset_right = 360.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Margin" type="MarginContainer" parent="Root/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 14
+
+[node name="MainVBox" type="VBoxContainer" parent="Root/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="Root/Panel/Margin/MainVBox"]
+layout_mode = 2
+text = "Sprinkler Installation"
+horizontal_alignment = 1
+
+[node name="InstructionLabel" type="Label" parent="Root/Panel/Margin/MainVBox"]
+layout_mode = 2
+text = "Place 3 sprinklers where they can reach the most dry crops."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="StatsRow" type="HBoxContainer" parent="Root/Panel/Margin/MainVBox"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="SprinklersCountLabel" type="Label" parent="Root/Panel/Margin/MainVBox/StatsRow"]
+layout_mode = 2
+text = "Sprinklers selected: 0/3"
+
+[node name="DryCropsLabel" type="Label" parent="Root/Panel/Margin/MainVBox/StatsRow"]
+layout_mode = 2
+text = "Dry crops covered: 0/7"
+
+[node name="FarmlandHost" type="CenterContainer" parent="Root/Panel/Margin/MainVBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TooltipLabel" type="Label" parent="Root/Panel/Margin/MainVBox"]
+layout_mode = 2
+text = "Choose spots that can water the most dry crops."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HelperLabel" type="Label" parent="Root/Panel/Margin/MainVBox"]
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="ButtonRow" type="HBoxContainer" parent="Root/Panel/Margin/MainVBox"]
+layout_mode = 2
+alignment = 1
+
+[node name="ResetButton" type="Button" parent="Root/Panel/Margin/MainVBox/ButtonRow"]
+layout_mode = 2
+text = "Reset"
+
+[node name="SuccessLabel" type="Label" parent="Root/Panel/Margin/MainVBox"]
+visible = false
+layout_mode = 2
+text = "Water is flowing and the crops are turning green!"
+horizontal_alignment = 1
+autowrap_mode = 3

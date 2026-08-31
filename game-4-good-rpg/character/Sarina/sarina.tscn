@@ -1,0 +1,70 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://character/Friend/friend.gd" id="1_npc"]
+[ext_resource type="PackedScene" path="res://helpers/Actionable.tscn" id="2_act"]
+[ext_resource type="Resource" path="res://dialogue.dialogue" id="3_dlg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_body"]
+size = Vector2(110, 127)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_talk"]
+radius = 86.05231
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_talk_hint"]
+bg_color = Color(0, 0, 0, 0.65)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_placeholder"]
+font_size = 24
+font_color = Color(1, 1, 1, 1)
+
+[node name="Sarina" type="StaticBody2D"]
+script = ExtResource("1_npc")
+
+[node name="PlaceholderBody" type="Polygon2D" parent="."]
+color = Color(0.905882, 0.505882, 0.717647, 1)
+polygon = PackedVector2Array(-52, -58, 52, -58, 52, 58, -52, 58)
+
+[node name="PlaceholderName" type="Label" parent="."]
+offset_left = -42.0
+offset_top = -96.0
+offset_right = 42.0
+offset_bottom = -64.0
+text = "SARINA"
+label_settings = SubResource("LabelSettings_placeholder")
+horizontal_alignment = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_body")
+
+[node name="Actionable2" parent="." instance=ExtResource("2_act")]
+dialogue_resource = ExtResource("3_dlg")
+dialogue_start = "sarina_ch3_start"
+chapter1_gate = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Actionable2"]
+shape = SubResource("CircleShape2D_talk")
+
+[node name="TalkHintLayer" type="CanvasLayer" parent="."]
+
+[node name="TalkHintPanel" type="PanelContainer" parent="TalkHintLayer"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -82.0
+offset_right = 140.0
+offset_bottom = -26.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_talk_hint")
+
+[node name="TalkHintLabel" type="Label" parent="TalkHintLayer/TalkHintPanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Press Space to talk"
+horizontal_alignment = 1

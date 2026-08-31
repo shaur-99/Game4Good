@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2trashitem001"]
+
+[ext_resource type="Script" path="res://Scripts/chapter2/trash_item.gd" id="1_script"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pickup"]
+radius = 42.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_talk_hint"]
+bg_color = Color(0, 0, 0, 0.65)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="TrashItem" type="Area2D"]
+collision_layer = 16
+script = ExtResource("1_script")
+
+[node name="Visual" type="Panel" parent="."]
+custom_minimum_size = Vector2(72, 72)
+offset_left = -36.0
+offset_top = -36.0
+offset_right = 36.0
+offset_bottom = 36.0
+
+[node name="IconTexture" type="TextureRect" parent="Visual"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = 56.0
+offset_bottom = 52.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="Visual"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 42.0
+offset_right = 68.0
+offset_bottom = 68.0
+theme_override_font_sizes/font_size = 10
+text = "Trash"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_pickup")
+
+[node name="TalkHintLayer" type="CanvasLayer" parent="."]
+
+[node name="TalkHintPanel" type="PanelContainer" parent="TalkHintLayer"]
+visible = false
+offset_left = -120.0
+offset_top = -110.0
+offset_right = 120.0
+offset_bottom = -70.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_talk_hint")
+
+[node name="TalkHintLabel" type="Label" parent="TalkHintLayer/TalkHintPanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Press Space to collect"
+horizontal_alignment = 1

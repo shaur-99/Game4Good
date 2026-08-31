@@ -1,0 +1,201 @@
+[gd_scene format=4 uid="uid://b52aysa4i75el"]
+
+[ext_resource type="PackedScene" uid="uid://d1skljlv2mige" path="res://Scenes/PlayerMovement/character_body_2d.tscn" id="1_3bxa3"]
+[ext_resource type="PackedScene" uid="uid://cnrxqsji5wjmh" path="res://Scenes/chapter0.tscn" id="2_r48yj"]
+[ext_resource type="Script" uid="uid://dbwy243yfc0pn" path="res://Steven/main/story_guide_panel.gd" id="10_storyguide"]
+[ext_resource type="PackedScene" uid="uid://dbexl2wsicxt3" path="res://Scenes/bridge_repair_trigger.tscn" id="12_bridge_trigger"]
+[ext_resource type="PackedScene" uid="uid://chfx2i51458r7" path="res://character/Traveller/human.tscn" id="13_traveller"]
+[ext_resource type="PackedScene" uid="uid://dmxdx3fwc1nfh" path="res://character/Family/famil.tscn" id="14_family"]
+[ext_resource type="PackedScene" uid="uid://drxfovylj05ic" path="res://character/Friend/friend.tscn" id="15_adele"]
+[ext_resource type="Script" uid="uid://c55m2pptkuvkl" path="res://Chapter 1/MenuScript.gd" id="16_menu"]
+[ext_resource type="AudioStream" uid="uid://rppq1u5vnrqv" path="res://Music/A Lonely Cherry Tree.mp3" id="17_au278"]
+
+[sub_resource type="FontFile" id="FontFile_acg6e"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_66dt1"]
+font = SubResource("FontFile_acg6e")
+font_size = 30
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 0.90588236)
+
+[node name="Start" type="Node2D" unique_id=1268696800]
+y_sort_enabled = true
+position = Vector2(-1, 0)
+script = ExtResource("10_storyguide")
+
+[node name="TileMapLayer" parent="." unique_id=272419504 instance=ExtResource("2_r48yj")]
+tile_map_data = PackedByteArray("AAABAN7/AAAAAAAAAAABANz/AAAAAAAAAAABANv/AAAAAAAAAAACABAABQAAAAAAAAD+/xYABQAAAAAAAAABAPb/BQAAAAAAAAAFAOn/BQAAAAAAAAAIAOT/BQAAAAAAAAAUAPD/DAAAAAAAAAA=")
+
+[node name="Traveller" parent="." unique_id=1997513961 instance=ExtResource("13_traveller")]
+z_index = 1
+position = Vector2(869, -110)
+
+[node name="Family" parent="." unique_id=1997513962 instance=ExtResource("14_family")]
+z_index = 1
+position = Vector2(307, -279)
+
+[node name="Friend" parent="." unique_id=1997513963 instance=ExtResource("15_adele")]
+z_index = 1
+position = Vector2(620, 75)
+
+[node name="CharacterBody2D" parent="." unique_id=1301413091 instance=ExtResource("1_3bxa3")]
+z_index = 1
+position = Vector2(771, 153)
+scale = Vector2(2, 2)
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=586456594]
+position_smoothing_enabled = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1898344]
+layer = 110
+script = ExtResource("16_menu")
+
+[node name="SettingsButton" type="Button" parent="CanvasLayer" unique_id=1755924974]
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 112.0
+offset_bottom = 48.0
+text = "Settings"
+
+[node name="SettingsMenu" type="Panel" parent="CanvasLayer" unique_id=1457820727]
+process_mode = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+
+[node name="VolumeSlider" type="HSlider" parent="CanvasLayer/SettingsMenu" unique_id=1735194172]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 121.0
+offset_right = 1063.0
+offset_bottom = 178.0
+min_value = -40.0
+max_value = 0.0
+
+[node name="Close" type="Button" parent="CanvasLayer/SettingsMenu" unique_id=1262974917]
+layout_mode = 0
+offset_left = 575.0
+offset_top = 618.0
+offset_right = 756.0
+offset_bottom = 683.0
+text = "Close"
+
+[node name="ChangeSkin" type="Button" parent="CanvasLayer/SettingsMenu" unique_id=64276600]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 167.0
+offset_right = 585.0
+offset_bottom = 272.0
+text = "Change Skin"
+
+[node name="Save" type="Button" parent="CanvasLayer/SettingsMenu" unique_id=1426633663]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 503.0
+offset_right = 817.0
+offset_bottom = 610.0
+text = "Save Changes"
+
+[node name="VolumeLabel" type="Label" parent="CanvasLayer/SettingsMenu" unique_id=292668444]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 90.0
+offset_right = 401.0
+offset_bottom = 168.0
+text = "Volume"
+label_settings = SubResource("LabelSettings_66dt1")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=2071684409]
+stream = ExtResource("17_au278")
+autoplay = true
+
+[node name="StoryGuideLayer" type="CanvasLayer" parent="." unique_id=836113592]
+layer = 100
+
+[node name="GuidePanel" type="PanelContainer" parent="StoryGuideLayer" unique_id=906313394]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -145.0
+offset_right = 270.0
+offset_bottom = 145.0
+
+[node name="ContentMargin" type="MarginContainer" parent="StoryGuideLayer/GuidePanel" unique_id=1851657183]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ContentVBox" type="VBoxContainer" parent="StoryGuideLayer/GuidePanel/ContentMargin" unique_id=171650617]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ChapterLabel" type="Label" parent="StoryGuideLayer/GuidePanel/ContentMargin/ContentVBox" unique_id=243774275]
+layout_mode = 2
+text = "Chapter"
+horizontal_alignment = 1
+
+[node name="TitleLabel" type="Label" parent="StoryGuideLayer/GuidePanel/ContentMargin/ContentVBox" unique_id=538838741]
+layout_mode = 2
+text = "Title"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="StoryGuideLayer/GuidePanel/ContentMargin/ContentVBox" unique_id=1790015144]
+custom_minimum_size = Vector2(0, 120)
+layout_mode = 2
+size_flags_vertical = 3
+text = "Description"
+autowrap_mode = 3
+
+[node name="FooterRow" type="HBoxContainer" parent="StoryGuideLayer/GuidePanel/ContentMargin/ContentVBox" unique_id=1365845943]
+layout_mode = 2
+alignment = 2
+
+[node name="PageLabel" type="Label" parent="StoryGuideLayer/GuidePanel/ContentMargin/ContentVBox/FooterRow" unique_id=380495178]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1/1"
+
+[node name="NextButton" type="Button" parent="StoryGuideLayer/GuidePanel/ContentMargin/ContentVBox/FooterRow" unique_id=1781923389]
+layout_mode = 2
+text = "Next"
+
+[node name="AltButton" type="Button" parent="StoryGuideLayer/GuidePanel/ContentMargin/ContentVBox/FooterRow" unique_id=146728390]
+layout_mode = 2
+text = "Alt"
+
+[node name="BridgeRepairTrigger" parent="." unique_id=1426918420 instance=ExtResource("12_bridge_trigger")]
+position = Vector2(2555, -366)
+
+[connection signal="pressed" from="CanvasLayer/SettingsButton" to="CanvasLayer" method="_on_settings_button_pressed"]
+[connection signal="value_changed" from="CanvasLayer/SettingsMenu/VolumeSlider" to="CanvasLayer" method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="CanvasLayer/SettingsMenu/Close" to="CanvasLayer" method="_on_close_pressed"]
+[connection signal="pressed" from="CanvasLayer/SettingsMenu/ChangeSkin" to="CanvasLayer" method="_on_change_skin_pressed"]
+[connection signal="pressed" from="CanvasLayer/SettingsMenu/Save" to="CanvasLayer" method="_on_save_pressed"]

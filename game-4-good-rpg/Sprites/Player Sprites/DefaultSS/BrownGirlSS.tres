@@ -1,0 +1,159 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bn2gkos1pjebj"]
+
+[ext_resource type="Texture2D" uid="uid://cgy3j5hcekb72" path="res://Sprites/Import/Brown girl.png" id="1_ao1lx"]
+[ext_resource type="Texture2D" uid="uid://bgenu7csxciqr" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/east/frame_000.png" id="2_n76xl"]
+[ext_resource type="Texture2D" uid="uid://d1g8j5sjckd2l" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/east/frame_001.png" id="3_18bdw"]
+[ext_resource type="Texture2D" uid="uid://yg1nhksl1psd" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/east/frame_002.png" id="4_4dsl0"]
+[ext_resource type="Texture2D" uid="uid://dnmj3brk2jfe0" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/east/frame_003.png" id="5_fxpwo"]
+[ext_resource type="Texture2D" uid="uid://m033m68dlcu3" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/east/frame_004.png" id="6_jdbr3"]
+[ext_resource type="Texture2D" uid="uid://bbml4hggt672q" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/east/frame_005.png" id="7_55gdf"]
+[ext_resource type="Texture2D" uid="uid://0pcfdxjknpbv" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/north/frame_000.png" id="8_v3fd1"]
+[ext_resource type="Texture2D" uid="uid://c4hhmnws4nwsq" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/north/frame_001.png" id="9_kv26e"]
+[ext_resource type="Texture2D" uid="uid://dbtc5g7sp2dkn" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/north/frame_002.png" id="10_wjwk5"]
+[ext_resource type="Texture2D" uid="uid://c5kfybmg0ggxw" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/north/frame_003.png" id="11_ywugt"]
+[ext_resource type="Texture2D" uid="uid://bgitggkudbx8w" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/north/frame_004.png" id="12_s1si5"]
+[ext_resource type="Texture2D" uid="uid://ceuewu6myn8tc" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/north/frame_005.png" id="13_5a00l"]
+[ext_resource type="Texture2D" uid="uid://obaucm382bwy" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/north-east/frame_000.png" id="14_xp53a"]
+[ext_resource type="Texture2D" uid="uid://cgengrcn7gdy4" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/north-east/frame_001.png" id="15_ryyet"]
+[ext_resource type="Texture2D" uid="uid://b0scs2l6lg6gg" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/north-east/frame_002.png" id="16_khqxx"]
+[ext_resource type="Texture2D" uid="uid://ba3ikbaodhrq0" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/north-east/frame_003.png" id="17_hejl8"]
+[ext_resource type="Texture2D" uid="uid://k80vejkdmp34" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/north-east/frame_004.png" id="18_5vjyx"]
+[ext_resource type="Texture2D" uid="uid://dl76mxpfob06k" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/north-east/frame_005.png" id="19_u7ggr"]
+[ext_resource type="Texture2D" uid="uid://cuh5k412kxa53" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/south/frame_000.png" id="20_1dme5"]
+[ext_resource type="Texture2D" uid="uid://cpp02mxhu16wj" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/south/frame_001.png" id="21_qkh33"]
+[ext_resource type="Texture2D" uid="uid://rgmk8witjmkg" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/south/frame_002.png" id="22_450c7"]
+[ext_resource type="Texture2D" uid="uid://crh206ouexspe" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/south/frame_003.png" id="23_rk6qn"]
+[ext_resource type="Texture2D" uid="uid://bp1rj5uaccr8q" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/south/frame_004.png" id="24_muwxl"]
+[ext_resource type="Texture2D" uid="uid://mqknf7wu2moj" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/south/frame_005.png" id="25_c5h47"]
+[ext_resource type="Texture2D" uid="uid://dv4wpl5v7gttf" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/south-east/frame_000.png" id="26_pjxsg"]
+[ext_resource type="Texture2D" uid="uid://cwxl4qhj6trp" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/south-east/frame_001.png" id="27_41xwe"]
+[ext_resource type="Texture2D" uid="uid://bii0tkea8dlkr" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/south-east/frame_002.png" id="28_e54n8"]
+[ext_resource type="Texture2D" uid="uid://bj7fplsw0okwc" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/south-east/frame_003.png" id="29_j4oxw"]
+[ext_resource type="Texture2D" uid="uid://d1m5eb1cg35ia" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/south-east/frame_004.png" id="30_xuet5"]
+[ext_resource type="Texture2D" uid="uid://b7ys4bbti0dei" path="res://Sprites/Import/Character/Brown-skinned girl/animations/Running-2fbbddd0/south-east/frame_005.png" id="31_tlw2c"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ao1lx")
+}],
+"loop": true,
+"name": &"16 Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_n76xl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_18bdw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4dsl0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_fxpwo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jdbr3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_55gdf")
+}],
+"loop": true,
+"name": &"Run East",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_v3fd1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kv26e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_wjwk5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_ywugt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_s1si5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_5a00l")
+}],
+"loop": true,
+"name": &"Run North",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_xp53a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_ryyet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_khqxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_hejl8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_5vjyx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_u7ggr")
+}],
+"loop": true,
+"name": &"Run NorthEast",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_1dme5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_qkh33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_450c7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_rk6qn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_muwxl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_c5h47")
+}],
+"loop": true,
+"name": &"Run South",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_pjxsg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_41xwe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_e54n8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_j4oxw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_xuet5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_tlw2c")
+}],
+"loop": true,
+"name": &"Run SouthEast",
+"speed": 8.0
+}]

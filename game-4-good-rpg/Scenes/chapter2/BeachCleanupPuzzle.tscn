@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://7rcjgfujpip1"]
+
+[ext_resource type="Script" uid="uid://dxlf6s8px7cyi" path="res://Scripts/chapter2/beach_cleanup_manager.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://dv3y2v8eq2gsk" path="res://Scripts/chapter2/sign_assembly_manager.gd" id="2_sign_manager"]
+
+[node name="BeachCleanupPuzzle" type="Node2D" unique_id=450129663]
+script = ExtResource("1_script")
+
+[node name="TrashItems" type="Node2D" parent="." unique_id=1306089457]
+
+[node name="SignAssemblyManager" type="Node2D" parent="." unique_id=1920776437]
+position = Vector2(-4, 1)
+script = ExtResource("2_sign_manager")

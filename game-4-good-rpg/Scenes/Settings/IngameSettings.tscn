@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://egoyuem6dq55"]
+
+[ext_resource type="Script" uid="uid://c55m2pptkuvkl" path="res://Chapter 1/MenuScript.gd" id="1_menu"]
+
+[node name="IngameSettings" type="CanvasLayer"]
+layer = 110
+script = ExtResource("1_menu")
+
+[node name="SettingsButton" type="Button" parent="."]
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 112.0
+offset_bottom = 48.0
+text = "Settings"
+
+[node name="SettingsMenu" type="Panel" parent="."]
+process_mode = 2
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VolumeLabel" type="Label" parent="SettingsMenu"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 90.0
+offset_right = 401.0
+offset_bottom = 168.0
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="SettingsMenu"]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 121.0
+offset_right = 1063.0
+offset_bottom = 178.0
+min_value = -40.0
+max_value = 0.0
+
+[node name="ChangeSkin" type="Button" parent="SettingsMenu"]
+layout_mode = 0
+offset_left = 250.0
+offset_top = 167.0
+offset_right = 585.0
+offset_bottom = 272.0
+text = "Change Skin"
+
+[node name="Save" type="Button" parent="SettingsMenu"]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 503.0
+offset_right = 817.0
+offset_bottom = 610.0
+text = "Save Changes"
+
+[node name="Close" type="Button" parent="SettingsMenu"]
+layout_mode = 0
+offset_left = 575.0
+offset_top = 618.0
+offset_right = 756.0
+offset_bottom = 683.0
+text = "Close"
+
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="value_changed" from="SettingsMenu/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="SettingsMenu/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="SettingsMenu/ChangeSkin" to="." method="_on_change_skin_pressed"]
+[connection signal="pressed" from="SettingsMenu/Save" to="." method="_on_save_pressed"]

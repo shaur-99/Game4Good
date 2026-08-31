@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://47gn26hua6yj"]
+
+[ext_resource type="Script" uid="uid://cogslc048lwyr" path="res://character/Player/penguine.gd" id="1_xrr40"]
+[ext_resource type="SpriteFrames" uid="uid://cjtirhvi16toq" path="res://Sprites/Player Sprites/DefaultSS/WhiteGirlSS.tres" id="2_secp2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrr40"]
+size = Vector2(238.86884, 260.404)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xrr40"]
+radius = 183.74525
+height = 367.4905
+
+[node name="Penguine" type="CharacterBody2D" unique_id=1085487878]
+texture_filter = 1
+position = Vector2(-146.51826, -65.41637)
+scale = Vector2(0.4898086, 0.4687013)
+script = ExtResource("1_xrr40")
+
+[node name="Penguine" type="AnimatedSprite2D" parent="." unique_id=1523484471]
+position = Vector2(-1754.5431, -1049.4021)
+scale = Vector2(4.4544287, 4.4610677)
+sprite_frames = ExtResource("2_secp2")
+animation = &"16 Idle"
+autoplay = "16 Idle"
+offset = Vector2(500, 300)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1768388462]
+position = Vector2(467.5669, 293.13025)
+shape = SubResource("RectangleShape2D_xrr40")
+
+[node name="Direction" type="Marker2D" parent="." unique_id=1409215425]
+
+[node name="ActionableFinder" type="Area2D" parent="Direction" unique_id=1114041869]
+position = Vector2(3.0997224, 0.88834095)
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Direction/ActionableFinder" unique_id=174632430]
+position = Vector2(469.5712, 298.6977)
+shape = SubResource("CapsuleShape2D_xrr40")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=740109279]
+position = Vector2(491.0454, 305.9867)
