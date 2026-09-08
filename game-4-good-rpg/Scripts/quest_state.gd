@@ -58,6 +58,8 @@ var chapter1_castle_puzzle_complete: bool = false
 var chapter1_summary_shown: bool = false
 var interaction_lock_count: int = 0
 
+
+
 #bridge repair - Ayden Tran
 var bridge_repaired := false
 const BRIDGE_RETURN_POSITION_META := "bridge_puzzle_return_position"
@@ -417,3 +419,412 @@ func is_interaction_input_locked() -> bool:
 func _update_chapter3_quest2_completion() -> void:
 	if is_chapter3_quest2_complete():
 		chapter3_quest2_home_visits_done = true
+		
+func to_dict() -> Dictionary:
+	return {
+		"chapter_0": {
+			"traveler_done": chapter0_traveler_done,
+			"family_done": chapter0_family_done,
+			"friend_done": chapter0_friend_done,
+		},
+
+		"chapter_1": {
+			"quest1_maggie_done": quest1_maggie_done,
+			"quest1_kai_done": quest1_kai_done,
+			"quest1_jessica_done": quest1_jessica_done,
+
+			"quest2_arden_done": quest2_arden_done,
+			"quest2_steven_done": quest2_steven_done,
+			"quest2_aurora_done": quest2_aurora_done,
+
+			"quest3_complete": quest3_complete,
+			"quest4_complete": quest4_complete,
+			"quest5_complete": quest5_complete,
+			"quest2_completion_acknowledged": chapter1_quest2_completion_acknowledged,
+			"sprinkler_minigame_completed": chapter1_sprinkler_minigame_completed,
+
+			"bridge_repaired": bridge_repaired,
+			"castle_puzzle_complete":
+				chapter1_castle_puzzle_complete,
+			"summary_shown": chapter1_summary_shown,
+			"description_shown": chapter1_description_shown,
+			"castle_gate_shown": chapter1_castle_gate_shown,
+		},
+
+		"chapter_2": {
+			"beach_cleanup_started":
+				chapter2_beach_cleanup_started,
+			"beach_cleanup_done":
+				chapter2_beach_cleanup_done,
+			"collected_trash":
+				chapter2_beach_collected_ids.duplicate(),
+
+			"quest1_matt_done":
+				chapter2_quest1_matt_done,
+			"quest1_kai_done":
+				chapter2_quest1_kai_done,
+			"quest1_jessica_done":
+				chapter2_quest1_jessica_done,
+			"quest2_residents_done":
+				chapter2_quest2_residents_done,
+			"quest3_matt_done":
+				chapter2_quest3_matt_done,
+			"quest3_kai_done":
+				chapter2_quest3_kai_done,
+			"quest3_warehouse_done":
+				chapter2_quest3_warehouse_done,
+			"quest4_meeting_done":
+				chapter2_quest4_meeting_done,
+			"sign_assembled":
+				chapter2_sign_assembled,
+			"quest5_cleanup_done":
+				chapter2_quest5_cleanup_done,
+			"summary_shown":
+				chapter2_summary_shown,
+			"description_shown":
+				chapter2_description_shown,
+		},
+
+		"chapter_3": {
+			"quest1_advaita_done":
+				chapter3_quest1_advaita_done,
+			"quest1_sarina_done":
+				chapter3_quest1_sarina_done,
+			"quest1_aurora_done":
+				chapter3_quest1_aurora_done,
+			"quest2_home_visits_done":
+				chapter3_quest2_home_visits_done,
+			"quest2_advaita_done":
+				chapter3_quest2_advaita_done,
+			"quest2_sarina_done":
+				chapter3_quest2_sarina_done,
+			"quest2_aurora_done":
+				chapter3_quest2_aurora_done,
+			"quest3_festival_setup_done":
+				chapter3_quest3_festival_setup_done,
+			"quest4_town_dialogue_done":
+				chapter3_quest4_town_dialogue_done,
+			"quest5_celebration_done":
+				chapter3_quest5_celebration_done,
+			"summary_shown":
+				chapter3_summary_shown,
+			"description_shown":
+				chapter3_description_shown,
+		},
+	}
+func load_from_dict(data: Dictionary) -> void:
+	var chapter_0: Dictionary = data.get(
+		"chapter_0",
+		{}
+	)
+	var chapter_1: Dictionary = data.get(
+		"chapter_1",
+		{}
+	)
+	var chapter_2: Dictionary = data.get(
+		"chapter_2",
+		{}
+	)
+	var chapter_3: Dictionary = data.get(
+		"chapter_3",
+		{}
+	)
+
+	# Chapter 0
+	chapter0_traveler_done = bool(
+		chapter_0.get(
+			"traveler_done",
+			false
+		)
+	)
+	chapter0_family_done = bool(
+		chapter_0.get(
+			"family_done",
+			false
+		)
+	)
+	chapter0_friend_done = bool(
+		chapter_0.get(
+			"friend_done",
+			false
+		)
+	)
+
+	# Chapter 1
+	quest1_maggie_done = bool(
+		chapter_1.get(
+			"quest1_maggie_done",
+			false
+		)
+	)
+	quest1_kai_done = bool(
+		chapter_1.get(
+			"quest1_kai_done",
+			false
+		)
+	)
+	quest1_jessica_done = bool(
+		chapter_1.get(
+			"quest1_jessica_done",
+			false
+		)
+	)
+
+	quest2_arden_done = bool(
+		chapter_1.get(
+			"quest2_arden_done",
+			false
+		)
+	)
+	quest2_steven_done = bool(
+		chapter_1.get(
+			"quest2_steven_done",
+			false
+		)
+	)
+	quest2_aurora_done = bool(
+		chapter_1.get(
+			"quest2_aurora_done",
+			false
+		)
+	)
+
+	quest3_complete = bool(
+		chapter_1.get(
+			"quest3_complete",
+			false
+		)
+	)
+	quest4_complete = bool(
+		chapter_1.get(
+			"quest4_complete",
+			false
+		)
+	)
+	quest5_complete = bool(
+		chapter_1.get(
+			"quest5_complete",
+			false
+		)
+	)
+
+	bridge_repaired = bool(
+		chapter_1.get(
+			"bridge_repaired",
+			false
+		)
+	)
+	chapter1_castle_puzzle_complete = bool(
+		chapter_1.get(
+			"castle_puzzle_complete",
+			false
+		)
+	)
+	chapter1_summary_shown = bool(
+		chapter_1.get(
+			"summary_shown",
+			false
+		)
+	)
+
+	chapter1_description_shown = bool(
+		chapter_1.get(
+			"description_shown",
+			false
+		)
+	)
+	chapter1_castle_gate_shown = bool(
+		chapter_1.get(
+			"castle_gate_shown",
+			false
+		)
+	)
+
+	chapter1_quest2_completion_acknowledged = bool(
+		chapter_1.get(
+			"quest2_completion_acknowledged",
+			false
+		)
+	)
+	chapter1_sprinkler_minigame_completed = bool(
+		chapter_1.get(
+			"sprinkler_minigame_completed",
+			false
+		)
+	)
+
+	# Chapter 2
+	chapter2_beach_cleanup_started = bool(
+		chapter_2.get(
+			"beach_cleanup_started",
+			false
+		)
+	)
+	chapter2_beach_cleanup_done = bool(
+		chapter_2.get(
+			"beach_cleanup_done",
+			false
+		)
+	)
+
+	var saved_trash: Variant = chapter_2.get(
+		"collected_trash",
+		[]
+	)
+
+	if saved_trash is Array:
+		chapter2_beach_collected_ids.clear()
+
+		for item_id in saved_trash:
+			chapter2_beach_collected_ids.append(
+				str(item_id)
+			)
+
+	chapter2_quest1_matt_done = bool(
+		chapter_2.get(
+			"quest1_matt_done",
+			false
+		)
+	)
+
+	chapter2_quest1_kai_done = bool(
+		chapter_2.get(
+			"quest1_kai_done",
+			false
+		)
+	)
+	chapter2_quest1_jessica_done = bool(
+		chapter_2.get(
+			"quest1_jessica_done",
+			false
+		)
+	)
+	chapter2_quest2_residents_done = bool(
+		chapter_2.get(
+			"quest2_residents_done",
+			false
+		)
+	)
+	chapter2_quest3_matt_done = bool(
+		chapter_2.get(
+			"quest3_matt_done",
+			false
+		)
+	)
+	chapter2_quest3_kai_done = bool(
+		chapter_2.get(
+			"quest3_kai_done",
+			false
+		)
+	)
+	chapter2_quest3_warehouse_done = bool(
+		chapter_2.get(
+			"quest3_warehouse_done",
+			false
+		)
+	)
+	chapter2_quest4_meeting_done = bool(
+		chapter_2.get(
+			"quest4_meeting_done",
+			false
+		)
+	)
+	chapter2_sign_assembled = bool(
+		chapter_2.get(
+			"sign_assembled",
+			false
+		)
+	)
+	chapter2_quest5_cleanup_done = bool(
+		chapter_2.get(
+			"quest5_cleanup_done",
+			false
+		)
+	)
+	chapter2_summary_shown = bool(
+		chapter_2.get(
+			"summary_shown",
+			false
+		)
+	)
+	chapter2_description_shown = bool(
+		chapter_2.get(
+			"description_shown",
+			false
+		)
+	)
+
+	# Chapter 3
+	chapter3_quest1_advaita_done = bool(
+		chapter_3.get(
+			"quest1_advaita_done",
+			false
+		)
+	)
+	chapter3_quest1_sarina_done = bool(
+		chapter_3.get(
+			"quest1_sarina_done",
+			false
+		)
+	)
+	chapter3_quest1_aurora_done = bool(
+		chapter_3.get(
+			"quest1_aurora_done",
+			false
+		)
+	)
+	chapter3_quest2_home_visits_done = bool(
+		chapter_3.get(
+			"quest2_home_visits_done",
+			false
+		)
+	)
+
+	chapter3_quest2_advaita_done = bool(
+		chapter_3.get(
+			"quest2_advaita_done",
+			false
+		)
+	)
+	chapter3_quest2_sarina_done = bool(
+		chapter_3.get(
+			"quest2_sarina_done",
+			false
+		)
+	)
+	chapter3_quest2_aurora_done = bool(
+		chapter_3.get(
+			"quest2_aurora_done",
+			false
+		)
+	)
+	chapter3_quest3_festival_setup_done = bool(
+		chapter_3.get(
+			"quest3_festival_setup_done",
+			false
+		)
+	)
+	chapter3_quest4_town_dialogue_done = bool(
+		chapter_3.get(
+			"quest4_town_dialogue_done",
+			false
+		)
+	)
+	chapter3_quest5_celebration_done = bool(
+		chapter_3.get(
+			"quest5_celebration_done",
+			false
+		)
+	)
+	chapter3_summary_shown = bool(
+		chapter_3.get(
+			"summary_shown",
+			false
+		)
+	)
+	chapter3_description_shown = bool(
+		chapter_3.get(
+			"description_shown",
+			false
+		)
+	)

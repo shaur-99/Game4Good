@@ -153,6 +153,21 @@ font_size = 30
 shadow_size = 6
 shadow_color = Color(0, 0, 0, 0.90588236)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_settings_bg"]
+bg_color = Color(0.05, 0.06, 0.08, 0.5)
+content_margin_left = 30.0
+content_margin_top = 30.0
+content_margin_right = 30.0
+content_margin_bottom = 30.0
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
 [node name="MainMenu" type="Control" unique_id=545217279]
 layout_mode = 3
 anchors_preset = 8
@@ -228,6 +243,18 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_uwxxs")
 theme_override_styles/hover = SubResource("StyleBoxFlat_n2mnh")
 text = "Quit"
 
+[node name="ContinueButton" type="Button" parent="VBoxContainer" unique_id=972268310]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 50
+theme_override_fonts/font = ExtResource("2_3qr6s")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_cqskg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3ymnh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_k4toc")
+text = "Continue Game
+"
+
 [node name="Label" type="Label" parent="." unique_id=1140029637]
 layout_mode = 1
 anchors_preset = 8
@@ -255,6 +282,7 @@ script = ExtResource("4_j7r1e")
 
 [node name="SettingsMenu" type="Panel" parent="CanvasLayer" unique_id=1127177339]
 process_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_settings_bg")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -310,9 +338,33 @@ text = "Volume"
 label_settings = SubResource("LabelSettings_8inha")
 metadata/_edit_use_anchors_ = true
 
+[node name="BrightnessLabel" type="Label" parent="CanvasLayer/SettingsMenu" unique_id=2000000001]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 300.0
+offset_right = 401.0
+offset_bottom = 378.0
+text = "Brightness"
+label_settings = SubResource("LabelSettings_8inha")
+metadata/_edit_use_anchors_ = true
+
+[node name="BrightnessSlider" type="HSlider" parent="CanvasLayer/SettingsMenu" unique_id=2000000002]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 331.0
+offset_right = 1063.0
+offset_bottom = 388.0
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+value = 100.0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="value_changed" from="CanvasLayer/SettingsMenu/BrightnessSlider" to="CanvasLayer" method="_on_brightness_slider_value_changed"]
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="GameRedirect"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="SettingsRedirect"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="QuitGame"]
+[connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="ContinueGame"]
 [connection signal="value_changed" from="CanvasLayer/SettingsMenu/VolumeSlider" to="CanvasLayer" method="_on_volume_slider_value_changed"]
 [connection signal="pressed" from="CanvasLayer/SettingsMenu/Close" to="CanvasLayer" method="_on_close_pressed"]
 [connection signal="pressed" from="CanvasLayer/SettingsMenu/ChangeSkin" to="CanvasLayer" method="_on_change_skin_pressed"]

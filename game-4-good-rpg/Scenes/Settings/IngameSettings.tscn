@@ -2,6 +2,21 @@
 
 [ext_resource type="Script" uid="uid://c55m2pptkuvkl" path="res://Chapter 1/MenuScript.gd" id="1_menu"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_settings_bg"]
+bg_color = Color(0.05, 0.06, 0.08, 0.5)
+content_margin_left = 30.0
+content_margin_top = 30.0
+content_margin_right = 30.0
+content_margin_bottom = 30.0
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
 [node name="IngameSettings" type="CanvasLayer"]
 layer = 110
 script = ExtResource("1_menu")
@@ -15,6 +30,7 @@ text = "Settings"
 
 [node name="SettingsMenu" type="Panel" parent="."]
 process_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_settings_bg")
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -63,6 +79,26 @@ offset_right = 756.0
 offset_bottom = 683.0
 text = "Close"
 
+[node name="BrightnessLabel" type="Label" parent="SettingsMenu"]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 300.0
+offset_right = 401.0
+offset_bottom = 378.0
+text = "Brightness"
+
+[node name="BrightnessSlider" type="HSlider" parent="SettingsMenu"]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 331.0
+offset_right = 1063.0
+offset_bottom = 388.0
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+value = 100.0
+
+[connection signal="value_changed" from="SettingsMenu/BrightnessSlider" to="." method="_on_brightness_slider_value_changed"]
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="value_changed" from="SettingsMenu/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
 [connection signal="pressed" from="SettingsMenu/Close" to="." method="_on_close_pressed"]

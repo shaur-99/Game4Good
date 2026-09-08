@@ -37,6 +37,21 @@ font_size = 30
 shadow_size = 6
 shadow_color = Color(0, 0, 0, 0.90588236)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_settings_bg"]
+bg_color = Color(0.05, 0.06, 0.08, 0.5)
+content_margin_left = 30.0
+content_margin_top = 30.0
+content_margin_right = 30.0
+content_margin_bottom = 30.0
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
 [node name="Start" type="Node2D" unique_id=1268696800]
 y_sort_enabled = true
 position = Vector2(-1, 0)
@@ -78,6 +93,7 @@ text = "Settings"
 
 [node name="SettingsMenu" type="Panel" parent="CanvasLayer" unique_id=1457820727]
 process_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_settings_bg")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -194,6 +210,29 @@ text = "Alt"
 [node name="BridgeRepairTrigger" parent="." unique_id=1426918420 instance=ExtResource("12_bridge_trigger")]
 position = Vector2(2555, -366)
 
+[node name="BrightnessLabel" type="Label" parent="CanvasLayer/SettingsMenu" unique_id=2000000005]
+layout_mode = 0
+offset_left = 253.0
+offset_top = 300.0
+offset_right = 401.0
+offset_bottom = 378.0
+text = "Brightness"
+label_settings = SubResource("LabelSettings_66dt1")
+metadata/_edit_use_anchors_ = true
+
+[node name="BrightnessSlider" type="HSlider" parent="CanvasLayer/SettingsMenu" unique_id=2000000006]
+layout_mode = 0
+offset_left = 251.0
+offset_top = 331.0
+offset_right = 1063.0
+offset_bottom = 388.0
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+value = 100.0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="value_changed" from="CanvasLayer/SettingsMenu/BrightnessSlider" to="CanvasLayer" method="_on_brightness_slider_value_changed"]
 [connection signal="pressed" from="CanvasLayer/SettingsButton" to="CanvasLayer" method="_on_settings_button_pressed"]
 [connection signal="value_changed" from="CanvasLayer/SettingsMenu/VolumeSlider" to="CanvasLayer" method="_on_volume_slider_value_changed"]
 [connection signal="pressed" from="CanvasLayer/SettingsMenu/Close" to="CanvasLayer" method="_on_close_pressed"]

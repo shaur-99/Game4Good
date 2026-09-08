@@ -94,11 +94,40 @@ func _is_input_blocked() -> bool:
 	return is_in_dialogue or QuestState.is_story_guide_blocking_input()
 
 
-func _unhandled_input(_event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("save_game"):
+		var save_success := SaveManager.save_game()
+
+		if save_success:
+			print("Manual save successful.")
+		else:
+			push_warning(
+				"Manual save failed."
+			)
+
+		get_viewport().set_input_as_handled()
+		return
+
+	if event.is_action_pressed("load_game"):
+		var load_success := SaveManager.load_game()
+
+		if load_success:
+			print("Manual load successful.")
+		else:
+			push_warning(
+				"Manual load failed."
+			)
+
+		get_viewport().set_input_as_handled()
+		return
+
 	if _is_input_blocked():
 		return
-	if Input.is_action_just_pressed("ui_accept"):
-		var actionables := actionable_finder.get_overlapping_areas()
+
+	if event.is_action_pressed("ui_accept"):
+		var actionables := \
+			actionable_finder.get_overlapping_areas()
+
 		if actionables.size() > 0:
 			actionables[0].action()
 
