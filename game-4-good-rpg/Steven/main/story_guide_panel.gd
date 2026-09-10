@@ -424,6 +424,7 @@ func _ready() -> void:
 	_resolve_chapter2_cast_nodes()
 	if _is_on_chapter1_map():
 		call_deferred("_restore_player_after_bridge_puzzle")
+	call_deferred("_restore_player_from_save")
 
 	# ===================== AUTOPLAY (auto-runs dialogue + panels) =====================
 	# Enable when you want the bot to test-run Ch0->Ch1->Ch2 (does not replace SKIP_* above).
@@ -1562,3 +1563,20 @@ func _start_chapter_flow(chapter_id: int) -> void:
 		get_tree().change_scene_to_file(CHAPTER_3_SCENE)
 		return
 	_open_chapter_context(chapter_id)
+
+
+
+func _restore_player_from_save() -> void:
+	var state: Dictionary = SaveManager.take_pending_player_state()
+	if state.is_empty():
+		return
+	if not state.has("position"):
+		return
+	var player := get_node_or_null("Player") as Node2D
+	if player == null:
+		player = get_node_or_null("CharacterBody2D") as Node2D
+	if player == null:
+		return
+	var pos: Array = state["position"]
+	if pos.size() >= 2:
+		player.global_position = Vector2(float(pos[0]), float(pos[1]))

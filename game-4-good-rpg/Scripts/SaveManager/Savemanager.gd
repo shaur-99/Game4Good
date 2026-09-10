@@ -3,6 +3,10 @@ extends Node
 const SAVE_PATH := "user://savegame.json"
 const SAVE_VERSION := 1
 
+# Pending restore state populated by load_game(), consumed by scenes.
+var _pending_scene_path := ""
+var _pending_player_state: Dictionary = {}
+
 
 func save_game() -> bool:
 	var save_data := {
@@ -12,6 +16,8 @@ func save_game() -> bool:
 		"progress": QuestState.to_dict(),
 		"achievements":
 			AchievementManager.to_dict(),
+		"scene_path": _capture_current_scene_path(),
+		"player": _capture_player_state(),
 	}
 
 	var file := FileAccess.open(
@@ -90,6 +96,9 @@ func load_game() -> bool:
 		achievements
 	)
 
+	_pending_scene_path = str(save_data.get("scene_path", ""))
+	var player_dict: Variant = save_data.get("player", {})
+	_pending_player_state = player_dict if player_dict is Dictionary else {}
 	print("[SaveManager] Game loaded")
 	return true
 
@@ -109,3 +118,36 @@ func delete_save() -> bool:
 		return false
 
 	return true
+
+
+
+func _capture_current_scene_path() -> String:
+	var scene := get_tree().current_scene
+	if scene == null:
+		return ""
+	return scene.scene_file_path
+
+
+func _capture_player_state() -> Dictionary:
+	var scene := get_tree().current_scene
+	if scene == null:
+		return {}
+	var player := scene.get_node_or_null("Player") as Node2D
+	if player == null:
+		player = scene.get_node_or_null("CharacterBody2D") as Node2D
+	if player == null:
+		return {}
+	var state := {
+		"position": [player.global_position.x, player.global_position.y],
+	}
+	return state
+
+
+func get_pending_scene_path() -> String:
+	return _pending_scene_path
+
+
+func take_pending_player_state() -> Dictionary:
+	var s := _pending_player_state
+	_pending_player_state = {}
+	return s

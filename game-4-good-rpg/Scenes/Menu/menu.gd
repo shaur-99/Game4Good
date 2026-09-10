@@ -21,12 +21,15 @@ func SettingsRedirect() -> void:
 	
 func ContinueGame() -> void:
 	var success := SaveManager.load_game()
-	if success:
-		get_tree().change_scene_to_file('res://Chapter 1/Clear Stream Valley.tscn')
-	else:
+	if not success:
 		push_warning(
 			"Could not load the saved game."
 		)
+		return
+	var target := SaveManager.get_pending_scene_path()
+	if target.is_empty():
+		target = "res://Chapter 1/Clear Stream Valley.tscn"
+	get_tree().change_scene_to_file(target)
 
 func QuitGame() -> void:
 	get_tree().quit()

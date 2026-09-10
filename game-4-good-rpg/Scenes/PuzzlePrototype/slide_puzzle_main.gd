@@ -15,7 +15,7 @@ extends Area2D
 # Nhớ đặt lại false trước khi commit / build release.
 # =============================================================================
 ## Bật = coi như đã hoàn thành puzzle (test). Chỉnh trên node gốc trong Inspector hoặc đổi default ở đây.
-@export var simulate_puzzle_completed: bool = true
+@export var simulate_puzzle_completed: bool = false
 const CASTLE_RETURN_SCENE_META := "castle_puzzle_return_scene"
 
 @onready var achievement_popup = $AchievementPopup
@@ -66,7 +66,7 @@ func _process(_delta: float) -> void:
 		check_neighbours(rows, cols)
 
 		if tiles == solved:
-			_complete_puzzle_win(false)
+			_complete_puzzle_win(true)
 	
 func check_neighbours(rows, cols):
 	var empty = false
