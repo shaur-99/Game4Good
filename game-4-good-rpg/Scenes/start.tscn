@@ -9,11 +9,15 @@
 [ext_resource type="PackedScene" uid="uid://dmxdx3fwc1nfh" path="res://character/Family/famil.tscn" id="14_family"]
 [ext_resource type="PackedScene" uid="uid://drxfovylj05ic" path="res://character/Friend/friend.tscn" id="15_adele"]
 [ext_resource type="AudioStream" uid="uid://rppq1u5vnrqv" path="res://Music/A Lonely Cherry Tree.mp3" id="17_au278"]
+[ext_resource type="PackedScene" path="res://Scenes/ui/Minimap.tscn" id="18_minimap"]
+[ext_resource type="PackedScene" path="res://Scenes/ui/MinimapObjective.tscn" id="19_marker"]
 
 [node name="Start" type="Node2D" unique_id=1268696800]
 y_sort_enabled = true
 position = Vector2(-1, 0)
 script = ExtResource("10_storyguide")
+
+[node name="MinimapLayer" parent="." instance=ExtResource("18_minimap")]
 
 [node name="TileMapLayer" parent="." unique_id=272419504 instance=ExtResource("2_r48yj")]
 tile_map_data = PackedByteArray("AAABAN7/AAAAAAAAAAABANz/AAAAAAAAAAABANv/AAAAAAAAAAACABAABQAAAAAAAAD+/xYABQAAAAAAAAABAPb/BQAAAAAAAAAFAOn/BQAAAAAAAAAIAOT/BQAAAAAAAAAUAPD/DAAAAAAAAAA=")
@@ -22,13 +26,22 @@ tile_map_data = PackedByteArray("AAABAN7/AAAAAAAAAAABANz/AAAAAAAAAAABANv/AAAAAAA
 z_index = 1
 position = Vector2(869, -110)
 
+[node name="MinimapObjective" parent="Traveller" instance=ExtResource("19_marker")]
+objective_key = &"ch0_traveller"
+
 [node name="Family" parent="." unique_id=1997513962 instance=ExtResource("14_family")]
 z_index = 1
 position = Vector2(307, -279)
 
+[node name="MinimapObjective" parent="Family" instance=ExtResource("19_marker")]
+objective_key = &"ch0_family"
+
 [node name="Friend" parent="." unique_id=1997513963 instance=ExtResource("15_adele")]
 z_index = 1
 position = Vector2(620, 75)
+
+[node name="MinimapObjective" parent="Friend" instance=ExtResource("19_marker")]
+objective_key = &"ch0_friend"
 
 [node name="CharacterBody2D" parent="." unique_id=1301413091 instance=ExtResource("1_3bxa3")]
 z_index = 1

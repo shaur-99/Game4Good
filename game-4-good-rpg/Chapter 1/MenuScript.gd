@@ -19,6 +19,11 @@ func _ready():
 	settings_menu.process_mode = Node.PROCESS_MODE_ALWAYS
 	if settings_button and not settings_button.pressed.is_connected(_on_settings_button_pressed):
 		settings_button.pressed.connect(_on_settings_button_pressed)
+	# Keep the slider inside the viewport at every supported window size.
+	volume_slider.anchor_left = 0.15
+	volume_slider.anchor_right = 0.85
+	volume_slider.offset_left = 0.0
+	volume_slider.offset_right = 0.0
 	music_player = get_parent().get_node_or_null("MusicPlayer") as AudioStreamPlayer
 	player = _resolve_player()
 	# Start with menu hidden

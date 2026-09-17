@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2trashitem001"]
+[gd_scene load_steps=5 format=3 uid="uid://c2trashitem001"]
 
 [ext_resource type="Script" path="res://Scripts/chapter2/trash_item.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://Scenes/ui/MinimapObjective.tscn" id="2_marker"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pickup"]
 radius = 42.0
@@ -15,6 +16,9 @@ corner_radius_bottom_left = 8
 [node name="TrashItem" type="Area2D"]
 collision_layer = 16
 script = ExtResource("1_script")
+
+[node name="MinimapObjective" parent="." instance=ExtResource("2_marker")]
+objective_key = &"ch2_q1_trash"
 
 [node name="Visual" type="Panel" parent="."]
 custom_minimum_size = Vector2(72, 72)
