@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://c7rj22bx5ug2t"]
+
+[ext_resource type="Script" uid="uid://dhaxlcb3s0lll" path="res://Scenes/Transitions/fade_transition.gd" id="1_nyi1f"]
+
+[node name="FadeTransition" type="Control" unique_id=1112762349]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nyi1f")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=795428616]
+layer = 100
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer" unique_id=989764736]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)

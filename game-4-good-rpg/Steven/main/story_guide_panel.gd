@@ -1554,13 +1554,13 @@ func _start_chapter_flow(chapter_id: int) -> void:
 	next_chapter_quest_to_describe = 0
 	get_tree().paused = false
 	if chapter_id == 1:
-		get_tree().change_scene_to_file(CHAPTER_1_SCENE)
+		FadeTransition.change_scene(CHAPTER_1_SCENE)
 		return
 	if chapter_id == 2:
-		get_tree().change_scene_to_file(CHAPTER_2_SCENE)
+		FadeTransition.change_scene(CHAPTER_2_SCENE)
 		return
 	if chapter_id == 3:
-		get_tree().change_scene_to_file(CHAPTER_3_SCENE)
+		FadeTransition.change_scene(CHAPTER_3_SCENE)
 		return
 	_open_chapter_context(chapter_id)
 
