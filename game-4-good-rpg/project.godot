@@ -12,7 +12,7 @@ config_version=5
 
 config/name="Game4GoodRPG"
 run/main_scene="uid://dduravpke4tpl"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://Sprites/icon.svg"
 
 [autoload]
@@ -22,6 +22,7 @@ DialogueManager="*uid://c3rodes2l3gxb"
 QuestState="*res://Scripts/quest_state.gd"
 AchievementManager="*res://Scripts/AchievementManager.gd"
 SaveManager="*uid://d0l12ry4gvne3"
+FadeTransition="*uid://c7rj22bx5ug2t"
 
 [display]
 
