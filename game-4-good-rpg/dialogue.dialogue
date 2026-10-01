@@ -2,10 +2,13 @@
 Traveler: Hello, little one! I’ve traveled to many countries and seen people from different places helping each other and working hard together. This road is called the 
 	Path of Humanity. [#hint=Understand the core of the Path of Humanity]
 - That sounds really interesting! I want to hear more about it!
+	do DialogueChoices.record_choice("traveller_start", "curious", "curious")
 	Traveler: I’m glad you are interested! The Path of Humanity is not about saving others. You only need to see, listen, and cooperate. That is the Path of Humanity.
 - So are we supposed to go help other people?
+	do DialogueChoices.record_choice("traveller_start", "helping", "empathetic")
 	Traveler: Helping is okay, but not as a savior. You only need to see, listen, and cooperate. That is the Path of Humanity.
 - Do people from all over the world help one another?
+	do DialogueChoices.record_choice("traveller_start", "cooperation", "action")
 	Traveler: Yes, that is the meaning of this path. You do not need to save anyone. You only need to see, listen, and cooperate. That is the Path of Humanity.
 You: I understand! I want to step onto the Path of Humanity too!
 Traveler: Wonderful! Remember your mission: Observe more, listen more, help more, and do not take the lead. [#hint=Keep in mind the identity of an assistant]
@@ -15,10 +18,13 @@ do QuestState.mark_chapter0_traveler_done()
 ~ family_start
 Family: Child, we support you to explore and learn! [#hint=Get family encouragement and support]
 - I will carefully observe everything that happens along the journey!
+	do DialogueChoices.record_choice("family_start", "observe", "curious")
 	Family: That’s wonderful! Remember, respect everyone, help with every little thing, and bring warmth back.
 - I feel a little nervous, but I’m willing to give it a try.
+	do DialogueChoices.record_choice("family_start", "nervous", "empathetic")
 	Family: Don’t be afraid, just be brave. Remember, respect everyone, help with every little thing, and bring warmth back.
 - May I share my stories with everyone after I come back?
+	do DialogueChoices.record_choice("family_start", "share", "action")
 	Family: Of course you can! But while you travel, please remember, respect everyone, help with every little thing, and bring warmth back.
 Player: I will surely remember!
 do QuestState.mark_chapter0_family_done()
@@ -27,10 +33,13 @@ do QuestState.mark_chapter0_family_done()
 ~ friend_start
 Adele: You’re leaving! That’s so cool![#hint=Get peer support]
 - I will collect lots of interesting stories to bring back!
+	do DialogueChoices.record_choice("friend_start", "stories", "curious")
 	Adele: Wow, I can’t wait to hear them! When you come back, I want you to tell me all your stories along the way!
 - I will try my best to help people I meet on my journey.
+	do DialogueChoices.record_choice("friend_start", "help", "empathetic")
 	Adele: I’m so proud of you! When you come back, I want you to tell me all your stories along the way!
 - I will miss this place a little bit.
+	do DialogueChoices.record_choice("friend_start", "miss", "action")
 	Adele: I will miss you too! Don’t worry. When you come back, I want you to tell me all your stories along the way!
 Player: When I come back, I’ll tell you stories along the way!
 Adele: Okay! I’ll wait for you!
@@ -40,10 +49,13 @@ do QuestState.mark_chapter0_friend_done()
 ~ maggie_start
 Maggie: Water has been getting less and less recently, not even enough for watering the fields. [#hint=Record the problem of reduced water volume]
 - What crops are you growing in the fields?
+	do DialogueChoices.record_choice("maggie_start", "crops", "curious")
 	Maggie: They are our main food crops, and they cannot survive without enough water. Water has been getting less and less recently, not even enough for watering the fields.
 - It must be really hard when there is not enough water for your crops.
+	do DialogueChoices.record_choice("maggie_start", "hardship", "empathetic")
 	Maggie: Yes, all villagers are worried about this. Water has been getting less and less recently, not even enough for watering the fields.
 - Shall I write down your trouble so more people know about it?
+	do DialogueChoices.record_choice("maggie_start", "record", "action")
 	Maggie: That would be helpful for solving our problem. Water has been getting less and less recently, not even enough for watering the fields.
 do QuestState.mark_quest1_maggie_done()
 => END
@@ -51,10 +63,13 @@ do QuestState.mark_quest1_maggie_done()
 ~ kai_start
 Kai: The canal is blocked, and water can’t flow to my fields. [#hint=Record the problem of canal blockage]
 - How far away is the blocked section from here?
+	do DialogueChoices.record_choice("kai_start", "distance", "curious")
 	Kai: It is not far upstream. The canal is blocked, and water can’t flow to my fields.
 - Your crops will dry out without water arriving. You must be anxious.
+	do DialogueChoices.record_choice("kai_start", "anxiety", "empathetic")
 	Kai: I keep worrying about my farmland every day. The canal is blocked, and water can’t flow to my fields.
 - Maybe we can go and check the blocked canal together.
+	do DialogueChoices.record_choice("kai_start", "inspect", "action")
 	Kai: Someone really needs to take a look at that spot. The canal is blocked, and water can’t flow to my fields.
 do QuestState.mark_quest1_kai_done()
 => END
@@ -62,10 +77,13 @@ do QuestState.mark_quest1_kai_done()
 ~ jessica_start
 Jessica: Sometimes there’s no water during the day; it’s so inconvenient.[#hint=Record the problem of uneven water use and life difficulties]
 - At what time can you usually get running water?
+	do DialogueChoices.record_choice("jessica_start", "schedule", "curious")
 	Jessica: We cannot predict, it changes every day. Sometimes there’s no water during the day; it’s so inconvenient.
 - Daily life will be tough without tap-in water.
+	do DialogueChoices.record_choice("jessica_start", "hardship", "empathetic")
 	Jessica: Exactly. Cooking and washing all become difficult. Sometimes there’s no water during the day; it’s so inconvenient.
 - I will note this living difficulty down in my notebook.
+	do DialogueChoices.record_choice("jessica_start", "record", "action")
 	Jessica: Hope our situation can be noticed by everyone. Sometimes there’s no water during the day; it’s so inconvenient.
 do QuestState.mark_quest1_jessica_done()
 => END
@@ -93,10 +111,13 @@ Player: I should go to the square and finish the council talk with Arden, Steven
 ~ arden_start
 Arden: Hi there, kiddo! Our old canal has worked for decades—through nice rains and small dry spells, it always gave us water. But lately, climate change has made the weather go crazy: hotter heatwaves that last longer, less rain, and sudden big storms that break the canal. [#hint=Collect views on traditional wisdom]
 - What did local people do to maintain the canal in the old days?
+	do DialogueChoices.record_choice("arden_start", "maintenance", "curious")
 	Arden: Villagers took turns repairing and watching over it year by year. The canal shares water evenly with every family, following the way mountains and valleys naturally let water flow. Our grandparents knew nature’s balance is easy to break—so they built it to save water when it rains, and let it out slowly when it’s dry.
 - This old canal has protected this village for such a long time.
+	do DialogueChoices.record_choice("arden_start", "respect", "empathetic")
 	Arden: Yes, it carries the wisdom of our ancestors. The canal shares water evenly with every family, following the way mountains and valleys naturally let water flow. Our grandparents knew nature’s balance is easy to break—so they built it to save water when it rains, and let it out slowly when it’s dry.
 - Can the old canal still work well under climate change?
+	do DialogueChoices.record_choice("arden_start", "climate", "action")
 	Arden: It still works if we keep fixing it. The canal shares water evenly with every family, following the way mountains and valleys naturally let water flow. Our grandparents knew nature’s balance is easy to break—so they built it to save water when it rains, and let it out slowly when it’s dry.
 Player: Why is the canal so smart, especially now that the climate is getting warmer?
 Arden: The canal shares water evenly with every family, following the way mountains and valleys naturally let water flow. Our grandparents knew nature’s balance is easy to break—so they built it to save water when it rains, and let it out slowly when it’s dry. 
@@ -111,10 +132,13 @@ do QuestState.mark_quest2_arden_done()
 ~ steven_start
 Steven: I want to put in new water-saving tools—climate change is drying up our wells faster than ever, and we can’t just use old ways anymore!
 - Where do we get these new water-saving tools?
+	do DialogueChoices.record_choice("steven_start", "source", "curious")
 	Steven: We can get them from outside the valley. Super easy! There are sprinklers that water plant roots directly, filters that clean dirty water, and tanks that catch rain when storms hit.
 - You really worry about the village’s water shortage problem.
+	do DialogueChoices.record_choice("steven_start", "concern", "empathetic")
 	Steven: I do, I hope no one in our village suffers from water shortage. Super easy! There are sprinklers that water plant roots directly, filters that clean dirty water, and tanks that catch rain when storms hit.
 - Will installing these tools cost lots of manpower?
+	do DialogueChoices.record_choice("steven_start", "effort", "action")
 	Steven: We can learn together and finish installation step-by-step. Super easy! There are sprinklers that water plant roots directly, filters that clean dirty water, and tanks that catch rain when storms hit.
 Player: Is this water-saving stuff easy to use, and can it really help with global warming?
 Steven: Super easy! There are sprinklers that water plant roots directly, filters that clean dirty water, and tanks that catch rain when storms hit. [#hint=Collect modern water-saving solutions]
@@ -130,10 +154,13 @@ do QuestState.mark_quest2_steven_done()
 ~ aurora_start
 Aurora: I wish I had clean water every day to wash my hands and water my flowers! But lately, the stream is either dry or muddy because climate change is making the weather so strange.
 - Where do you plant your little flowers?
+	do DialogueChoices.record_choice("aurora_start", "location", "curious")
 	Aurora: They grow in my small family vegetable garden. Sometimes there’s no water for days—Mom can’t cook right, and our vegetable garden is almost dead. I’m so scared that one day, it will never rain again because the earth is too hot.
 - It must be upsetting when your flowers cannot get clean water.
+	do DialogueChoices.record_choice("aurora_start", "feelings", "empathetic")
 	Aurora: Yes, I feel sad seeing them becoming wilted. Sometimes there’s no water for days—Mom can’t cook right, and our vegetable garden is almost dead. I’m so scared that one day, it will never rain again because the earth is too hot.
 - Is there any small way for kids to save water around here?
+	do DialogueChoices.record_choice("aurora_start", "save_water", "action")
 	Aurora: We can reuse water for watering plants. Sometimes there’s no water for days—Mom can’t cook right, and our vegetable garden is almost dead. I’m so scared that one day, it will never rain again because the earth is too hot.
 Player: Is it really hard to get water now that the climate is getting worse?
 Aurora: Sometimes there’s no water for days—Mom can’t cook right, and our vegetable garden is almost dead. I’m so scared that one day, it will never rain again because the earth is too hot.[#hint=Collect real children’s needs]
@@ -145,8 +172,11 @@ do QuestState.mark_quest2_aurora_done()
 
 ~ arden_steven_villagers_start
 - Both ideas are valuable. Can we consider all opinions together?
+	do DialogueChoices.record_choice("arden_steven_villagers_start", "consider", "curious")
 - Everyone hopes the village can have enough water. Let’s listen to each other.
+	do DialogueChoices.record_choice("arden_steven_villagers_start", "listen", "empathetic")
 - Let’s try to find one solution that works for all villagers.
+	do DialogueChoices.record_choice("arden_steven_villagers_start", "solution", "action")
 Player: Grandpa Arden, Steven, and everyone, let’s work together! When encountering problems, discussing them well can help you understand each others perspective and find a solution together  [#hint=Guide negotiation and communication]
 Arden: I want to repair the traditional canal to ensure fairness.
 Steven: I want to install water-saving equipment to save water efficiently.
@@ -159,8 +189,11 @@ do QuestState.mark_quest4_complete()
 
 ~ villagers_quest5
 - What kinds of rubbish are blocking the inside of the canal?
+	do DialogueChoices.record_choice("villagers_quest5", "rubbish", "curious")
 - Fixing the canal will take hard work from every villager.
+	do DialogueChoices.record_choice("villagers_quest5", "teamwork", "empathetic")
 - Let’s take our tools and start clearing the canal right now.
+	do DialogueChoices.record_choice("villagers_quest5", "start", "action")
 Player: Let’s work together to clear the canal! Unity is strength; we will finish it soon if we work together! [#hint=Cooperate to clear the canal]
 Villagers: Okay! Let’s work together!
 Player: The water-saving devices are installed! We will no longer waste water from now on! Saving water is everyone’s responsibility. [#hint=Complete the installation of water-saving equipment]
@@ -173,8 +206,11 @@ Villagers: The canal is clear and the new gear is in—we’ll keep watching the
 
 ~ villagers_start
 - Shall I tell every household one‑by‑one about the village meeting?
+	do DialogueChoices.record_choice("villagers_start", "households", "curious")
 - Many villagers are troubled by water. It’s good for everyone to talk together.
+	do DialogueChoices.record_choice("villagers_start", "talk", "empathetic")
 - I will tell all villagers to come to the village entrance for the water‑use meeting this afternoon.
+	do DialogueChoices.record_choice("villagers_start", "announce", "action")
 Player: Grandpa Arden, uncles and aunts, we will hold a council meeting at the village entrance this afternoon to discuss the water use issue. Everyone remember to come! [#hint=Notify villagers to attend the meeting]
 Villagers: Okay! We will definitely come!
 do QuestState.mark_quest3_complete()
@@ -231,10 +267,13 @@ Player: I should go to the new Star & Moon Council Group to discuss the multicul
 ~ matt_ch2_start
 Matt: The sea has its own rules. When the tide rises and falls, we must follow them.
 - What will happen if we ignore the tide?
+	do DialogueChoices.record_choice("matt_ch2_start", "risk", "curious")
 	Matt: We may put ourselves in danger. The sea gives us food. We must respect and take good care of it, so that it can nourish us forever. Humans and nature must get along well.
 - Fishermen have lived with the tide for a very long time, right?
+	do DialogueChoices.record_choice("matt_ch2_start", "tradition", "empathetic")
 	Matt: Yes, it is the wisdom passed down by our ancestors. The sea gives us food. We must respect and take good care of it, so that it can nourish us forever. Humans and nature must get along well.
 - So we should learn these rules before we go fishing.
+	do DialogueChoices.record_choice("matt_ch2_start", "learn", "action")
 	Matt: Exactly. We cannot take from the sea without limits. The sea gives us food. We must respect and take good care of it, so that it can nourish us forever. Humans and nature must get along well.
 Player: Why should we follow the rules of the sea?
 Matt: The sea gives us food. We must respect and take good care of it, so that it can nourish us forever. Humans and nature must get along well [#hint=learn traditional marine ecological knowledge]
@@ -259,10 +298,13 @@ Kai: Ecological breeding and fishing moratoriums can work with tradition. Finish
 ~ jessica_ch2_start
 Jessica: Let's clean up the garbage together and make the beach beautiful! Protect the environment, start with small things.
 - What kinds of rubbish do we need to pick up?
+	do DialogueChoices.record_choice("jessica_ch2_start", "rubbish", "curious")
 	Jessica: Plastic and foam are everywhere. Pick up every piece you see, then sort each item into the right bag.
 - The dirty beach makes me feel sad.
+	do DialogueChoices.record_choice("jessica_ch2_start", "sad", "empathetic")
 	Jessica: Many sea animals get hurt by rubbish. Pick up every piece you see, then sort each item into the right bag.
 - Let's get our gloves and garbage bags ready.
+	do DialogueChoices.record_choice("jessica_ch2_start", "prepare", "action")
 	Jessica: Perfect! Pick up every piece you see, then sort each item into the right bag.
 Player: I'll collect the trash on the beach and sort it properly.
 Jessica: Great! Pick up every piece you see, then sort each item into the right bag.
@@ -292,10 +334,13 @@ Player: I should talk to both Matt and Kai first so they can find common ground 
 ~ matt_ch2_quest3_start
 Matt: We elders never catch too much, leaving time for the sea to recover. This is respect for nature.[#hint=Collect traditional sea protection concepts]
 - How do you decide when the sea needs to rest?
+	do DialogueChoices.record_choice("matt_ch2_quest3_start", "timing", "curious")
 	Matt: We learn that from many years of experience. You are both for the good of the sea! Traditional experience and new methods can be used together! Learning from each other can make things better.
 - Resting the sea is also protecting people's future life.
+	do DialogueChoices.record_choice("matt_ch2_quest3_start", "future", "empathetic")
 	Matt: You get it, boy. You are both for the good of the sea! Traditional experience and new methods can be used together! Learning from each other can make things better.
 - Maybe Matt's old wisdom and Kai's new ideas can work side-by-side.
+	do DialogueChoices.record_choice("matt_ch2_quest3_start", "combine", "action")
 	Matt: That is a thoughtful opinion. You are both for the good of the sea! Traditional experience and new methods can be used together! Learning from each other can make things better.
 do QuestState.mark_chapter2_quest3_matt_done()
 => END
@@ -313,10 +358,13 @@ Matt: Kai has his ideas, and I have mine—we both want the sea to stay healthy.
 ~ kai_ch2_quest3_start
 Kai: I want to use new methods, ecological breeding, regular fishing moratorium, let the small fish grow up before catching. In this way, there will always be fish in the sea.[#hint=Collect innovative sea protection solutions]
 - How long does the fishing moratorium usually last?
+	do DialogueChoices.record_choice("kai_ch2_quest3_start", "duration", "curious")
 	Kai: It depends on the growth speed of fish.
 - You really hope fish will live well in the sea.
+	do DialogueChoices.record_choice("kai_ch2_quest3_start", "future", "empathetic")
 	Kai: I hope future generations can also enjoy seafood.
 - This sounds useful. Maybe we can talk with Matt about these ideas.
+	do DialogueChoices.record_choice("kai_ch2_quest3_start", "discuss", "action")
 	Kai: That is exactly what we need to do.
 do QuestState.mark_chapter2_quest3_kai_done()
 => END
@@ -352,8 +400,11 @@ do QuestState.mark_chapter2_quest4_meeting_done()
 
 ~ matt_kai_villagers_ch2_quest4_start
 - Can we make simple ocean-protection rules that everyone is able to follow?
+	do DialogueChoices.record_choice("matt_kai_villagers_ch2_quest4_start", "rules", "curious")
 - Let’s combine old wisdom and new ideas to protect our ocean.
+	do DialogueChoices.record_choice("matt_kai_villagers_ch2_quest4_start", "combine", "empathetic")
 - For our fishing village and the sea, let’s make shared agreements.
+	do DialogueChoices.record_choice("matt_kai_villagers_ch2_quest4_start", "agreements", "action")
 Player: Let’s set three ocean protection agreements together, okay?
 Player: 1. Clean the beach regularly.
 Player: 2. Don’t catch small fish, use ocean-friendly fishing nets.

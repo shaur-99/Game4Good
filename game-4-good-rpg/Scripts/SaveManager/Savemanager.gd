@@ -16,6 +16,8 @@ func save_game() -> bool:
 		"progress": QuestState.to_dict(),
 		"achievements":
 			AchievementManager.to_dict(),
+		"dialogue_choices":
+			DialogueChoices.to_dict(),
 		"scene_path": _capture_current_scene_path(),
 		"player": _capture_player_state(),
 	}
@@ -91,9 +93,17 @@ func load_game() -> bool:
 		{}
 	)
 
+	var dialogue_choices: Dictionary = save_data.get(
+		"dialogue_choices",
+		{}
+	)
+
 	QuestState.load_from_dict(progress)
 	AchievementManager.load_from_dict(
 		achievements
+	)
+	DialogueChoices.load_from_dict(
+		dialogue_choices
 	)
 
 	_pending_scene_path = str(save_data.get("scene_path", ""))

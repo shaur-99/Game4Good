@@ -1,7 +1,8 @@
 extends Node
 
 var badges := {
-	"puzzle_solver": false
+	"puzzle_solver": false,
+	"thoughtful_listener": false,
 }
 
 
