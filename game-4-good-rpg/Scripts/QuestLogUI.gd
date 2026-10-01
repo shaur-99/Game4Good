@@ -27,7 +27,7 @@ const DONE_COLOR := Color(0.58, 0.62, 0.66, 1.0)
 const OBJECTIVE_TEXT := {
     "Traveller": "Talk to the Traveller",
     "Family": "Talk to your Family",
-    "Friend": "Talk to your Friend",
+    "Adele": "Talk to Adele",
     "Maggie": "Talk to Maggie",
     "Kai": "Talk to Kai",
     "Jessica": "Talk to Jessica",

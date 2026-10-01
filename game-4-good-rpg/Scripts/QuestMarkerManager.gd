@@ -5,7 +5,7 @@ extends Node
 ## for the currently active quest. Pure code drawing, no texture needed.
 ## Registered as an autoload; creates its own CanvasLayer on demand.
 
-const CHAPTER_0_SCENE := "res://Scenes/start.tscn"
+const CHAPTER_0_SCENE := "res://Scenes/game.tscn"
 const CHAPTER_1_SCENE := "res://Chapter 1/Clear Stream Valley.tscn"
 const CHAPTER_2_SCENE := "res://Scenes/chapter_2.tscn"
 const CHAPTER_3_SCENE := "res://Steven/main/Main.tscn"
@@ -44,7 +44,7 @@ func _build_steps() -> void:
 		},
 		{
 			"scene": CHAPTER_0_SCENE,
-			"targets": ["Friend"],
+			"targets": ["Adele"],
 			"done": func() -> bool: return QuestState.chapter0_friend_done,
 		},
 
