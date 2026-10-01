@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://d1skljlv2mige" path="res://Scenes/PlayerMovement/character_body_2d.tscn" id="1_3bxa3"]
 [ext_resource type="PackedScene" uid="uid://cnrxqsji5wjmh" path="res://Scenes/chapter0.tscn" id="2_r48yj"]
 [ext_resource type="Script" uid="uid://dbwy243yfc0pn" path="res://Steven/main/story_guide_panel.gd" id="10_storyguide"]
-[ext_resource type="PackedScene" uid="uid://dbexl2wsicxt3" path="res://Scenes/bridge_repair_trigger.tscn" id="12_bridge_trigger"]
 [ext_resource type="PackedScene" uid="uid://chfx2i51458r7" path="res://character/Traveller/human.tscn" id="13_traveller"]
 [ext_resource type="PackedScene" uid="uid://dmxdx3fwc1nfh" path="res://character/Family/famil.tscn" id="14_family"]
 [ext_resource type="PackedScene" uid="uid://drxfovylj05ic" path="res://character/Friend/friend.tscn" id="15_adele"]
@@ -267,9 +266,6 @@ text = "Next"
 visible = false
 layout_mode = 2
 text = "Alt"
-
-[node name="BridgeRepairTrigger" parent="." unique_id=765651546 instance=ExtResource("12_bridge_trigger")]
-position = Vector2(2555, -366)
 
 [connection signal="pressed" from="CanvasLayer/SettingsButton" to="CanvasLayer" method="_on_settings_button_pressed"]
 [connection signal="value_changed" from="CanvasLayer/SettingsMenu/VolumeSlider" to="CanvasLayer" method="_on_volume_slider_value_changed"]

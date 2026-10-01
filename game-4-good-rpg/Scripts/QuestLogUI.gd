@@ -11,6 +11,10 @@ extends CanvasLayer
 ##
 ## Registered as an autoload; builds its own contents in code.
 
+## start.tscn and game.tscn are the same Chapter 0 map; the menu loads start.tscn.
+const CHAPTER_0_SCENE := "res://Scenes/game.tscn"
+const CHAPTER_0_LEGACY_SCENE := "res://Scenes/start.tscn"
+
 const PANEL_WIDTH := 232.0
 const PANEL_MIN_HEIGHT := 74.0
 const MARGIN := 12
@@ -181,6 +185,14 @@ func _refresh() -> void:
         _last_progress = progress
 
 
+func _scene_matches(step_scene: String, scene_path: String) -> bool:
+    if step_scene == scene_path:
+        return true
+    if step_scene == CHAPTER_0_SCENE and scene_path == CHAPTER_0_LEGACY_SCENE:
+        return true
+    return false
+
+
 ## Mirrors QuestMarkerManager._current_targets(): the first unfinished step
 ## belonging to the scene that is currently loaded.
 func _current_step() -> Dictionary:
@@ -201,7 +213,7 @@ func _current_step() -> Dictionary:
     for step in steps:
         if not (step is Dictionary):
             continue
-        if String(step.get("scene", "")) != scene_path:
+        if not _scene_matches(String(step.get("scene", "")), scene_path):
             continue
         var done_callable = step.get("done")
         if done_callable is Callable and (done_callable as Callable).is_valid():

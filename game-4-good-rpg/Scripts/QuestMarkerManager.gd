@@ -6,6 +6,9 @@ extends Node
 ## Registered as an autoload; creates its own CanvasLayer on demand.
 
 const CHAPTER_0_SCENE := "res://Scenes/game.tscn"
+## start.tscn is a byte-identical copy of game.tscn kept as the menu entry point,
+## so the Chapter 0 objectives are registered for both scene paths.
+const CHAPTER_0_LEGACY_SCENE := "res://Scenes/start.tscn"
 const CHAPTER_1_SCENE := "res://Chapter 1/Clear Stream Valley.tscn"
 const CHAPTER_2_SCENE := "res://Scenes/chapter_2.tscn"
 const CHAPTER_3_SCENE := "res://Steven/main/Main.tscn"
@@ -45,6 +48,23 @@ func _build_steps() -> void:
 		{
 			"scene": CHAPTER_0_SCENE,
 			"targets": ["Adele"],
+			"done": func() -> bool: return QuestState.chapter0_friend_done,
+		},
+
+		# ---------------- Chapter 0 (legacy start.tscn entry) ----------------
+		{
+			"scene": CHAPTER_0_LEGACY_SCENE,
+			"targets": ["Traveller"],
+			"done": func() -> bool: return QuestState.chapter0_traveler_done,
+		},
+		{
+			"scene": CHAPTER_0_LEGACY_SCENE,
+			"targets": ["Family"],
+			"done": func() -> bool: return QuestState.chapter0_family_done,
+		},
+		{
+			"scene": CHAPTER_0_LEGACY_SCENE,
+			"targets": ["Friend"],
 			"done": func() -> bool: return QuestState.chapter0_friend_done,
 		},
 
@@ -168,6 +188,16 @@ func _process(delta: float) -> void:
 	_root.queue_redraw()
 
 
+## start.tscn and game.tscn are the same Chapter 0 map, so a step registered for
+## one must also fire on the other.
+func _scene_matches(step_scene: String, scene_path: String) -> bool:
+	if step_scene == scene_path:
+		return true
+	if step_scene == CHAPTER_0_SCENE and scene_path == CHAPTER_0_LEGACY_SCENE:
+		return true
+	return false
+
+
 ## Returns the node paths that should currently be marked.
 func _current_targets() -> Array:
 	var result: Array = []
@@ -179,7 +209,7 @@ func _current_targets() -> Array:
 		return result
 
 	for step in _steps:
-		if String(step["scene"]) != scene_path:
+		if not _scene_matches(String(step["scene"]), scene_path):
 			continue
 		var done_callable: Callable = step["done"]
 		if done_callable.is_valid() and done_callable.call():
