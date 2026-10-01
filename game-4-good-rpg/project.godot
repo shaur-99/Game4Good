@@ -22,6 +22,8 @@ DialogueManager="*uid://c3rodes2l3gxb"
 QuestState="*res://Scripts/quest_state.gd"
 AchievementManager="*res://Scripts/AchievementManager.gd"
 SaveManager="*uid://d0l12ry4gvne3"
+QuestMarkerManager="*res://Scripts/QuestMarkerManager.gd"
+QuestLogUI="*res://Scripts/QuestLogUI.gd"
 
 [display]
 
