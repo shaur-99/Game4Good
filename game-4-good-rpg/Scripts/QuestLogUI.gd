@@ -46,6 +46,24 @@ const OBJECTIVE_TEXT := {
     "StarMoonCouncilGroup": "Meet the Star Moon Council",
 }
 
+## Maps a marker target path to the QuestState flag set by the matching
+## dialogue (see dialogue.dialogue -> QuestState.mark_*). Progress must be
+## read from the flag, not from node visibility: the Chapter 0 NPCs stay
+## visible after you talk to them, so a visibility check would leave the
+## counter stuck at zero forever.
+const TARGET_FLAGS := {
+    "Traveller": "chapter0_traveler_done",
+    "Family": "chapter0_family_done",
+    "Adele": "chapter0_friend_done",
+    "Friend": "chapter0_friend_done",
+    "Maggie": "quest1_maggie_done",
+    "Kai": "quest1_kai_done",
+    "Jessica": "quest1_jessica_done",
+    "Arden_Steven_Villagers/Arden": "quest2_arden_done",
+    "Arden_Steven_Villagers/Steven": "quest2_steven_done",
+    "Aurora": "quest2_aurora_done",
+}
+
 var _panel: PanelContainer
 var _objective_label: Label
 var _progress_label: Label
@@ -224,9 +242,14 @@ func _progress_for(targets: Array) -> String:
     return "%d / %d done" % [finished, targets.size()]
 
 
-## A target counts as resolved when its node is gone or hidden, which is how
-## the existing quest scripts mark "this NPC has been dealt with".
+## A target counts as resolved when the dialogue that handles it has already
+## run. Those dialogues call QuestState.mark_* (see TARGET_FLAGS), so the flag
+## is the reliable signal. Node visibility is only a fallback for targets that
+## have no flag yet.
 func _target_resolved(target_path: String) -> bool:
+    if TARGET_FLAGS.has(target_path):
+        return _flag_is_set(TARGET_FLAGS[target_path])
+
     var scene := get_tree().current_scene
     if scene == null:
         return false
@@ -235,4 +258,14 @@ func _target_resolved(target_path: String) -> bool:
         return true
     if node is CanvasItem and not (node as CanvasItem).is_visible_in_tree():
         return true
+    return false
+
+
+func _flag_is_set(flag_name: String) -> bool:
+    var state := get_node_or_null("/root/QuestState")
+    if state == null:
+        return false
+    var value: Variant = state.get(flag_name)
+    if value is bool:
+        return value
     return false
