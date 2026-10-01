@@ -102,7 +102,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_a5i1j")
 }],
-"loop": true,
+"loop": 1,
 "name": &"16 Idle",
 "speed": 6.0
 }, {
@@ -125,7 +125,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1jxeq")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Run East",
 "speed": 6.0
 }, {
@@ -148,7 +148,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vmsbs")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Run North",
 "speed": 6.0
 }, {
@@ -171,7 +171,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4qyxx")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Run NorthEast",
 "speed": 6.0
 }, {
@@ -194,7 +194,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gjuhi")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Run South",
 "speed": 6.0
 }, {
@@ -217,7 +217,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_shtps")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Run SouthEast",
 "speed": 6.0
 }]

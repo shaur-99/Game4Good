@@ -16,6 +16,21 @@
 [ext_resource type="AudioStream" uid="uid://rppq1u5vnrqv" path="res://Music/A Lonely Cherry Tree.mp3" id="14_au278"]
 [ext_resource type="PackedScene" uid="uid://dbexl2wsicxt3" path="res://Scenes/bridge_repair_trigger.tscn" id="15_bridge_trigger"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_settings_bg"]
+content_margin_left = 30.0
+content_margin_top = 30.0
+content_margin_right = 30.0
+content_margin_bottom = 30.0
+bg_color = Color(0.05, 0.06, 0.08, 0.5)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
 [sub_resource type="FontFile" id="FontFile_acg6e"]
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
@@ -42,21 +57,6 @@ font = SubResource("FontFile_acg6e")
 font_size = 30
 shadow_size = 6
 shadow_color = Color(0, 0, 0, 0.90588236)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_settings_bg"]
-bg_color = Color(0.05, 0.06, 0.08, 0.5)
-content_margin_left = 30.0
-content_margin_top = 30.0
-content_margin_right = 30.0
-content_margin_bottom = 30.0
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-corner_radius_top_left = 24
-corner_radius_top_right = 24
-corner_radius_bottom_right = 24
-corner_radius_bottom_left = 24
 
 [node name="ClearStreamValley" type="Node2D" unique_id=1628794416]
 y_sort_enabled = true
@@ -96,55 +96,84 @@ text = "Settings"
 
 [node name="SettingsMenu" type="Panel" parent="CanvasLayer" unique_id=1457820727]
 process_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_settings_bg")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_settings_bg")
 
 [node name="VolumeSlider" type="HSlider" parent="CanvasLayer/SettingsMenu" unique_id=1735194172]
 layout_mode = 0
-offset_left = 251.0
-offset_top = 121.0
-offset_right = 1063.0
-offset_bottom = 178.0
+offset_left = 12.0
+offset_top = 74.0
+offset_right = 824.0
+offset_bottom = 131.0
 min_value = -40.0
 max_value = 0.0
 
 [node name="Close" type="Button" parent="CanvasLayer/SettingsMenu" unique_id=1262974917]
 layout_mode = 0
-offset_left = 575.0
-offset_top = 618.0
-offset_right = 756.0
-offset_bottom = 683.0
+offset_left = 704.0
+offset_top = 518.0
+offset_right = 885.0
+offset_bottom = 583.0
 text = "Close"
 
 [node name="ChangeSkin" type="Button" parent="CanvasLayer/SettingsMenu" unique_id=64276600]
 layout_mode = 0
-offset_left = 250.0
-offset_top = 167.0
-offset_right = 585.0
-offset_bottom = 272.0
+offset_left = 12.0
+offset_top = 192.0
+offset_right = 347.0
+offset_bottom = 297.0
 text = "Change Skin"
 
 [node name="Save" type="Button" parent="CanvasLayer/SettingsMenu" unique_id=1426633663]
 layout_mode = 0
-offset_left = 500.0
-offset_top = 503.0
-offset_right = 817.0
-offset_bottom = 610.0
+offset_left = 12.0
+offset_top = 309.0
+offset_right = 329.0
+offset_bottom = 416.0
 text = "Save Changes"
 
 [node name="VolumeLabel" type="Label" parent="CanvasLayer/SettingsMenu" unique_id=292668444]
 layout_mode = 0
-offset_left = 253.0
-offset_top = 90.0
-offset_right = 401.0
-offset_bottom = 168.0
+offset_left = 12.0
+offset_top = 48.0
+offset_right = 160.0
+offset_bottom = 126.0
 text = "Volume"
 label_settings = SubResource("LabelSettings_66dt1")
+
+[node name="BrightnessLabel" type="Label" parent="CanvasLayer/SettingsMenu" unique_id=2000000007]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.26777777
+anchor_top = -0.31
+anchor_right = -0.26777777
+anchor_bottom = -0.31
+offset_left = 253.0
+offset_top = 300.0
+offset_right = 401.0
+offset_bottom = 378.0
+text = "Brightness"
+label_settings = SubResource("LabelSettings_66dt1")
+metadata/_edit_use_anchors_ = true
+
+[node name="BrightnessSlider" type="HSlider" parent="CanvasLayer/SettingsMenu" unique_id=2000000008]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.26555556
+anchor_top = -0.31166667
+anchor_right = -0.26555556
+anchor_bottom = -0.31166667
+offset_left = 251.0
+offset_top = 331.0
+offset_right = 1063.0
+offset_bottom = 388.0
+value = 100.0
+metadata/_edit_use_anchors_ = true
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=2071684409]
 stream = ExtResource("14_au278")
@@ -203,6 +232,7 @@ position = Vector2(3216, -511)
 
 [node name="StoryGuideLayer" type="CanvasLayer" parent="." unique_id=836113592]
 layer = 100
+visible = false
 
 [node name="GuidePanel" type="PanelContainer" parent="StoryGuideLayer" unique_id=906313394]
 anchors_preset = 8
@@ -261,31 +291,9 @@ text = "Next"
 layout_mode = 2
 text = "Alt"
 
-[node name="BrightnessLabel" type="Label" parent="CanvasLayer/SettingsMenu" unique_id=2000000007]
-layout_mode = 0
-offset_left = 253.0
-offset_top = 300.0
-offset_right = 401.0
-offset_bottom = 378.0
-text = "Brightness"
-label_settings = SubResource("LabelSettings_66dt1")
-metadata/_edit_use_anchors_ = true
-
-[node name="BrightnessSlider" type="HSlider" parent="CanvasLayer/SettingsMenu" unique_id=2000000008]
-layout_mode = 0
-offset_left = 251.0
-offset_top = 331.0
-offset_right = 1063.0
-offset_bottom = 388.0
-min_value = 0.0
-max_value = 100.0
-step = 1.0
-value = 100.0
-metadata/_edit_use_anchors_ = true
-
-[connection signal="value_changed" from="CanvasLayer/SettingsMenu/BrightnessSlider" to="CanvasLayer" method="_on_brightness_slider_value_changed"]
 [connection signal="pressed" from="CanvasLayer/SettingsButton" to="CanvasLayer" method="_on_settings_button_pressed"]
 [connection signal="value_changed" from="CanvasLayer/SettingsMenu/VolumeSlider" to="CanvasLayer" method="_on_volume_slider_value_changed"]
 [connection signal="pressed" from="CanvasLayer/SettingsMenu/Close" to="CanvasLayer" method="_on_close_pressed"]
 [connection signal="pressed" from="CanvasLayer/SettingsMenu/ChangeSkin" to="CanvasLayer" method="_on_change_skin_pressed"]
 [connection signal="pressed" from="CanvasLayer/SettingsMenu/Save" to="CanvasLayer" method="_on_save_pressed"]
+[connection signal="value_changed" from="CanvasLayer/SettingsMenu/BrightnessSlider" to="CanvasLayer" method="_on_brightness_slider_value_changed"]
