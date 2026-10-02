@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b6nwyoe667bts" path="res://Scenes/Menu/menu.gd" id="1_3qr6s"]
 [ext_resource type="Texture2D" uid="uid://di16838lsjtvg" path="res://Sprites/UserInterface/Starting Town ：Chapter 0 - The_Start_of_the_Journey.jpg" id="1_3ymnh"]
 [ext_resource type="FontFile" uid="uid://cmhlvqojabk6w" path="res://Sprites/Font/VCR_OSD_MONO_1.001.ttf" id="2_3qr6s"]
-[ext_resource type="Script" uid="uid://c55m2pptkuvkl" path="res://Chapter 1/MenuScript.gd" id="4_j7r1e"]
+[ext_resource type="PackedScene" uid="uid://b3x47hqc2tfd1" path="res://Scenes/Menu/settings_menu.tscn" id="4_j7r1e"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j7r1e"]
 texture = ExtResource("1_3ymnh")
@@ -126,48 +126,6 @@ corner_radius_bottom_left = 60
 shadow_size = 10
 shadow_offset = Vector2(0, 10)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_settings_bg"]
-content_margin_left = 30.0
-content_margin_top = 30.0
-content_margin_right = 30.0
-content_margin_bottom = 30.0
-bg_color = Color(0.05, 0.06, 0.08, 0.5)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-corner_radius_top_left = 24
-corner_radius_top_right = 24
-corner_radius_bottom_right = 24
-corner_radius_bottom_left = 24
-
-[sub_resource type="FontFile" id="FontFile_acg6e"]
-cache/0/variation_coordinates = {}
-cache/0/face_index = 0
-cache/0/embolden = 0.0
-cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
-cache/0/spacing_top = 0
-cache/0/spacing_bottom = 0
-cache/0/spacing_space = 0
-cache/0/spacing_glyph = 0
-cache/0/baseline_offset = 0.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/30/0/ascent = 0.0
-cache/0/30/0/descent = 0.0
-cache/0/30/0/underline_position = 0.0
-cache/0/30/0/underline_thickness = 0.0
-cache/0/30/0/scale = 1.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_8inha"]
-font = SubResource("FontFile_acg6e")
-font_size = 30
-shadow_size = 6
-shadow_color = Color(0, 0, 0, 0.90588236)
-
 [node name="MainMenu" type="Control" unique_id=545217279]
 layout_mode = 3
 anchors_preset = 8
@@ -187,10 +145,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -498.0
-offset_top = -499.0
-offset_right = 498.0
-offset_bottom = 499.0
+offset_left = -657.0
+offset_top = -642.0
+offset_right = 642.0
+offset_bottom = 655.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_j7r1e")
@@ -202,13 +160,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -310.75
-offset_top = -272.25
-offset_right = 310.75
-offset_bottom = 272.25
+offset_left = -284.75
+offset_top = -212.0
+offset_right = 336.75
+offset_bottom = 312.25
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 50
+theme_override_constants/separation = 35
 
 [node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=781386430]
 layout_mode = 2
@@ -262,10 +220,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -351.0
-offset_top = -414.0
-offset_right = 351.0
-offset_bottom = -331.0
+offset_left = -370.5
+offset_top = -318.0
+offset_right = 414.5
+offset_bottom = -235.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.2784314)
@@ -273,131 +231,12 @@ theme_override_constants/shadow_offset_y = 15
 theme_override_constants/outline_size = 11
 theme_override_constants/shadow_outline_size = 10
 theme_override_fonts/font = ExtResource("2_3qr6s")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 67
 text = "The Path of Humanity"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1045895141]
-layer = 110
-script = ExtResource("4_j7r1e")
-
-[node name="SettingsMenu" type="Panel" parent="CanvasLayer" unique_id=1127177339]
-process_mode = 2
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_settings_bg")
-metadata/_edit_use_anchors_ = true
-
-[node name="VolumeSlider" type="HSlider" parent="CanvasLayer/SettingsMenu" unique_id=1617127268]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.24666667
-anchor_top = -0.10666667
-anchor_right = -0.24666667
-anchor_bottom = -0.10666667
-offset_left = 251.0
-offset_top = 121.0
-offset_right = 1063.0
-offset_bottom = 178.0
-min_value = -40.0
-max_value = 0.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Close" type="Button" parent="CanvasLayer/SettingsMenu" unique_id=766698726]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.13444445
-anchor_top = -0.18166667
-anchor_right = 0.13444445
-anchor_bottom = -0.18166667
-offset_left = 575.0
-offset_top = 618.0
-offset_right = 756.0
-offset_bottom = 683.0
-text = "Close"
-metadata/_edit_use_anchors_ = true
-
-[node name="ChangeSkin" type="Button" parent="CanvasLayer/SettingsMenu" unique_id=1873909772]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.24555555
-anchor_top = 0.06333333
-anchor_right = -0.24555555
-anchor_bottom = 0.06333333
-offset_left = 250.0
-offset_top = 167.0
-offset_right = 585.0
-offset_bottom = 272.0
-text = "Change Skin"
-metadata/_edit_use_anchors_ = true
-
-[node name="Save" type="Button" parent="CanvasLayer/SettingsMenu" unique_id=1837076362]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.5233333
-anchor_top = -0.05
-anchor_right = -0.5233333
-anchor_bottom = -0.05
-offset_left = 500.0
-offset_top = 503.0
-offset_right = 817.0
-offset_bottom = 610.0
-text = "Save Changes"
-metadata/_edit_use_anchors_ = true
-
-[node name="VolumeLabel" type="Label" parent="CanvasLayer/SettingsMenu" unique_id=2124666970]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.2488889
-anchor_top = -0.10333333
-anchor_right = -0.2488889
-anchor_bottom = -0.10333333
-offset_left = 253.0
-offset_top = 90.0
-offset_right = 401.0
-offset_bottom = 168.0
-text = "Volume"
-label_settings = SubResource("LabelSettings_8inha")
-metadata/_edit_use_anchors_ = true
-
-[node name="BrightnessLabel" type="Label" parent="CanvasLayer/SettingsMenu" unique_id=2000000001]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.2488889
-anchor_top = -0.32333332
-anchor_right = -0.2488889
-anchor_bottom = -0.32333332
-offset_left = 253.0
-offset_top = 300.0
-offset_right = 401.0
-offset_bottom = 378.0
-text = "Brightness"
-label_settings = SubResource("LabelSettings_8inha")
-metadata/_edit_use_anchors_ = true
-
-[node name="BrightnessSlider" type="HSlider" parent="CanvasLayer/SettingsMenu" unique_id=2000000002]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.24666667
-anchor_top = -0.305
-anchor_right = -0.24666667
-anchor_bottom = -0.305
-offset_left = 251.0
-offset_top = 331.0
-offset_right = 1063.0
-offset_bottom = 388.0
-value = 100.0
-metadata/_edit_use_anchors_ = true
+[node name="CanvasLayer" parent="." unique_id=1430209239 instance=ExtResource("4_j7r1e")]
 
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="GameRedirect"]
 [connection signal="pressed" from="VBoxContainer/SettingsButton" to="." method="SettingsRedirect"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="QuitGame"]
 [connection signal="pressed" from="VBoxContainer/ContinueButton" to="." method="ContinueGame"]
-[connection signal="value_changed" from="CanvasLayer/SettingsMenu/VolumeSlider" to="CanvasLayer" method="_on_volume_slider_value_changed"]
-[connection signal="pressed" from="CanvasLayer/SettingsMenu/Close" to="CanvasLayer" method="_on_close_pressed"]
-[connection signal="pressed" from="CanvasLayer/SettingsMenu/ChangeSkin" to="CanvasLayer" method="_on_change_skin_pressed"]
-[connection signal="pressed" from="CanvasLayer/SettingsMenu/Save" to="CanvasLayer" method="_on_save_pressed"]
-[connection signal="value_changed" from="CanvasLayer/SettingsMenu/BrightnessSlider" to="CanvasLayer" method="_on_brightness_slider_value_changed"]

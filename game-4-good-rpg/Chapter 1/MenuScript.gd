@@ -14,8 +14,11 @@ var _brightness_overlay: ColorRect
 var _brightness_value := 100.0
 
 func _ready():
+	add_to_group("settings_menu_layer")
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	settings_menu.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
+	settings_menu.process_mode = Node.PROCESS_MODE_ALWAYS
+	if settings_button and not settings_button.pressed.is_connected(_on_settings_button_pressed):
+		settings_button.pressed.connect(_on_settings_button_pressed)
 	music_player = get_parent().get_node_or_null("MusicPlayer") as AudioStreamPlayer
 	player = _resolve_player()
 	# Start with menu hidden

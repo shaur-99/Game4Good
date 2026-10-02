@@ -17,18 +17,17 @@ config/icon="res://Sprites/icon.svg"
 
 [autoload]
 
+global="*uid://drpslnkubvagw"
 DialogueManager="*uid://c3rodes2l3gxb"
 QuestState="*res://Scripts/quest_state.gd"
 AchievementManager="*res://Scripts/AchievementManager.gd"
 SaveManager="*uid://d0l12ry4gvne3"
-QuestMarkerManager="*res://Scripts/QuestMarkerManager.gd"
-QuestLogUI="*res://Scripts/QuestLogUI.gd"
 FadeTransition="*uid://c7rj22bx5ug2t"
 
 [display]
 
-window/size/viewport_width=900
-window/size/viewport_height=600
+window/size/viewport_width=1280
+window/size/viewport_height=720
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 window/stretch/scale_mode="integer"

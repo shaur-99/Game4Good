@@ -1,0 +1,315 @@
+[gd_scene format=3 uid="uid://b3x47hqc2tfd1"]
+
+[ext_resource type="Script" uid="uid://c55m2pptkuvkl" path="res://Chapter 1/MenuScript.gd" id="1_uit7r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_settings_bg"]
+content_margin_left = 30.0
+content_margin_top = 30.0
+content_margin_right = 30.0
+content_margin_bottom = 30.0
+bg_color = Color(0.050980393, 0.05882353, 0.078431375, 0.78431374)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6csd"]
+bg_color = Color(0.5294118, 0.6392157, 0.4627451, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fcxt"]
+bg_color = Color(0.5294118, 0.6392157, 0.4627451, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k0qon"]
+bg_color = Color(0.21176471, 0.27058825, 0.17254902, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wv7rd"]
+bg_color = Color(0.39607844, 0.49411765, 0.3372549, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwfkq"]
+bg_color = Color(0.5294118, 0.6392157, 0.4627451, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wxa3f"]
+bg_color = Color(0.21176471, 0.27058825, 0.17254902, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u2ioa"]
+bg_color = Color(0.39607844, 0.49411765, 0.3372549, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hgg7c"]
+bg_color = Color(0.5294118, 0.6392157, 0.4627451, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0401g"]
+bg_color = Color(0.21176471, 0.27058825, 0.17254902, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lnqkc"]
+bg_color = Color(0.39607844, 0.49411765, 0.3372549, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="FontFile" id="FontFile_acg6e"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_8inha"]
+font = SubResource("FontFile_acg6e")
+font_size = 30
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 0.90588236)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qok0p"]
+bg_color = Color(0.5294118, 0.6392157, 0.4627451, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1430209239]
+layer = 110
+script = ExtResource("1_uit7r")
+
+[node name="SettingsButton" type="Button" parent="." unique_id=2095908035]
+offset_left = 12.0
+offset_top = 12.0
+offset_right = 112.0
+offset_bottom = 48.0
+text = "Settings"
+
+[node name="SettingsMenu" type="Panel" parent="." unique_id=1502563556]
+process_mode = 2
+anchors_preset = -1
+anchor_left = 0.28203124
+anchor_top = 0.11805555
+anchor_right = 1.0234375
+anchor_bottom = 1.0166667
+offset_left = -192.0
+offset_top = -52.0
+offset_right = -192.0
+offset_bottom = -52.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_settings_bg")
+metadata/_edit_use_anchors_ = true
+
+[node name="VolumeSlider" type="HSlider" parent="SettingsMenu" unique_id=1197132973]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.2213769
+anchor_top = -0.08193715
+anchor_right = -0.2213769
+anchor_bottom = -0.08193715
+offset_left = 251.0
+offset_top = 121.0
+offset_right = 1063.0
+offset_bottom = 178.0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_m6csd")
+min_value = -40.0
+max_value = 0.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Close" type="Button" parent="SettingsMenu" unique_id=813324834]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.003780578
+anchor_top = -0.15075476
+anchor_right = 0.003780578
+anchor_bottom = -0.15075476
+offset_left = 575.0
+offset_top = 618.0
+offset_right = 843.032
+offset_bottom = 698.023
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_3fcxt")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_k0qon")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wv7rd")
+text = "Close"
+metadata/_edit_use_anchors_ = true
+
+[node name="ChangeSkin" type="Button" parent="SettingsMenu" unique_id=1521025762]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.2223393
+anchor_top = 0.07418861
+anchor_right = -0.2223393
+anchor_bottom = 0.07418861
+offset_left = 250.0
+offset_top = 167.0
+offset_right = 585.0
+offset_bottom = 272.0
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_qwfkq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wxa3f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_u2ioa")
+text = "Change Skin"
+metadata/_edit_use_anchors_ = true
+
+[node name="Save" type="Button" parent="SettingsMenu" unique_id=216673226]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.48155954
+anchor_top = -0.00927357
+anchor_right = -0.48155954
+anchor_bottom = -0.00927357
+offset_left = 500.0
+offset_top = 503.0
+offset_right = 818.032
+offset_bottom = 606.023
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_hgg7c")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0401g")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lnqkc")
+text = "Save Changes"
+metadata/_edit_use_anchors_ = true
+
+[node name="VolumeLabel" type="Label" parent="SettingsMenu" unique_id=109051328]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.2235991
+anchor_top = -0.07860381
+anchor_right = -0.2235991
+anchor_bottom = -0.07860381
+offset_left = 253.0
+offset_top = 90.0
+offset_right = 401.0
+offset_bottom = 168.0
+text = "Volume"
+label_settings = SubResource("LabelSettings_8inha")
+metadata/_edit_use_anchors_ = true
+
+[node name="BrightnessLabel" type="Label" parent="SettingsMenu" unique_id=298020276]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.2235991
+anchor_top = -0.2986038
+anchor_right = -0.2235991
+anchor_bottom = -0.2986038
+offset_left = 253.0
+offset_top = 300.0
+offset_right = 401.0
+offset_bottom = 378.0
+theme_override_font_sizes/font_size = 16
+text = "Brightness"
+label_settings = SubResource("LabelSettings_8inha")
+metadata/_edit_use_anchors_ = true
+
+[node name="BrightnessSlider" type="HSlider" parent="SettingsMenu" unique_id=1725925215]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.2213769
+anchor_top = -0.28027052
+anchor_right = -0.2213769
+anchor_bottom = -0.28027052
+offset_left = 251.0
+offset_top = 331.0
+offset_right = 1063.0
+offset_bottom = 388.0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_qok0p")
+value = 100.0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="value_changed" from="SettingsMenu/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="pressed" from="SettingsMenu/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="SettingsMenu/ChangeSkin" to="." method="_on_change_skin_pressed"]
+[connection signal="pressed" from="SettingsMenu/Save" to="." method="_on_save_pressed"]
+[connection signal="value_changed" from="SettingsMenu/BrightnessSlider" to="." method="_on_brightness_slider_value_changed"]
