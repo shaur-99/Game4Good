@@ -15,15 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://b3k7ixb34cr74" path="res://Scenes/castle_puzzle_trigger.tscn" id="12_castle_trigger"]
 [ext_resource type="AudioStream" uid="uid://rppq1u5vnrqv" path="res://Music/A Lonely Cherry Tree.mp3" id="14_au278"]
 [ext_resource type="PackedScene" uid="uid://dbexl2wsicxt3" path="res://Scenes/bridge_repair_trigger.tscn" id="15_bridge_trigger"]
-[ext_resource type="PackedScene" path="res://Scenes/ui/Minimap.tscn" id="16_minimap"]
-[ext_resource type="PackedScene" path="res://Scenes/ui/MinimapObjective.tscn" id="17_marker"]
 
 [node name="ClearStreamValley" type="Node2D" unique_id=1628794416]
 y_sort_enabled = true
 script = ExtResource("3_storyguide")
 begins_on_chapter1_map = true
-
-[node name="MinimapLayer" parent="." instance=ExtResource("16_minimap")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1245745413]
 y_sort_enabled = true
@@ -57,32 +53,20 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(167, -875)
 
-[node name="MinimapObjective" parent="Maggie" instance=ExtResource("17_marker")]
-objective_key = &"ch1_q1_maggie"
-
 [node name="Kai" parent="." unique_id=1417196607 instance=ExtResource("5_kai")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(632, -475)
-
-[node name="MinimapObjective" parent="Kai" instance=ExtResource("17_marker")]
-objective_key = &"ch1_q1_kai"
 
 [node name="Jessica" parent="." unique_id=989292783 instance=ExtResource("6_jessica")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(-13, -182)
 
-[node name="MinimapObjective" parent="Jessica" instance=ExtResource("17_marker")]
-objective_key = &"ch1_q1_jessica"
-
 [node name="Aurora" parent="." unique_id=1997513960 instance=ExtResource("9_aurora")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(305, 312)
-
-[node name="MinimapObjective" parent="Aurora" instance=ExtResource("17_marker")]
-objective_key = &"ch1_q2_aurora"
 
 [node name="Arden_Steven_Villagers" type="Node2D" parent="." unique_id=2099291272]
 
@@ -91,50 +75,28 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(-255, 757)
 
-[node name="MinimapObjective" parent="Arden_Steven_Villagers/Arden" instance=ExtResource("17_marker")]
-objective_key = &"ch1_q2_arden"
-
 [node name="Steven" parent="Arden_Steven_Villagers" unique_id=484491093 instance=ExtResource("8_steven")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(-717, -151)
-
-[node name="MinimapObjective" parent="Arden_Steven_Villagers/Steven" instance=ExtResource("17_marker")]
-objective_key = &"ch1_q2_steven"
 
 [node name="Villagers" parent="Arden_Steven_Villagers" unique_id=2099291273 instance=ExtResource("10_villagers")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(3289, -220)
 
-[node name="Quest3MinimapObjective" parent="Arden_Steven_Villagers/Villagers" instance=ExtResource("17_marker")]
-objective_key = &"ch1_q3_villagers"
-
-[node name="Quest5MinimapObjective" parent="Arden_Steven_Villagers/Villagers" instance=ExtResource("17_marker")]
-objective_key = &"ch1_q5_villagers"
-
 [node name="ArdenStevenVillagersGroup" parent="Arden_Steven_Villagers" unique_id=1808582659 instance=ExtResource("11_asv")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(3688, -210)
 
-[node name="MinimapObjective" parent="Arden_Steven_Villagers/ArdenStevenVillagersGroup" instance=ExtResource("17_marker")]
-objective_key = &"ch1_q4_council"
-
 [node name="BridgeRepairTrigger" parent="." unique_id=1810067865 instance=ExtResource("15_bridge_trigger")]
 z_index = 2
 position = Vector2(2746, 678)
 
-[node name="MinimapObjective" parent="BridgeRepairTrigger" instance=ExtResource("17_marker")]
-objective_key = &"ch1_bridge"
-position_source = NodePath("WarningIcon")
-
 [node name="CastlePuzzleTrigger" parent="." unique_id=1782826142 instance=ExtResource("12_castle_trigger")]
 z_index = 2
 position = Vector2(3216, -511)
-
-[node name="MinimapObjective" parent="CastlePuzzleTrigger" instance=ExtResource("17_marker")]
-objective_key = &"ch1_castle"
 
 [node name="StoryGuideLayer" type="CanvasLayer" parent="." unique_id=836113592]
 layer = 100

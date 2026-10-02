@@ -16,8 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://00ek6snrodnk" path="res://character/Matt_Kai_Villagers/matt_kai_villagers.tscn" id="15_mkv"]
 [ext_resource type="PackedScene" uid="uid://7rcjgfujpip1" path="res://Scenes/chapter2/BeachCleanupPuzzle.tscn" id="16_beach"]
 [ext_resource type="TileSet" uid="uid://dvjknvbpfgjsk" path="res://Assets/tileset.tres" id="16_o751r"]
-[ext_resource type="PackedScene" path="res://Scenes/ui/Minimap.tscn" id="18_minimap"]
-[ext_resource type="PackedScene" path="res://Scenes/ui/MinimapObjective.tscn" id="19_marker"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_445iu"]
 texture = ExtResource("1_cdqkm")
@@ -209,8 +207,6 @@ y_sort_enabled = true
 script = ExtResource("10_storyguide")
 begins_on_chapter2_map = true
 
-[node name="MinimapLayer" parent="." instance=ExtResource("18_minimap")]
-
 [node name="Water" type="TileMapLayer" parent="." unique_id=401339355]
 z_index = -1
 y_sort_enabled = true
@@ -263,27 +259,15 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(520, 160)
 
-[node name="Quest2MinimapObjective" parent="Matt" instance=ExtResource("19_marker")]
-objective_key = &"ch2_q2_matt"
-
-[node name="Quest3MinimapObjective" parent="Matt" instance=ExtResource("19_marker")]
-objective_key = &"ch2_q3_matt"
-
 [node name="Kai" parent="." unique_id=1417196607 instance=ExtResource("11_kai")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(2100, -750)
 
-[node name="MinimapObjective" parent="Kai" instance=ExtResource("19_marker")]
-objective_key = &"ch2_q3_kai"
-
 [node name="Jessica" parent="." unique_id=989292783 instance=ExtResource("12_jessica")]
 z_index = 1
 y_sort_enabled = true
 position = Vector2(120, -2250)
-
-[node name="MinimapObjective" parent="Jessica" instance=ExtResource("19_marker")]
-objective_key = &"ch2_q1_jessica"
 
 [node name="BeachCleanupPuzzle" parent="." unique_id=1959705630 instance=ExtResource("16_beach")]
 
@@ -296,9 +280,6 @@ position = Vector2(1573, -629)
 z_index = 1
 y_sort_enabled = true
 position = Vector2(1978, -4210)
-
-[node name="MinimapObjective" parent="MattKaiVillagers" instance=ExtResource("19_marker")]
-objective_key = &"ch2_q4_group"
 
 [node name="StoryGuideLayer" type="CanvasLayer" parent="." unique_id=836113592]
 layer = 100
