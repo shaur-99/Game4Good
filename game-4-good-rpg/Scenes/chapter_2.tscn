@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dnhtxa2dqmuha" path="res://Sprites/TileMaps/rev tiles (2).png" id="4_ak6ek"]
 [ext_resource type="Texture2D" uid="uid://k0piu1w6qggl" path="res://Sprites/TileMaps/revtile2.png" id="6_3hp6n"]
 [ext_resource type="PackedScene" uid="uid://d1skljlv2mige" path="res://Scenes/PlayerMovement/character_body_2d.tscn" id="6_xwdnv"]
+[ext_resource type="PackedScene" uid="uid://b3x47hqc2tfd1" path="res://Scenes/Menu/settings_menu.tscn" id="10_o751r"]
 [ext_resource type="Script" uid="uid://dbwy243yfc0pn" path="res://Steven/main/story_guide_panel.gd" id="10_storyguide"]
 [ext_resource type="PackedScene" uid="uid://b7ka1npc01npc" path="res://character/Kai/kai.tscn" id="11_kai"]
 [ext_resource type="PackedScene" uid="uid://d5nm8ubav8ew" path="res://character/Jessica/jessica.tscn" id="12_jessica"]
@@ -15,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://00ek6snrodnk" path="res://character/Matt_Kai_Villagers/matt_kai_villagers.tscn" id="15_mkv"]
 [ext_resource type="PackedScene" uid="uid://7rcjgfujpip1" path="res://Scenes/chapter2/BeachCleanupPuzzle.tscn" id="16_beach"]
 [ext_resource type="TileSet" uid="uid://dvjknvbpfgjsk" path="res://Assets/tileset.tres" id="16_o751r"]
-[ext_resource type="PackedScene" uid="uid://egoyuem6dq55" path="res://Scenes/Settings/IngameSettings.tscn" id="17_settings"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_445iu"]
 texture = ExtResource("1_cdqkm")
@@ -250,6 +250,10 @@ scale = Vector2(1.8, 1.8)
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1255284566]
 position_smoothing_enabled = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=424880282]
+
+[node name="CanvasLayer2" parent="CanvasLayer" unique_id=1430209239 instance=ExtResource("10_o751r")]
+
 [node name="Matt" parent="." unique_id=277546319 instance=ExtResource("13_matt")]
 z_index = 1
 y_sort_enabled = true
@@ -276,8 +280,6 @@ position = Vector2(1573, -629)
 z_index = 1
 y_sort_enabled = true
 position = Vector2(1978, -4210)
-
-[node name="IngameSettings" parent="." unique_id=1175000479 instance=ExtResource("17_settings")]
 
 [node name="StoryGuideLayer" type="CanvasLayer" parent="." unique_id=836113592]
 layer = 100

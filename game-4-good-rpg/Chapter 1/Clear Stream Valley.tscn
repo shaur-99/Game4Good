@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://dbwy243yfc0pn" path="res://Steven/main/story_guide_panel.gd" id="3_storyguide"]
 [ext_resource type="PackedScene" uid="uid://d2507i7g6rxk" path="res://character/Maggie/maggie.tscn" id="4_maggie"]
 [ext_resource type="PackedScene" uid="uid://b7ka1npc01npc" path="res://character/Kai/kai.tscn" id="5_kai"]
+[ext_resource type="PackedScene" uid="uid://b3x47hqc2tfd1" path="res://Scenes/Menu/settings_menu.tscn" id="5_n4o13"]
 [ext_resource type="PackedScene" uid="uid://d5nm8ubav8ew" path="res://character/Jessica/jessica.tscn" id="6_jessica"]
 [ext_resource type="PackedScene" uid="uid://c3ard3nnpcqb" path="res://character/Arden/arden.tscn" id="7_arden"]
 [ext_resource type="PackedScene" uid="uid://un83v6peny40" path="res://character/Steven/steven.tscn" id="8_steven"]
@@ -12,51 +13,8 @@
 [ext_resource type="PackedScene" uid="uid://b0qsrv6j2v4c2" path="res://character/villagers/villagers.tscn" id="10_villagers"]
 [ext_resource type="PackedScene" uid="uid://c6qlnj8u8xhw4" path="res://character/Arden_Steven_Villagers/arden_steven_villagers.tscn" id="11_asv"]
 [ext_resource type="PackedScene" uid="uid://b3k7ixb34cr74" path="res://Scenes/castle_puzzle_trigger.tscn" id="12_castle_trigger"]
-[ext_resource type="Script" uid="uid://c55m2pptkuvkl" path="res://Chapter 1/MenuScript.gd" id="13_menu"]
 [ext_resource type="AudioStream" uid="uid://rppq1u5vnrqv" path="res://Music/A Lonely Cherry Tree.mp3" id="14_au278"]
 [ext_resource type="PackedScene" uid="uid://dbexl2wsicxt3" path="res://Scenes/bridge_repair_trigger.tscn" id="15_bridge_trigger"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_settings_bg"]
-content_margin_left = 30.0
-content_margin_top = 30.0
-content_margin_right = 30.0
-content_margin_bottom = 30.0
-bg_color = Color(0.05, 0.06, 0.08, 0.5)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-corner_radius_top_left = 24
-corner_radius_top_right = 24
-corner_radius_bottom_right = 24
-corner_radius_bottom_left = 24
-
-[sub_resource type="FontFile" id="FontFile_acg6e"]
-cache/0/variation_coordinates = {}
-cache/0/face_index = 0
-cache/0/embolden = 0.0
-cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
-cache/0/spacing_top = 0
-cache/0/spacing_bottom = 0
-cache/0/spacing_space = 0
-cache/0/spacing_glyph = 0
-cache/0/baseline_offset = 0.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/30/0/ascent = 0.0
-cache/0/30/0/descent = 0.0
-cache/0/30/0/underline_position = 0.0
-cache/0/30/0/underline_thickness = 0.0
-cache/0/30/0/scale = 1.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_66dt1"]
-font = SubResource("FontFile_acg6e")
-font_size = 30
-shadow_size = 6
-shadow_color = Color(0, 0, 0, 0.90588236)
 
 [node name="ClearStreamValley" type="Node2D" unique_id=1628794416]
 y_sort_enabled = true
@@ -83,97 +41,7 @@ scale = Vector2(1.7, 1.7)
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=566808348]
 position_smoothing_enabled = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1898344]
-layer = 110
-script = ExtResource("13_menu")
-
-[node name="SettingsButton" type="Button" parent="CanvasLayer" unique_id=1755924974]
-offset_left = 12.0
-offset_top = 12.0
-offset_right = 112.0
-offset_bottom = 48.0
-text = "Settings"
-
-[node name="SettingsMenu" type="Panel" parent="CanvasLayer" unique_id=1457820727]
-process_mode = 2
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_settings_bg")
-
-[node name="VolumeSlider" type="HSlider" parent="CanvasLayer/SettingsMenu" unique_id=1735194172]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 74.0
-offset_right = 824.0
-offset_bottom = 131.0
-min_value = -40.0
-max_value = 0.0
-
-[node name="Close" type="Button" parent="CanvasLayer/SettingsMenu" unique_id=1262974917]
-layout_mode = 0
-offset_left = 704.0
-offset_top = 518.0
-offset_right = 885.0
-offset_bottom = 583.0
-text = "Close"
-
-[node name="ChangeSkin" type="Button" parent="CanvasLayer/SettingsMenu" unique_id=64276600]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 192.0
-offset_right = 347.0
-offset_bottom = 297.0
-text = "Change Skin"
-
-[node name="Save" type="Button" parent="CanvasLayer/SettingsMenu" unique_id=1426633663]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 309.0
-offset_right = 329.0
-offset_bottom = 416.0
-text = "Save Changes"
-
-[node name="VolumeLabel" type="Label" parent="CanvasLayer/SettingsMenu" unique_id=292668444]
-layout_mode = 0
-offset_left = 12.0
-offset_top = 48.0
-offset_right = 160.0
-offset_bottom = 126.0
-text = "Volume"
-label_settings = SubResource("LabelSettings_66dt1")
-
-[node name="BrightnessLabel" type="Label" parent="CanvasLayer/SettingsMenu" unique_id=2000000007]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.26777777
-anchor_top = -0.31
-anchor_right = -0.26777777
-anchor_bottom = -0.31
-offset_left = 253.0
-offset_top = 300.0
-offset_right = 401.0
-offset_bottom = 378.0
-text = "Brightness"
-label_settings = SubResource("LabelSettings_66dt1")
-metadata/_edit_use_anchors_ = true
-
-[node name="BrightnessSlider" type="HSlider" parent="CanvasLayer/SettingsMenu" unique_id=2000000008]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.26555556
-anchor_top = -0.31166667
-anchor_right = -0.26555556
-anchor_bottom = -0.31166667
-offset_left = 251.0
-offset_top = 331.0
-offset_right = 1063.0
-offset_bottom = 388.0
-value = 100.0
-metadata/_edit_use_anchors_ = true
+[node name="CanvasLayer2" parent="." unique_id=1430209239 instance=ExtResource("5_n4o13")]
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=2071684409]
 stream = ExtResource("14_au278")
@@ -290,10 +158,3 @@ text = "Next"
 [node name="AltButton" type="Button" parent="StoryGuideLayer/GuidePanel/ContentMargin/ContentVBox/FooterRow" unique_id=146728390]
 layout_mode = 2
 text = "Alt"
-
-[connection signal="pressed" from="CanvasLayer/SettingsButton" to="CanvasLayer" method="_on_settings_button_pressed"]
-[connection signal="value_changed" from="CanvasLayer/SettingsMenu/VolumeSlider" to="CanvasLayer" method="_on_volume_slider_value_changed"]
-[connection signal="pressed" from="CanvasLayer/SettingsMenu/Close" to="CanvasLayer" method="_on_close_pressed"]
-[connection signal="pressed" from="CanvasLayer/SettingsMenu/ChangeSkin" to="CanvasLayer" method="_on_change_skin_pressed"]
-[connection signal="pressed" from="CanvasLayer/SettingsMenu/Save" to="CanvasLayer" method="_on_save_pressed"]
-[connection signal="value_changed" from="CanvasLayer/SettingsMenu/BrightnessSlider" to="CanvasLayer" method="_on_brightness_slider_value_changed"]

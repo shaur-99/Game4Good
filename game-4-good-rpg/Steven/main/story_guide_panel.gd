@@ -1075,7 +1075,18 @@ func _on_story_dialogue_ended(_resource: DialogueResource) -> void:
 	_story_dialogue_sessions = maxi(0, _story_dialogue_sessions - 1)
 	if _story_dialogue_sessions == 0:
 		call_deferred("_flush_pending_story_flow_checks")
+		call_deferred("_reoffer_chapter1_confirmation")
 
+func _reoffer_chapter1_confirmation() -> void:
+	if _story_dialogue_sessions > 0 or is_guide_open:
+		return
+	if active_chapter_id != 0 or not chapter0_guide_closed:
+		return
+	if _is_on_chapter1_map() or _is_on_chapter2_map() or begins_on_chapter3_map:
+		return
+	if not QuestState.is_chapter0_complete() or QuestState.chapter1_description_shown:
+		return
+	_open_chapter_confirmation(1)
 
 func _is_story_dialogue_active() -> bool:
 	return _story_dialogue_sessions > 0
@@ -1116,8 +1127,8 @@ func _flush_pending_story_flow_checks() -> void:
 
 
 func _is_ingame_settings_menu_open() -> bool:
-	for path in ["CanvasLayer/SettingsMenu", "IngameSettings/SettingsMenu"]:
-		var menu := get_node_or_null(path) as Control
+	for node in get_tree().get_nodes_in_group("settings_menu_layer"):
+		var menu := node.get_node_or_null("SettingsMenu") as Control
 		if menu != null and menu.visible:
 			return true
 	return false

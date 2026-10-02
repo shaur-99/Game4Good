@@ -2,54 +2,14 @@
 
 [ext_resource type="PackedScene" uid="uid://d1skljlv2mige" path="res://Scenes/PlayerMovement/character_body_2d.tscn" id="1_3bxa3"]
 [ext_resource type="PackedScene" uid="uid://cnrxqsji5wjmh" path="res://Scenes/chapter0.tscn" id="2_r48yj"]
+[ext_resource type="PackedScene" uid="uid://b3x47hqc2tfd1" path="res://Scenes/Menu/settings_menu.tscn" id="8_ldgsr"]
 [ext_resource type="Script" uid="uid://dbwy243yfc0pn" path="res://Steven/main/story_guide_panel.gd" id="10_storyguide"]
+[ext_resource type="PackedScene" uid="uid://dbexl2wsicxt3" path="res://Scenes/bridge_repair_trigger.tscn" id="12_bridge_trigger"]
 [ext_resource type="PackedScene" uid="uid://chfx2i51458r7" path="res://character/Traveller/human.tscn" id="13_traveller"]
 [ext_resource type="PackedScene" uid="uid://dmxdx3fwc1nfh" path="res://character/Family/famil.tscn" id="14_family"]
 [ext_resource type="PackedScene" uid="uid://drxfovylj05ic" path="res://character/Friend/friend.tscn" id="15_adele"]
 [ext_resource type="Script" uid="uid://c55m2pptkuvkl" path="res://Chapter 1/MenuScript.gd" id="16_menu"]
 [ext_resource type="AudioStream" uid="uid://rppq1u5vnrqv" path="res://Music/A Lonely Cherry Tree.mp3" id="17_au278"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_settings_bg"]
-content_margin_left = 30.0
-content_margin_top = 30.0
-content_margin_right = 30.0
-content_margin_bottom = 30.0
-bg_color = Color(0.05, 0.06, 0.08, 0.5)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-corner_radius_top_left = 24
-corner_radius_top_right = 24
-corner_radius_bottom_right = 24
-corner_radius_bottom_left = 24
-
-[sub_resource type="FontFile" id="FontFile_acg6e"]
-cache/0/variation_coordinates = {}
-cache/0/face_index = 0
-cache/0/embolden = 0.0
-cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
-cache/0/spacing_top = 0
-cache/0/spacing_bottom = 0
-cache/0/spacing_space = 0
-cache/0/spacing_glyph = 0
-cache/0/baseline_offset = 0.0
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/30/0/ascent = 0.0
-cache/0/30/0/descent = 0.0
-cache/0/30/0/underline_position = 0.0
-cache/0/30/0/underline_thickness = 0.0
-cache/0/30/0/scale = 1.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_66dt1"]
-font = SubResource("FontFile_acg6e")
-font_size = 30
-shadow_size = 6
-shadow_color = Color(0, 0, 0, 0.90588236)
 
 [node name="Start" type="Node2D" unique_id=1268696800]
 position = Vector2(-1, 0)
@@ -82,125 +42,7 @@ position_smoothing_enabled = true
 layer = 110
 script = ExtResource("16_menu")
 
-[node name="SettingsButton" type="Button" parent="CanvasLayer" unique_id=1755924974]
-offset_left = 12.0
-offset_top = 12.0
-offset_right = 112.0
-offset_bottom = 48.0
-text = "Settings"
-metadata/_edit_use_anchors_ = true
-
-[node name="SettingsMenu" type="Panel" parent="CanvasLayer" unique_id=1457820727]
-process_mode = 2
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-theme_override_styles/panel = SubResource("StyleBoxFlat_settings_bg")
-metadata/_edit_use_anchors_ = true
-
-[node name="VolumeSlider" type="HSlider" parent="CanvasLayer/SettingsMenu" unique_id=1735194172]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.26555556
-anchor_top = -0.07333333
-anchor_right = -0.26555556
-anchor_bottom = -0.07333333
-offset_left = 251.0
-offset_top = 121.0
-offset_right = 1063.0
-offset_bottom = 178.0
-min_value = -40.0
-max_value = 0.0
-metadata/_edit_use_anchors_ = true
-
-[node name="Close" type="Button" parent="CanvasLayer/SettingsMenu" unique_id=1262974917]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.14333333
-anchor_top = -0.16666667
-anchor_right = 0.14333333
-anchor_bottom = -0.16666667
-offset_left = 575.0
-offset_top = 618.0
-offset_right = 756.0
-offset_bottom = 683.0
-text = "Close"
-metadata/_edit_use_anchors_ = true
-
-[node name="ChangeSkin" type="Button" parent="CanvasLayer/SettingsMenu" unique_id=64276600]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.26444444
-anchor_top = 0.061666667
-anchor_right = -0.26444444
-anchor_bottom = 0.061666667
-offset_left = 250.0
-offset_top = 167.0
-offset_right = 585.0
-offset_bottom = 272.0
-text = "Change Skin"
-metadata/_edit_use_anchors_ = true
-
-[node name="Save" type="Button" parent="CanvasLayer/SettingsMenu" unique_id=1426633663]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.5422222
-anchor_top = -0.045
-anchor_right = -0.5422222
-anchor_bottom = -0.045
-offset_left = 500.0
-offset_top = 503.0
-offset_right = 817.0
-offset_bottom = 610.0
-text = "Save Changes"
-metadata/_edit_use_anchors_ = true
-
-[node name="VolumeLabel" type="Label" parent="CanvasLayer/SettingsMenu" unique_id=292668444]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.26777777
-anchor_top = -0.07
-anchor_right = -0.26777777
-anchor_bottom = -0.07
-offset_left = 253.0
-offset_top = 90.0
-offset_right = 401.0
-offset_bottom = 168.0
-text = "Volume"
-label_settings = SubResource("LabelSettings_66dt1")
-metadata/_edit_use_anchors_ = true
-
-[node name="BrightnessLabel" type="Label" parent="CanvasLayer/SettingsMenu" unique_id=2000000003]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.26777777
-anchor_top = -0.31166667
-anchor_right = -0.26777777
-anchor_bottom = -0.31166667
-offset_left = 253.0
-offset_top = 300.0
-offset_right = 401.0
-offset_bottom = 378.0
-text = "Brightness"
-label_settings = SubResource("LabelSettings_66dt1")
-metadata/_edit_use_anchors_ = true
-
-[node name="BrightnessSlider" type="HSlider" parent="CanvasLayer/SettingsMenu" unique_id=2000000004]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.26555556
-anchor_top = -0.29666665
-anchor_right = -0.26555556
-anchor_bottom = -0.29666665
-offset_left = 251.0
-offset_top = 331.0
-offset_right = 1063.0
-offset_bottom = 388.0
-value = 100.0
-metadata/_edit_use_anchors_ = true
+[node name="CanvasLayer2" parent="CanvasLayer" unique_id=1430209239 instance=ExtResource("8_ldgsr")]
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=2071684409]
 stream = ExtResource("17_au278")
@@ -267,9 +109,5 @@ visible = false
 layout_mode = 2
 text = "Alt"
 
-[connection signal="pressed" from="CanvasLayer/SettingsButton" to="CanvasLayer" method="_on_settings_button_pressed"]
-[connection signal="value_changed" from="CanvasLayer/SettingsMenu/VolumeSlider" to="CanvasLayer" method="_on_volume_slider_value_changed"]
-[connection signal="pressed" from="CanvasLayer/SettingsMenu/Close" to="CanvasLayer" method="_on_close_pressed"]
-[connection signal="pressed" from="CanvasLayer/SettingsMenu/ChangeSkin" to="CanvasLayer" method="_on_change_skin_pressed"]
-[connection signal="pressed" from="CanvasLayer/SettingsMenu/Save" to="CanvasLayer" method="_on_save_pressed"]
-[connection signal="value_changed" from="CanvasLayer/SettingsMenu/BrightnessSlider" to="CanvasLayer" method="_on_brightness_slider_value_changed"]
+[node name="BridgeRepairTrigger" parent="." unique_id=765651546 instance=ExtResource("12_bridge_trigger")]
+position = Vector2(2555, -366)
