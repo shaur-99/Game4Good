@@ -131,6 +131,72 @@ func is_chapter3_complete() -> bool:
 	return is_chapter3_quest1_complete() and chapter3_quest2_home_visits_done and chapter3_quest3_festival_setup_done and chapter3_quest4_town_dialogue_done and chapter3_quest5_celebration_done
 
 
+func is_minimap_objective_active(objective_key: StringName) -> bool:
+	match objective_key:
+		&"ch0_traveller":
+			return not chapter0_traveler_done
+		&"ch0_family":
+			return chapter0_traveler_done and not chapter0_family_done
+		&"ch0_friend":
+			return chapter0_traveler_done and not chapter0_friend_done
+		&"ch1_q1_maggie":
+			return not is_quest1_complete() and not quest1_maggie_done
+		&"ch1_q1_kai":
+			return not is_quest1_complete() and not quest1_kai_done
+		&"ch1_q1_jessica":
+			return not is_quest1_complete() and not quest1_jessica_done
+		&"ch1_q2_arden":
+			return is_quest1_complete() and not is_quest2_complete() and not quest2_arden_done
+		&"ch1_q2_steven":
+			return is_quest1_complete() and not is_quest2_complete() and not quest2_steven_done
+		&"ch1_q2_aurora":
+			return is_quest1_complete() and not is_quest2_complete() and not quest2_aurora_done
+		&"ch1_bridge":
+			return needs_chapter1_bridge_repair()
+		&"ch1_q3_villagers":
+			return is_quest2_complete() and bridge_repaired and not quest3_complete
+		&"ch1_q4_council":
+			return quest3_complete and not quest4_complete
+		&"ch1_q5_villagers":
+			return quest4_complete and not quest5_complete
+		&"ch1_castle":
+			return is_chapter1_complete() and not is_chapter1_castle_puzzle_complete()
+		&"ch2_q1_jessica":
+			return not chapter2_beach_cleanup_started and not chapter2_beach_cleanup_done
+		&"ch2_q1_trash":
+			return chapter2_beach_cleanup_started and not chapter2_beach_cleanup_done
+		&"ch2_q2_matt":
+			return is_chapter2_quest1_complete() and not is_chapter2_quest2_complete()
+		&"ch2_q3_matt":
+			return is_chapter2_quest2_complete() and not chapter2_quest3_warehouse_done and not chapter2_quest3_matt_done
+		&"ch2_q3_kai":
+			return is_chapter2_quest2_complete() and not chapter2_quest3_warehouse_done and not chapter2_quest3_kai_done
+		&"ch2_q4_group":
+			return chapter2_quest3_warehouse_done and not chapter2_quest4_meeting_done
+		&"ch2_q5_sign":
+			return chapter2_quest4_meeting_done and not chapter2_sign_assembled and not chapter2_quest5_cleanup_done
+		&"ch3_q1_advaita":
+			return not is_chapter3_quest1_complete() and not chapter3_quest1_advaita_done
+		&"ch3_q1_sarina":
+			return not is_chapter3_quest1_complete() and not chapter3_quest1_sarina_done
+		&"ch3_q1_aurora":
+			return not is_chapter3_quest1_complete() and not chapter3_quest1_aurora_done
+		&"ch3_q2_advaita":
+			return is_chapter3_quest1_complete() and not chapter3_quest2_home_visits_done and not chapter3_quest2_advaita_done
+		&"ch3_q2_sarina":
+			return is_chapter3_quest1_complete() and not chapter3_quest2_home_visits_done and not chapter3_quest2_sarina_done
+		&"ch3_q2_aurora":
+			return is_chapter3_quest1_complete() and not chapter3_quest2_home_visits_done and not chapter3_quest2_aurora_done
+		&"ch3_q3_council":
+			return chapter3_quest2_home_visits_done and not chapter3_quest3_festival_setup_done
+		&"ch3_q4_council":
+			return chapter3_quest3_festival_setup_done and not chapter3_quest4_town_dialogue_done
+		&"ch3_q5_celebration":
+			return chapter3_quest4_town_dialogue_done and not chapter3_quest5_celebration_done
+		_:
+			return false
+
+
 func mark_quest1_maggie_done() -> void:
 	quest1_maggie_done = true
 

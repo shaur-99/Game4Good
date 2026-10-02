@@ -19,9 +19,13 @@
 [ext_resource type="PackedScene" path="res://character/FishingVillageResidents/fishing_village_residents.tscn" id="17_fvr"]
 [ext_resource type="PackedScene" path="res://character/Matt_Kai_Villagers/matt_kai_villagers.tscn" id="18_mkv"]
 [ext_resource type="PackedScene" path="res://character/StarMoonCouncilGroup/star_moon_council_group.tscn" id="19_smcg"]
+[ext_resource type="PackedScene" path="res://Scenes/ui/Minimap.tscn" id="20_minimap"]
+[ext_resource type="PackedScene" path="res://Scenes/ui/MinimapObjective.tscn" id="21_marker"]
 
 [node name="Main" type="Node2D" unique_id=1977179405]
 script = ExtResource("13_storyguide")
+
+[node name="MinimapLayer" parent="." instance=ExtResource("20_minimap")]
 
 [node name="Penguine" parent="." unique_id=336928025 instance=ExtResource("1_fhdlg")]
 
@@ -46,6 +50,12 @@ position = Vector2(1363, 552)
 [node name="Aurora" parent="." unique_id=1997513960 instance=ExtResource("8_aurora")]
 position = Vector2(1910, 82)
 
+[node name="Quest1MinimapObjective" parent="Aurora" instance=ExtResource("21_marker")]
+objective_key = &"ch3_q1_aurora"
+
+[node name="Quest2MinimapObjective" parent="Aurora" instance=ExtResource("21_marker")]
+objective_key = &"ch3_q2_aurora"
+
 [node name="Arden_Steven_Villagers" type="Node2D" parent="." unique_id=2099291272]
 
 [node name="Arden" parent="Arden_Steven_Villagers" unique_id=513018427 instance=ExtResource("9_arden")]
@@ -66,8 +76,20 @@ position = Vector2(3432, 93)
 [node name="Advaita" parent="." unique_id=1971089222 instance=ExtResource("15_advaita")]
 position = Vector2(3168, 90)
 
+[node name="Quest1MinimapObjective" parent="Advaita" instance=ExtResource("21_marker")]
+objective_key = &"ch3_q1_advaita"
+
+[node name="Quest2MinimapObjective" parent="Advaita" instance=ExtResource("21_marker")]
+objective_key = &"ch3_q2_advaita"
+
 [node name="Sarina" parent="." unique_id=802349898 instance=ExtResource("16_sarina")]
 position = Vector2(3168, 330)
+
+[node name="Quest1MinimapObjective" parent="Sarina" instance=ExtResource("21_marker")]
+objective_key = &"ch3_q1_sarina"
+
+[node name="Quest2MinimapObjective" parent="Sarina" instance=ExtResource("21_marker")]
+objective_key = &"ch3_q2_sarina"
 
 [node name="FishingVillageResidents" parent="." unique_id=448381792 instance=ExtResource("17_fvr")]
 position = Vector2(3184, 587)
@@ -77,6 +99,15 @@ position = Vector2(3456, 336)
 
 [node name="StarMoonCouncilGroup" parent="." unique_id=431261154 instance=ExtResource("19_smcg")]
 position = Vector2(3805, 340)
+
+[node name="Quest3MinimapObjective" parent="StarMoonCouncilGroup" instance=ExtResource("21_marker")]
+objective_key = &"ch3_q3_council"
+
+[node name="Quest4MinimapObjective" parent="StarMoonCouncilGroup" instance=ExtResource("21_marker")]
+objective_key = &"ch3_q4_council"
+
+[node name="Quest5MinimapObjective" parent="StarMoonCouncilGroup" instance=ExtResource("21_marker")]
+objective_key = &"ch3_q5_celebration"
 
 [node name="StoryGuideLayer" type="CanvasLayer" parent="." unique_id=836113592]
 layer = 100
