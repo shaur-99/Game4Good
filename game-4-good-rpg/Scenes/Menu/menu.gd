@@ -5,6 +5,9 @@ extends Control
 
 func _ready() -> void:
 	title_float()
+	var corner_button := get_node_or_null("CanvasLayer/SettingsButton")
+	if corner_button != null:
+		corner_button.visible = false
 
 func title_float() -> void:
 	var start_y = title_label.position.y
@@ -19,8 +22,8 @@ func title_float() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
 func GameRedirect() -> void:
+	await get_tree().create_timer(0.15).timeout
 	get_tree().change_scene_to_file("res://Scenes/start.tscn")
 
 
@@ -38,6 +41,7 @@ func ContinueGame() -> void:
 	var target = SaveManager.get_pending_scene_path()
 	if target.is_empty():
 		target = "res://Chapter 1/Clear Stream Valley.tscn"
+	await get_tree().create_timer(0.15).timeout
 	get_tree().change_scene_to_file(target)
 
 func QuitGame() -> void:

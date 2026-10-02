@@ -15,6 +15,10 @@ run/main_scene="uid://dduravpke4tpl"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://Sprites/icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://cjms8lnubsn5m"
+
 [autoload]
 
 global="*uid://drpslnkubvagw"
@@ -23,6 +27,7 @@ QuestState="*res://Scripts/quest_state.gd"
 AchievementManager="*res://Scripts/AchievementManager.gd"
 SaveManager="*uid://d0l12ry4gvne3"
 FadeTransition="*uid://c7rj22bx5ug2t"
+UiSounds="*uid://ch214dtsgc205"
 
 [display]
 

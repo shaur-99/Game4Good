@@ -14,10 +14,9 @@
 
 [node name="Start" type="Node2D" unique_id=1268696800]
 y_sort_enabled = true
-position = Vector2(-1, 0)
 script = ExtResource("10_storyguide")
 
-[node name="MinimapLayer" parent="." instance=ExtResource("18_minimap")]
+[node name="MinimapLayer" parent="." unique_id=655450076 instance=ExtResource("18_minimap")]
 
 [node name="TileMapLayer" parent="." unique_id=272419504 instance=ExtResource("2_r48yj")]
 tile_map_data = PackedByteArray("AAABAN7/AAAAAAAAAAABANz/AAAAAAAAAAABANv/AAAAAAAAAAACABAABQAAAAAAAAD+/xYABQAAAAAAAAABAPb/BQAAAAAAAAAFAOn/BQAAAAAAAAAIAOT/BQAAAAAAAAAUAPD/DAAAAAAAAAA=")
@@ -26,21 +25,21 @@ tile_map_data = PackedByteArray("AAABAN7/AAAAAAAAAAABANz/AAAAAAAAAAABANv/AAAAAAA
 z_index = 1
 position = Vector2(869, -110)
 
-[node name="MinimapObjective" parent="Traveller" instance=ExtResource("19_marker")]
+[node name="MinimapObjective" parent="Traveller" unique_id=405657412 instance=ExtResource("19_marker")]
 objective_key = &"ch0_traveller"
 
 [node name="Family" parent="." unique_id=1997513962 instance=ExtResource("14_family")]
 z_index = 1
 position = Vector2(307, -279)
 
-[node name="MinimapObjective" parent="Family" instance=ExtResource("19_marker")]
+[node name="MinimapObjective" parent="Family" unique_id=1339514625 instance=ExtResource("19_marker")]
 objective_key = &"ch0_family"
 
 [node name="Friend" parent="." unique_id=1997513963 instance=ExtResource("15_adele")]
 z_index = 1
 position = Vector2(620, 75)
 
-[node name="MinimapObjective" parent="Friend" instance=ExtResource("19_marker")]
+[node name="MinimapObjective" parent="Friend" unique_id=1515688228 instance=ExtResource("19_marker")]
 objective_key = &"ch0_friend"
 
 [node name="CharacterBody2D" parent="." unique_id=1301413091 instance=ExtResource("1_3bxa3")]
@@ -58,6 +57,7 @@ position_smoothing_enabled = true
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=2071684409]
 stream = ExtResource("17_au278")
 autoplay = true
+bus = &"Music"
 
 [node name="StoryGuideLayer" type="CanvasLayer" parent="." unique_id=836113592]
 layer = 100
