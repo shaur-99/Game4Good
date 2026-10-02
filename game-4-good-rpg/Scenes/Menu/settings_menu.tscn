@@ -2,6 +2,39 @@
 
 [ext_resource type="Script" uid="uid://c55m2pptkuvkl" path="res://Chapter 1/MenuScript.gd" id="1_uit7r"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8inha"]
+bg_color = Color(0.5294118, 0.6392157, 0.4627451, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_051s4"]
+bg_color = Color(0.21176471, 0.27058825, 0.17254902, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uit7r"]
+bg_color = Color(0.39607844, 0.49411765, 0.3372549, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_settings_bg"]
 content_margin_left = 30.0
 content_margin_top = 30.0
@@ -18,6 +51,13 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m6csd"]
+bg_color = Color(0.5294118, 0.6392157, 0.4627451, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qok0p"]
 bg_color = Color(0.5294118, 0.6392157, 0.4627451, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
@@ -156,13 +196,6 @@ font_size = 30
 shadow_size = 6
 shadow_color = Color(0, 0, 0, 0.90588236)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qok0p"]
-bg_color = Color(0.5294118, 0.6392157, 0.4627451, 1)
-corner_radius_top_left = 5
-corner_radius_top_right = 5
-corner_radius_bottom_right = 5
-corner_radius_bottom_left = 5
-
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1430209239]
 layer = 110
 script = ExtResource("1_uit7r")
@@ -172,6 +205,9 @@ offset_left = 12.0
 offset_top = 12.0
 offset_right = 112.0
 offset_bottom = 48.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_8inha")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_051s4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_uit7r")
 text = "Settings"
 
 [node name="SettingsMenu" type="Panel" parent="." unique_id=1502563556]
@@ -207,6 +243,37 @@ min_value = -40.0
 max_value = 0.0
 metadata/_edit_use_anchors_ = true
 
+[node name="SFXSlider" type="HSlider" parent="SettingsMenu" unique_id=747856247]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.2213769
+anchor_top = 0.04171043
+anchor_right = -0.2213769
+anchor_bottom = 0.041710384
+offset_left = 251.0
+offset_top = 121.0
+offset_right = 1063.0
+offset_bottom = 178.0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_m6csd")
+min_value = -40.0
+max_value = 0.0
+metadata/_edit_use_anchors_ = true
+
+[node name="BrightnessSlider" type="HSlider" parent="SettingsMenu" unique_id=1725925215]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.2213769
+anchor_top = -0.15971407
+anchor_right = -0.2213769
+anchor_bottom = -0.1597141
+offset_left = 251.0
+offset_top = 331.0
+offset_right = 1063.0
+offset_bottom = 388.0
+theme_override_styles/grabber_area = SubResource("StyleBoxFlat_qok0p")
+value = 100.0
+metadata/_edit_use_anchors_ = true
+
 [node name="Close" type="Button" parent="SettingsMenu" unique_id=813324834]
 layout_mode = 1
 anchors_preset = -1
@@ -228,14 +295,14 @@ metadata/_edit_use_anchors_ = true
 [node name="ChangeSkin" type="Button" parent="SettingsMenu" unique_id=1521025762]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = -0.2223393
-anchor_top = 0.07418861
-anchor_right = -0.2223393
-anchor_bottom = 0.07418861
+anchor_left = -0.22128557
+anchor_top = 0.18547146
+anchor_right = -0.22128557
+anchor_bottom = 0.18547146
 offset_left = 250.0
 offset_top = 167.0
-offset_right = 585.0
-offset_bottom = 272.0
+offset_right = 570.0
+offset_bottom = 267.0
 theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxFlat_qwfkq")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_wxa3f")
@@ -252,8 +319,8 @@ anchor_right = -0.48155954
 anchor_bottom = -0.00927357
 offset_left = 500.0
 offset_top = 503.0
-offset_right = 818.032
-offset_bottom = 606.023
+offset_right = 820.0
+offset_bottom = 603.0
 theme_override_font_sizes/font_size = 22
 theme_override_styles/normal = SubResource("StyleBoxFlat_hgg7c")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_0401g")
@@ -272,7 +339,22 @@ offset_left = 253.0
 offset_top = 90.0
 offset_right = 401.0
 offset_bottom = 168.0
-text = "Volume"
+text = "Music"
+label_settings = SubResource("LabelSettings_8inha")
+metadata/_edit_use_anchors_ = true
+
+[node name="SFXLabel" type="Label" parent="SettingsMenu" unique_id=953548716]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.2235991
+anchor_top = 0.045043826
+anchor_right = -0.2235991
+anchor_bottom = 0.045043826
+offset_left = 253.0
+offset_top = 90.0
+offset_right = 401.0
+offset_bottom = 168.0
+text = "Sound Effect"
 label_settings = SubResource("LabelSettings_8inha")
 metadata/_edit_use_anchors_ = true
 
@@ -280,9 +362,9 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.2235991
-anchor_top = -0.2986038
+anchor_top = -0.15640907
 anchor_right = -0.2235991
-anchor_bottom = -0.2986038
+anchor_bottom = -0.15640905
 offset_left = 253.0
 offset_top = 300.0
 offset_right = 401.0
@@ -292,24 +374,10 @@ text = "Brightness"
 label_settings = SubResource("LabelSettings_8inha")
 metadata/_edit_use_anchors_ = true
 
-[node name="BrightnessSlider" type="HSlider" parent="SettingsMenu" unique_id=1725925215]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -0.2213769
-anchor_top = -0.28027052
-anchor_right = -0.2213769
-anchor_bottom = -0.28027052
-offset_left = 251.0
-offset_top = 331.0
-offset_right = 1063.0
-offset_bottom = 388.0
-theme_override_styles/grabber_area = SubResource("StyleBoxFlat_qok0p")
-value = 100.0
-metadata/_edit_use_anchors_ = true
-
 [connection signal="pressed" from="SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="value_changed" from="SettingsMenu/VolumeSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="value_changed" from="SettingsMenu/SFXSlider" to="." method="_on_volume_slider_value_changed"]
+[connection signal="value_changed" from="SettingsMenu/BrightnessSlider" to="." method="_on_brightness_slider_value_changed"]
 [connection signal="pressed" from="SettingsMenu/Close" to="." method="_on_close_pressed"]
 [connection signal="pressed" from="SettingsMenu/ChangeSkin" to="." method="_on_change_skin_pressed"]
 [connection signal="pressed" from="SettingsMenu/Save" to="." method="_on_save_pressed"]
-[connection signal="value_changed" from="SettingsMenu/BrightnessSlider" to="." method="_on_brightness_slider_value_changed"]

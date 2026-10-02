@@ -7,6 +7,9 @@ const PlayerScript = preload("res://Scripts/PlayerScript.gd")
 @onready var brightness_slider: HSlider = get_node_or_null("SettingsMenu/BrightnessSlider")
 var music_player: AudioStreamPlayer
 var player: PlayerScript
+@onready var sfx_slider = get_node_or_null("SettingsMenu/SFXSlider")
+const MUSIC_BUS := "Music"
+const SFX_BUS := "SFX"
 
 var menu_open := false
 var _settings_input_locked := false
@@ -23,11 +26,13 @@ func _ready():
 	player = _resolve_player()
 	# Start with menu hidden
 	settings_menu.visible = false
+	_setup_sfx_slider()
+	load_settings()
 	load_settings()
 	_load_brightness()
 	call_deferred("_create_brightness_overlay")
 	# Optional: set default volume
-	AudioServer.set_bus_volume_db(0, volume_slider.value)
+	_on_volume_slider_value_changed(volume_slider.value)
 
 func _create_brightness_overlay() -> void:
 	# Add a full-screen dim overlay directly to THIS Settings CanvasLayer (self).
@@ -75,13 +80,30 @@ func _on_settings_button_pressed():
 	_set_settings_menu_open(not menu_open)
 
 # 🔊 When volume slider changes
-func _on_volume_slider_value_changed(value):
+func _set_bus_volume_from_slider(bus_name: String, value: float) -> void:
+	var idx := AudioServer.get_bus_index(bus_name)
+	if idx == -1:
+		return
 	if value <= -40:
-		AudioServer.set_bus_mute(0, true)
+		AudioServer.set_bus_mute(idx, true)
 	else:
-		AudioServer.set_bus_mute(0, false)
-		AudioServer.set_bus_volume_db(0, value)
+		AudioServer.set_bus_mute(idx, false)
+		AudioServer.set_bus_volume_db(idx, value)
 
+func _on_volume_slider_value_changed(value):
+	_set_bus_volume_from_slider(MUSIC_BUS, value)
+
+func _setup_sfx_slider() -> void:
+	if sfx_slider == null:
+		return
+	# The duplicated slider may still be wired to the main volume handler, so clear that first.
+	for c in sfx_slider.value_changed.get_connections():
+		sfx_slider.value_changed.disconnect(c.callable)
+	sfx_slider.value_changed.connect(_on_sfx_slider_value_changed)
+	_on_sfx_slider_value_changed(sfx_slider.value)
+
+func _on_sfx_slider_value_changed(value: float) -> void:
+	_set_bus_volume_from_slider(SFX_BUS, value)
 
 func _on_close_pressed():
 	_set_settings_menu_open(false)
@@ -92,11 +114,12 @@ func _on_change_skin_pressed() -> void:
 		player.cycle_skin()
 		player.save_current_skin()
 
-
 func _on_save_pressed() -> void:
 	var config = ConfigFile.new()
 	config.load("user://settings.cfg")
 	config.set_value("audio", "volume", volume_slider.value)
+	if sfx_slider:
+		config.set_value("audio", "sfx_volume", sfx_slider.value)
 	if brightness_slider:
 		config.set_value("video", "brightness", brightness_slider.value)
 	if player:
@@ -109,6 +132,8 @@ func load_settings():
 	var config = ConfigFile.new()
 	if config.load("user://settings.cfg") == OK:
 		volume_slider.value = config.get_value("audio", "volume", 0)
+		if sfx_slider:
+			sfx_slider.value = config.get_value("audio", "sfx_volume", sfx_slider.value)
 
 func _resolve_player() -> PlayerScript:
 	var scene := get_tree().current_scene

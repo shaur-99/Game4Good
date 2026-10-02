@@ -23,7 +23,7 @@ y_sort_enabled = true
 script = ExtResource("3_storyguide")
 begins_on_chapter1_map = true
 
-[node name="MinimapLayer" parent="." instance=ExtResource("16_minimap")]
+[node name="MinimapLayer" parent="." unique_id=1780558077 instance=ExtResource("16_minimap")]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1245745413]
 y_sort_enabled = true
@@ -50,6 +50,7 @@ position_smoothing_enabled = true
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=2071684409]
 stream = ExtResource("14_au278")
 autoplay = true
+bus = &"Music"
 parameters/looping = true
 
 [node name="Maggie" parent="." unique_id=1224434304 instance=ExtResource("4_maggie")]
@@ -57,7 +58,7 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(167, -875)
 
-[node name="MinimapObjective" parent="Maggie" instance=ExtResource("17_marker")]
+[node name="MinimapObjective" parent="Maggie" unique_id=11210099 instance=ExtResource("17_marker")]
 objective_key = &"ch1_q1_maggie"
 
 [node name="Kai" parent="." unique_id=1417196607 instance=ExtResource("5_kai")]
@@ -65,7 +66,7 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(632, -475)
 
-[node name="MinimapObjective" parent="Kai" instance=ExtResource("17_marker")]
+[node name="MinimapObjective" parent="Kai" unique_id=1335539034 instance=ExtResource("17_marker")]
 objective_key = &"ch1_q1_kai"
 
 [node name="Jessica" parent="." unique_id=989292783 instance=ExtResource("6_jessica")]
@@ -73,7 +74,7 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(-13, -182)
 
-[node name="MinimapObjective" parent="Jessica" instance=ExtResource("17_marker")]
+[node name="MinimapObjective" parent="Jessica" unique_id=1795641366 instance=ExtResource("17_marker")]
 objective_key = &"ch1_q1_jessica"
 
 [node name="Aurora" parent="." unique_id=1997513960 instance=ExtResource("9_aurora")]
@@ -81,7 +82,7 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(305, 312)
 
-[node name="MinimapObjective" parent="Aurora" instance=ExtResource("17_marker")]
+[node name="MinimapObjective" parent="Aurora" unique_id=1626153620 instance=ExtResource("17_marker")]
 objective_key = &"ch1_q2_aurora"
 
 [node name="Arden_Steven_Villagers" type="Node2D" parent="." unique_id=2099291272]
@@ -91,7 +92,7 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(-255, 757)
 
-[node name="MinimapObjective" parent="Arden_Steven_Villagers/Arden" instance=ExtResource("17_marker")]
+[node name="MinimapObjective" parent="Arden_Steven_Villagers/Arden" unique_id=1942332099 instance=ExtResource("17_marker")]
 objective_key = &"ch1_q2_arden"
 
 [node name="Steven" parent="Arden_Steven_Villagers" unique_id=484491093 instance=ExtResource("8_steven")]
@@ -99,7 +100,7 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(-717, -151)
 
-[node name="MinimapObjective" parent="Arden_Steven_Villagers/Steven" instance=ExtResource("17_marker")]
+[node name="MinimapObjective" parent="Arden_Steven_Villagers/Steven" unique_id=363903012 instance=ExtResource("17_marker")]
 objective_key = &"ch1_q2_steven"
 
 [node name="Villagers" parent="Arden_Steven_Villagers" unique_id=2099291273 instance=ExtResource("10_villagers")]
@@ -107,10 +108,10 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(3289, -220)
 
-[node name="Quest3MinimapObjective" parent="Arden_Steven_Villagers/Villagers" instance=ExtResource("17_marker")]
+[node name="Quest3MinimapObjective" parent="Arden_Steven_Villagers/Villagers" unique_id=2056794127 instance=ExtResource("17_marker")]
 objective_key = &"ch1_q3_villagers"
 
-[node name="Quest5MinimapObjective" parent="Arden_Steven_Villagers/Villagers" instance=ExtResource("17_marker")]
+[node name="Quest5MinimapObjective" parent="Arden_Steven_Villagers/Villagers" unique_id=631356347 instance=ExtResource("17_marker")]
 objective_key = &"ch1_q5_villagers"
 
 [node name="ArdenStevenVillagersGroup" parent="Arden_Steven_Villagers" unique_id=1808582659 instance=ExtResource("11_asv")]
@@ -118,14 +119,14 @@ z_index = 1
 y_sort_enabled = true
 position = Vector2(3688, -210)
 
-[node name="MinimapObjective" parent="Arden_Steven_Villagers/ArdenStevenVillagersGroup" instance=ExtResource("17_marker")]
+[node name="MinimapObjective" parent="Arden_Steven_Villagers/ArdenStevenVillagersGroup" unique_id=1411990433 instance=ExtResource("17_marker")]
 objective_key = &"ch1_q4_council"
 
 [node name="BridgeRepairTrigger" parent="." unique_id=1810067865 instance=ExtResource("15_bridge_trigger")]
 z_index = 2
 position = Vector2(2746, 678)
 
-[node name="MinimapObjective" parent="BridgeRepairTrigger" instance=ExtResource("17_marker")]
+[node name="MinimapObjective" parent="BridgeRepairTrigger" unique_id=1551056764 instance=ExtResource("17_marker")]
 objective_key = &"ch1_bridge"
 position_source = NodePath("WarningIcon")
 
@@ -133,7 +134,7 @@ position_source = NodePath("WarningIcon")
 z_index = 2
 position = Vector2(3216, -511)
 
-[node name="MinimapObjective" parent="CastlePuzzleTrigger" instance=ExtResource("17_marker")]
+[node name="MinimapObjective" parent="CastlePuzzleTrigger" unique_id=222001802 instance=ExtResource("17_marker")]
 objective_key = &"ch1_castle"
 
 [node name="StoryGuideLayer" type="CanvasLayer" parent="." unique_id=836113592]
