@@ -72,7 +72,7 @@ objective_key = &"ch1_q1_kai"
 [node name="Jessica" parent="." unique_id=989292783 instance=ExtResource("6_jessica")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(-13, -182)
+position = Vector2(13, -474)
 
 [node name="MinimapObjective" parent="Jessica" unique_id=1795641366 instance=ExtResource("17_marker")]
 objective_key = &"ch1_q1_jessica"
@@ -86,11 +86,12 @@ position = Vector2(305, 312)
 objective_key = &"ch1_q2_aurora"
 
 [node name="Arden_Steven_Villagers" type="Node2D" parent="." unique_id=2099291272]
+position = Vector2(22, -15)
 
 [node name="Arden" parent="Arden_Steven_Villagers" unique_id=513018427 instance=ExtResource("7_arden")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(-255, 757)
+position = Vector2(81, 879)
 
 [node name="MinimapObjective" parent="Arden_Steven_Villagers/Arden" unique_id=1942332099 instance=ExtResource("17_marker")]
 objective_key = &"ch1_q2_arden"
@@ -106,7 +107,7 @@ objective_key = &"ch1_q2_steven"
 [node name="Villagers" parent="Arden_Steven_Villagers" unique_id=2099291273 instance=ExtResource("10_villagers")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(3289, -220)
+position = Vector2(3438, -216)
 
 [node name="Quest3MinimapObjective" parent="Arden_Steven_Villagers/Villagers" unique_id=2056794127 instance=ExtResource("17_marker")]
 objective_key = &"ch1_q3_villagers"
@@ -117,7 +118,7 @@ objective_key = &"ch1_q5_villagers"
 [node name="ArdenStevenVillagersGroup" parent="Arden_Steven_Villagers" unique_id=1808582659 instance=ExtResource("11_asv")]
 z_index = 1
 y_sort_enabled = true
-position = Vector2(3688, -210)
+position = Vector2(3737, -40)
 
 [node name="MinimapObjective" parent="Arden_Steven_Villagers/ArdenStevenVillagersGroup" unique_id=1411990433 instance=ExtResource("17_marker")]
 objective_key = &"ch1_q4_council"
