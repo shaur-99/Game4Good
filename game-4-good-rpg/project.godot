@@ -28,8 +28,7 @@ AchievementManager="*res://Scripts/AchievementManager.gd"
 SaveManager="*uid://d0l12ry4gvne3"
 FadeTransition="*uid://c7rj22bx5ug2t"
 UiSounds="*uid://ch214dtsgc205"
-QuestMarkerManager="*res://Scripts/QuestMarkerManager.gd"
-QuestLogUI="*res://Scripts/QuestLogUI.gd"
+UiStyle="*uid://ck80lemnu0ng5"
 
 [display]
 

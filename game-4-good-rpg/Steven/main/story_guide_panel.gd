@@ -271,7 +271,7 @@ const CHAPTER1_CASTLE_GATE_SUMMARY := {
 # |---------|-------|---------------------|
 # | 1       | res://Chapter 1/Clear Stream Valley.tscn | begins_on_chapter1_map = true |
 # | 2       | res://Scenes/chapter_2.tscn              | begins_on_chapter2_map = true |
-# | 3       | res://Scenes/chapter_3.tscn              | begins_on_chapter3_map = true |
+# | 3       | res://Steven/main/Main.tscn (temporary)  | begins_on_chapter3_map = true |
 #
 # Autoplay (auto presses Space + panel): uncomment the block in _ready() (~line 280).
 # =============================================================================
@@ -307,14 +307,19 @@ const SKIP_TO_CHAPTER_3_TEST := false
 
 const CHAPTER_1_SCENE := "res://Chapter 1/Clear Stream Valley.tscn"
 const CHAPTER_2_SCENE := "res://Scenes/chapter_2.tscn"
-const CHAPTER_3_SCENE := "res://Scenes/chapter_3.tscn"
+const CHAPTER_3_SCENE := "res://Steven/main/Main.tscn" # TODO: replace when a dedicated Ch3 scene is available
 const MENU_SCENE := "res://Scenes/Menu/menu.tscn"
+const UI_PANEL_BG := Color(0.051, 0.059, 0.078, 0.784)
+const UI_BORDER := Color(0.8, 0.8, 0.8)
+const UI_GREEN := Color(0.529, 0.639, 0.463)
+const UI_GREEN_HOVER := Color(0.396, 0.494, 0.337)
+const UI_GREEN_DARK := Color(0.212, 0.271, 0.173)
 
 ## F6 Ch1 map: skip Ch0 intro and open Ch1 Chapter Context.
 @export var begins_on_chapter1_map: bool = false
 ## F6 Ch2 map: skip Ch0-Ch1 and open Ch2 Chapter Context.
 @export var begins_on_chapter2_map: bool = false
-## F6 Ch3 map (chapter_3.tscn): skip Ch0-Ch2 and open Ch3 Chapter Context.
+## F6 Ch3 map (temporary Main.tscn): skip Ch0-Ch2 and open Ch3 Chapter Context.
 @export var begins_on_chapter3_map: bool = false
 
 enum PanelMode {
@@ -348,7 +353,8 @@ var _ch1_square_snap_quest4: bool = false
 var _ch1_square_snap_quest5: bool = false
 var _ch1_square_snap_bridge_repaired: bool = false
 var _ch1_last_quest2_done: bool = false
-
+## Quest whose "move to the next quest?" prompt was declined with "Not now" (-1 = none).
+var _declined_quest_index: int = -1
 ## Chapter 2 — cast theo quest (chapter_2.tscn).
 ## Jessica: Q1–Q5. Matt / Kai / FishingVillageResidents: Q1–Q3. MattKaiVillagers: Q4–Q5.
 var _ch2_matt: Node2D
@@ -382,6 +388,48 @@ var final_summary_chapter_id: int = -1
 var active_guide_kind: String = ""
 ## Open dialogue balloons block quest-completion UI if we pause mid-conversation.
 var _story_dialogue_sessions: int = 0
+
+func _make_box(bg: Color, radius: int, border: int, border_color: Color) -> StyleBoxFlat:
+	var box := StyleBoxFlat.new()
+	box.bg_color = bg
+	box.border_color = border_color
+	box.set_border_width_all(border)
+	box.set_corner_radius_all(radius)
+	return box
+
+
+func _style_guide_button(button: Button) -> void:
+	button.custom_minimum_size = Vector2(190, 46)
+	button.add_theme_font_size_override("font_size", 20)
+	button.add_theme_stylebox_override("normal", _make_box(UI_GREEN, 10, 3, UI_BORDER))
+	button.add_theme_stylebox_override("hover", _make_box(UI_GREEN_HOVER, 10, 3, UI_BORDER))
+	button.add_theme_stylebox_override("pressed", _make_box(UI_GREEN_DARK, 10, 3, UI_BORDER))
+	button.add_theme_stylebox_override("focus", _make_box(UI_GREEN_HOVER, 10, 3, Color.WHITE))
+
+
+func _apply_guide_style() -> void:
+	guide_panel.add_theme_stylebox_override("panel", _make_box(UI_PANEL_BG, 20, 4, UI_BORDER))
+	guide_panel.grow_horizontal = Control.GROW_DIRECTION_BOTH
+	guide_panel.grow_vertical = Control.GROW_DIRECTION_BOTH
+	guide_panel.offset_left = -340.0
+	guide_panel.offset_right = 340.0
+	guide_panel.offset_top = -170.0
+	guide_panel.offset_bottom = 170.0
+
+	var margin := guide_panel.get_node("ContentMargin") as MarginContainer
+	for side in ["left", "top", "right", "bottom"]:
+		margin.add_theme_constant_override("margin_" + side, 30)
+	guide_panel.get_node("ContentMargin/ContentVBox").add_theme_constant_override("separation", 14)
+
+	chapter_label.add_theme_font_size_override("font_size", 18)
+	chapter_label.add_theme_color_override("font_color", UI_GREEN)
+	title_label.add_theme_font_size_override("font_size", 32)
+	description_label.add_theme_font_size_override("font_size", 20)
+	page_label.add_theme_font_size_override("font_size", 16)
+	page_label.modulate = Color(1, 1, 1, 0.6)
+
+	_style_guide_button(next_button)
+	_style_guide_button(alt_button)
 
 func _ready() -> void:
 	if SKIP_TO_CHAPTER_3_TEST:
@@ -446,6 +494,7 @@ func _ready() -> void:
 	story_guide_layer.layer = maxi(story_guide_layer.layer, 101)
 	story_guide_layer.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 	guide_panel.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
+	_apply_guide_style()
 	next_button.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 	alt_button.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
 	next_button.pressed.connect(_on_next_button_pressed)
@@ -619,6 +668,7 @@ func _on_alt_button_pressed() -> void:
 		if completed_idx < 0:
 			completed_idx = current_chapter_quest_index
 		suppressed_completion_prompt_index = completed_idx
+		_declined_quest_index = completed_idx
 		pending_completion_prompt_index = -1
 		_completion_prompt_quest_index = -1
 		_close_guide_panel()
@@ -1075,18 +1125,37 @@ func _on_story_dialogue_ended(_resource: DialogueResource) -> void:
 	_story_dialogue_sessions = maxi(0, _story_dialogue_sessions - 1)
 	if _story_dialogue_sessions == 0:
 		call_deferred("_flush_pending_story_flow_checks")
-		call_deferred("_reoffer_chapter1_confirmation")
+		call_deferred("_reoffer_declined_prompts")
 
-func _reoffer_chapter1_confirmation() -> void:
+
+## Brings back any "Not now" prompt after the player finishes talking to someone.
+func _reoffer_declined_prompts() -> void:
 	if _story_dialogue_sessions > 0 or is_guide_open:
 		return
-	if active_chapter_id != 0 or not chapter0_guide_closed:
+
+	# Quest prompt: "Quest N finished! Move to the next quest?"
+	_sync_active_chapter_from_scene()
+	if _declined_quest_index >= 0 and active_chapter_id >= 1:
+		var idx := _declined_quest_index
+		if _is_chapter_quest_complete(active_chapter_id, idx) and suppressed_completion_prompt_index <= idx:
+			_open_quest_completion_confirmation(idx)
+			return
+		_declined_quest_index = -1 # next quest already started, nothing to re-offer
+
+	# Chapter 0 -> 1 (start map)
+	if active_chapter_id == 0 and chapter0_guide_closed and not begins_on_chapter3_map:
+		if QuestState.is_chapter0_complete() and not QuestState.chapter1_description_shown:
+			_open_chapter_confirmation(1)
 		return
-	if _is_on_chapter1_map() or _is_on_chapter2_map() or begins_on_chapter3_map:
+
+	# Chapter 1 -> 2 (Clear Stream Valley)
+	if _is_on_chapter1_map() and QuestState.chapter1_summary_shown and not QuestState.chapter2_description_shown:
+		_open_chapter_confirmation(2)
 		return
-	if not QuestState.is_chapter0_complete() or QuestState.chapter1_description_shown:
-		return
-	_open_chapter_confirmation(1)
+
+	# Chapter 2 -> 3
+	if _is_on_chapter2_map() and QuestState.chapter2_summary_shown and not QuestState.chapter3_description_shown:
+		_open_chapter_confirmation(3)
 
 func _is_story_dialogue_active() -> bool:
 	return _story_dialogue_sessions > 0
@@ -1210,6 +1279,7 @@ func _arm_quest_completion_prompt(quest_index: int) -> void:
 func _resolve_quest_index_for_completion_prompt() -> int:
 	if (
 		current_chapter_quest_index >= 0
+		and current_chapter_quest_index > suppressed_completion_prompt_index
 		and _is_chapter_quest_complete(active_chapter_id, current_chapter_quest_index)
 	):
 		return current_chapter_quest_index
@@ -1278,6 +1348,7 @@ func _advance_after_quest_completion(completed_quest_index: int) -> void:
 		return
 
 	_sync_active_chapter_from_scene()
+	_declined_quest_index = -1
 	if active_chapter_id == 1 and completed_quest_index == 1:
 		QuestState.acknowledge_chapter1_quest2_completion()
 		_ch1_square_snap_quest2 = _chapter1_quest2_completion_snap_value()

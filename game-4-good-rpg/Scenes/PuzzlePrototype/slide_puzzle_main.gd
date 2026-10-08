@@ -18,15 +18,21 @@ extends Area2D
 @export var simulate_puzzle_completed: bool = false
 const CASTLE_RETURN_SCENE_META := "castle_puzzle_return_scene"
 
-@onready var achievement_popup = $AchievementPopup
-
 const TILE_SIZE := 150
-const BOARD_OFFSET := Vector2(150, 0)
+const BOARD_OFFSET := Vector2(340, 60)
 
 var tiles = []
 var solved = []
 var mouse = false
 var _puzzle_finished := false
+
+func _draw() -> void:
+	var box := StyleBoxFlat.new()
+	box.bg_color = Color(1.0, 1.0, 1.0, 0.518)
+	box.border_color = Color(0.53, 0.64, 0.46)
+	box.set_border_width_all(8)
+	box.set_corner_radius_all(30)
+	draw_style_box(box, Rect2(-40, -40, 1080, 1080))
 
 func _ready():
 	position = BOARD_OFFSET
@@ -37,6 +43,7 @@ func _ready():
 
 func start_game():
 	tiles = [$Tile1, $Tile2, $Tile3, $Tile4, $Tile5, $Tile6, $Tile7, $Tile8, $Tile9, $Tile10, $Tile11, $Tile12, $Tile13, $Tile14, $Tile15, $Tile16]
+	$Tile16.visible = false
 	solved = tiles.duplicate()
 	shuffle_tiles()
 
@@ -52,6 +59,10 @@ func shuffle_tiles():
 			previous_1 = previous
 			previous = tile
 
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.pressed:
+		print("clicked over: ", get_viewport().gui_get_hovered_control())
+
 func _process(_delta: float) -> void:
 	if simulate_puzzle_completed and Input.is_action_just_pressed("ui_accept"):
 		_complete_puzzle_as_test()
@@ -66,7 +77,7 @@ func _process(_delta: float) -> void:
 		check_neighbours(rows, cols)
 
 		if tiles == solved:
-			_complete_puzzle_win(true)
+			_complete_puzzle_win()
 	
 func check_neighbours(rows, cols):
 	var empty = false
@@ -124,29 +135,44 @@ func _input_event(viewport, event, shape_idx):
 
 func _complete_puzzle_as_test() -> void:
 	print("[test] Puzzle completed (simulate_puzzle_completed).")
-	_complete_puzzle_win(true)
+	_complete_puzzle_win()
 
+func _show_complete_message() -> void:
+	var layer := CanvasLayer.new()
+	layer.layer = 10
+	add_child(layer)
 
-func _complete_puzzle_win(show_popup: bool) -> void:
+	var center := CenterContainer.new()
+	center.set_anchors_preset(Control.PRESET_FULL_RECT)
+	center.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	layer.add_child(center)
+
+	var box := StyleBoxFlat.new()
+	box.bg_color = Color(0.05, 0.06, 0.08, 0.9)
+	box.border_color = Color(0.53, 0.64, 0.46)
+	box.set_border_width_all(4)
+	box.set_corner_radius_all(20)
+	box.set_content_margin_all(30)
+
+	var panel := PanelContainer.new()
+	panel.add_theme_stylebox_override("panel", box)
+	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	center.add_child(panel)
+
+	var label := Label.new()
+	label.text = "Puzzle Complete!"
+	label.add_theme_font_size_override("font_size", 48)
+	panel.add_child(label)
+
+func _complete_puzzle_win() -> void:
 	if _puzzle_finished:
 		return
 	_puzzle_finished = true
 	if not QuestState.is_chapter1_castle_puzzle_complete():
 		QuestState.mark_chapter1_castle_puzzle_complete()
-	emit_signal("puzzle_completed")
-	if show_popup:
-		show_achievement()
-	else:
-		print("You win!")
-		_return_from_castle_puzzle()
-
-
-func show_achievement() -> void:
-	achievement_popup.visible = true
-	await get_tree().create_timer(3.0).timeout
-	achievement_popup.visible = false
+	_show_complete_message()
+	await get_tree().create_timer(2.0).timeout
 	_return_from_castle_puzzle()
-
 
 func _return_from_castle_puzzle() -> void:
 	if get_tree().has_meta(CASTLE_RETURN_SCENE_META):

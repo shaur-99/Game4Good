@@ -16,25 +16,19 @@ func _ready() -> void:
 	add_to_group("bridge_plank")
 	start_position = global_position
 	target_position = start_position
+	# Keep the sprite centred so the diamond tile lines up with the drop zone.
+	var sprite := get_node_or_null("Sprite2D")
+	if sprite:
+		sprite.position = Vector2.ZERO
+		sprite.centered = true
 
-func _input(event: InputEvent) -> void:
-	if not (event is InputEventMouseButton):
+func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	print("plank clicked: ", plank_id)
+	if placed:
 		return
-	if event.button_index != MOUSE_BUTTON_LEFT:
-		return
-
-	if event.pressed:
-		if placed or selected:
-			return
-		if _hit_test(get_global_mouse_position()):
-			selected = true
-			z_index = 999
-			get_viewport().set_input_as_handled()
-	else:
-		if selected:
-			selected = false
-			check_drop_zone()
-			get_viewport().set_input_as_handled()
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		selected = true
+		z_index = 999
 
 func _physics_process(delta: float) -> void:
 	if placed:
@@ -44,17 +38,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		global_position = global_position.lerp(target_position, min(return_speed * delta, 1.0))
 
-func _hit_test(mouse: Vector2) -> bool:
-	var rect := _visual_rect()
-	return rect.has_point(mouse)
-
-func _visual_rect() -> Rect2:
-	var sprite := get_node_or_null("Sprite2D") as Sprite2D
-	if sprite == null or sprite.texture == null:
-		return Rect2(global_position - Vector2(42, 26), Vector2(84, 52))
-	var size := sprite.texture.get_size() * sprite.scale
-	var center := global_position + sprite.position
-	return Rect2(center - size * 0.5, size)
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed and selected:
+		selected = false
+		check_drop_zone()
 
 func check_drop_zone() -> void:
 	var closest_zone: Node2D = null
@@ -74,16 +61,16 @@ func check_drop_zone() -> void:
 		global_position = closest_zone.global_position
 		target_position = closest_zone.global_position
 		placed = true
+		# Sort by y so lower tiles draw in front, matching the isometric bridge.
 		z_index = int(global_position.y)
 		closest_zone.place_plank()
 		emit_signal("plank_placed", plank_id)
+		_disable_drag_collision()
 	else:
 		z_index = 50
 		target_position = start_position
 
-func reset_plank() -> void:
-	placed = false
-	selected = false
-	global_position = start_position
-	target_position = start_position
-	z_index = 50
+func _disable_drag_collision() -> void:
+	var area := get_node_or_null("Area2D")
+	if area:
+		area.input_pickable = false

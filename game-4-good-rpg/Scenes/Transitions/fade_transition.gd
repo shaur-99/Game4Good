@@ -5,6 +5,7 @@ extends Control
 var is_transitioning := false
 
 func _ready() -> void:
+	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	fade.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	fade.color.a = 0.0
 

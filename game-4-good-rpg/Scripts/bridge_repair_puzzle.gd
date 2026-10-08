@@ -10,21 +10,14 @@ const CHAPTER_1_SCENE := "res://Chapter 1/Clear Stream Valley.tscn"
 @onready var drop_zones: Node2D = $DropZones
 
 func _ready() -> void:
+	print("puzzle ready, paused = ", get_tree().paused)
+	get_tree().paused = false
 	complete_label.visible = false
 	complete_bridge.visible = false
-	# Make every UI Control transparent to mouse so planks stay clickable.
-	_release_mouse_on_ui($CanvasLayer)
 
 	for plank in get_tree().get_nodes_in_group("bridge_plank"):
 		if plank.has_signal("plank_placed"):
 			plank.plank_placed.connect(_on_plank_placed)
-
-func _release_mouse_on_ui(root: Node) -> void:
-	for child in root.get_children():
-		if child is Control:
-			child.mouse_filter = Control.MOUSE_FILTER_IGNORE
-			print("[PUZZLE] ", child.name, " mouse_filter=IGNORE")
-			_release_mouse_on_ui(child)
 
 func _on_plank_placed(_plank_id: int) -> void:
 	for zone in get_tree().get_nodes_in_group("bridge_zone"):

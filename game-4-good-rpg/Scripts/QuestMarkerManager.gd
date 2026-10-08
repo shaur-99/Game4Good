@@ -11,7 +11,7 @@ const CHAPTER_0_SCENE := "res://Scenes/game.tscn"
 const CHAPTER_0_LEGACY_SCENE := "res://Scenes/start.tscn"
 const CHAPTER_1_SCENE := "res://Chapter 1/Clear Stream Valley.tscn"
 const CHAPTER_2_SCENE := "res://Scenes/chapter_2.tscn"
-const CHAPTER_3_SCENE := "res://Scenes/chapter_3.tscn"
+const CHAPTER_3_SCENE := "res://Steven/main/Main.tscn"
 
 const MARKER_COLOR := Color(1.0, 0.85, 0.2, 1.0)
 const MARKER_OUTLINE := Color(0.25, 0.15, 0.0, 1.0)
@@ -151,11 +151,6 @@ func _build_steps() -> void:
 			"scene": CHAPTER_3_SCENE,
 			"targets": ["MattKaiVillagers"],
 			"done": func() -> bool: return QuestState.chapter3_quest4_town_dialogue_done,
-		},
-		{
-			"scene": CHAPTER_3_SCENE,
-			"targets": ["StarMoonCouncilGroup"],
-			"done": func() -> bool: return QuestState.chapter3_quest5_celebration_done,
 		},
 	]
 

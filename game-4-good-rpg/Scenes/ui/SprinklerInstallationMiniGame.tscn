@@ -1,11 +1,56 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://x62urftmk4sj"]
 
-[ext_resource type="Script" path="res://Scripts/ui/sprinkler_installation_minigame.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://dg7fw6h6e81jb" path="res://Scripts/ui/sprinkler_installation_minigame.gd" id="1_script"]
 
-[node name="SprinklerInstallationMiniGame" type="CanvasLayer"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p58ui"]
+bg_color = Color(0, 0, 0, 0.39215687)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.5294118, 0.6392157, 0.4627451, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jt4y8"]
+bg_color = Color(0.5294118, 0.6392157, 0.4627451, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yt1aj"]
+bg_color = Color(0.21176471, 0.27058825, 0.17254902, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_45axg"]
+bg_color = Color(0.39607844, 0.49411765, 0.3372549, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="SprinklerInstallationMiniGame" type="CanvasLayer" unique_id=599315360]
 script = ExtResource("1_script")
 
-[node name="Root" type="Control" parent="."]
+[node name="Root" type="Control" parent="." unique_id=1622831810]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,16 +59,20 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="Dimmer" type="ColorRect" parent="Root"]
+[node name="Dimmer" type="ColorRect" parent="Root" unique_id=2145053379]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = 26.0
+offset_right = -7.0
+offset_bottom = 26.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.35)
 
-[node name="Panel" type="PanelContainer" parent="Root"]
+[node name="Panel" type="PanelContainer" parent="Root" unique_id=1456008320]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -36,65 +85,70 @@ offset_right = 360.0
 offset_bottom = 270.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_p58ui")
 
-[node name="Margin" type="MarginContainer" parent="Root/Panel"]
+[node name="Margin" type="MarginContainer" parent="Root/Panel" unique_id=979486337]
 layout_mode = 2
 theme_override_constants/margin_left = 14
 theme_override_constants/margin_top = 14
 theme_override_constants/margin_right = 14
 theme_override_constants/margin_bottom = 14
 
-[node name="MainVBox" type="VBoxContainer" parent="Root/Panel/Margin"]
+[node name="MainVBox" type="VBoxContainer" parent="Root/Panel/Margin" unique_id=919002538]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="TitleLabel" type="Label" parent="Root/Panel/Margin/MainVBox"]
+[node name="TitleLabel" type="Label" parent="Root/Panel/Margin/MainVBox" unique_id=1883272936]
 layout_mode = 2
 text = "Sprinkler Installation"
 horizontal_alignment = 1
 
-[node name="InstructionLabel" type="Label" parent="Root/Panel/Margin/MainVBox"]
+[node name="InstructionLabel" type="Label" parent="Root/Panel/Margin/MainVBox" unique_id=2131831383]
 layout_mode = 2
 text = "Place 3 sprinklers where they can reach the most dry crops."
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="StatsRow" type="HBoxContainer" parent="Root/Panel/Margin/MainVBox"]
+[node name="StatsRow" type="HBoxContainer" parent="Root/Panel/Margin/MainVBox" unique_id=1369640154]
 layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="SprinklersCountLabel" type="Label" parent="Root/Panel/Margin/MainVBox/StatsRow"]
+[node name="SprinklersCountLabel" type="Label" parent="Root/Panel/Margin/MainVBox/StatsRow" unique_id=2034647854]
 layout_mode = 2
 text = "Sprinklers selected: 0/3"
 
-[node name="DryCropsLabel" type="Label" parent="Root/Panel/Margin/MainVBox/StatsRow"]
+[node name="DryCropsLabel" type="Label" parent="Root/Panel/Margin/MainVBox/StatsRow" unique_id=831647834]
 layout_mode = 2
 text = "Dry crops covered: 0/7"
 
-[node name="FarmlandHost" type="CenterContainer" parent="Root/Panel/Margin/MainVBox"]
+[node name="FarmlandHost" type="CenterContainer" parent="Root/Panel/Margin/MainVBox" unique_id=1822296520]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="TooltipLabel" type="Label" parent="Root/Panel/Margin/MainVBox"]
+[node name="TooltipLabel" type="Label" parent="Root/Panel/Margin/MainVBox" unique_id=363417358]
 layout_mode = 2
 text = "Choose spots that can water the most dry crops."
 horizontal_alignment = 1
 autowrap_mode = 3
 
-[node name="HelperLabel" type="Label" parent="Root/Panel/Margin/MainVBox"]
+[node name="HelperLabel" type="Label" parent="Root/Panel/Margin/MainVBox" unique_id=1689753297]
 layout_mode = 2
 autowrap_mode = 3
 
-[node name="ButtonRow" type="HBoxContainer" parent="Root/Panel/Margin/MainVBox"]
+[node name="ButtonRow" type="HBoxContainer" parent="Root/Panel/Margin/MainVBox" unique_id=25995417]
 layout_mode = 2
 alignment = 1
 
-[node name="ResetButton" type="Button" parent="Root/Panel/Margin/MainVBox/ButtonRow"]
+[node name="ResetButton" type="Button" parent="Root/Panel/Margin/MainVBox/ButtonRow" unique_id=740870347]
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxFlat_jt4y8")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_yt1aj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_45axg")
 text = "Reset"
 
-[node name="SuccessLabel" type="Label" parent="Root/Panel/Margin/MainVBox"]
+[node name="SuccessLabel" type="Label" parent="Root/Panel/Margin/MainVBox" unique_id=1156595389]
 visible = false
 layout_mode = 2
 text = "Water is flowing and the crops are turning green!"

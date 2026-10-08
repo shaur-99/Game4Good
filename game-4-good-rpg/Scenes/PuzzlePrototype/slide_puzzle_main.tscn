@@ -16,13 +16,17 @@
 [ext_resource type="Texture2D" uid="uid://dcwu8nsawtwra" path="res://Sprites/puzzle/tile_14.png" id="15_xluj2"]
 [ext_resource type="Texture2D" uid="uid://bax0nm7hbaqgu" path="res://Sprites/puzzle/tile_15.png" id="16_aigyp"]
 [ext_resource type="Texture2D" uid="uid://3ce3xwo4q055" path="res://img/empty.png" id="16_aorgd"]
-[ext_resource type="Texture2D" uid="uid://dl5egjrjarb8v" path="res://Sprites/TileMaps/PuzzleBadge.png" id="17_jt4y8"]
+[ext_resource type="Texture2D" uid="uid://di16838lsjtvg" path="res://Sprites/UserInterface/Starting Town ：Chapter 0 - The_Start_of_the_Journey.jpg" id="17_jt4y8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jnp4b"]
 size = Vector2(1000, 1000)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_p58ui"]
 load_path = "res://.godot/imported/tile_1.png-3b4cc05b3c68b8e900c56ac26393c377.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yt1aj"]
+texture = ExtResource("17_jt4y8")
+modulate_color = Color(0.3498724, 0.3498724, 0.3498724, 1)
 
 [node name="slidePuzzleMain" type="Area2D" unique_id=339244344]
 script = ExtResource("1_tn0w6")
@@ -95,32 +99,20 @@ texture = ExtResource("16_aigyp")
 position = Vector2(875, 875)
 texture = ExtResource("16_aorgd")
 
-[node name="AchievementPopup" type="Control" parent="." unique_id=813205709]
-visible = false
-custom_minimum_size = Vector2(500, 250)
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=180705644]
+layer = -1
 
-[node name="TextureRect" type="TextureRect" parent="AchievementPopup" unique_id=1203599937]
-custom_minimum_size = Vector2(200, 200)
-layout_mode = 0
-offset_left = 1031.0
-offset_top = 50.0
-offset_right = 1231.0
-offset_bottom = 250.0
-texture = ExtResource("17_jt4y8")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="Label" type="Label" parent="AchievementPopup" unique_id=1865848372]
-layout_mode = 0
-offset_left = 1046.0
-offset_top = 229.0
-offset_right = 1229.0
-offset_bottom = 278.0
-text = "Achievement Unlocked!
-Puzzle Solver Badge"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="Panel2" type="Panel" parent="CanvasLayer" unique_id=558431465]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -657.0
+offset_top = -642.0
+offset_right = 642.0
+offset_bottom = 655.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_yt1aj")

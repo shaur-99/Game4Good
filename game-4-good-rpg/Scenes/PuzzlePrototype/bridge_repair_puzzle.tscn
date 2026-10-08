@@ -7,6 +7,30 @@
 [ext_resource type="Texture2D" uid="uid://cnt5r47e54go1" path="res://Assets/BridgeRepair/completed_bridge_reference.png" id="5"]
 [ext_resource type="Texture2D" uid="uid://baitansh6wl4d" path="res://Assets/BridgeRepair/bridge_top_tile.png" id="6"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_snt2y"]
+bg_color = Color(0, 0, 0, 0.627451)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.5294118, 0.6392157, 0.4627451, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jt4y8"]
+bg_color = Color(0, 0, 0, 0.627451)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.5294118, 0.6392157, 0.4627451, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_plank"]
 size = Vector2(84, 52)
 
@@ -14,12 +38,14 @@ size = Vector2(84, 52)
 script = ExtResource("1_wl3o3")
 
 [node name="BrokenBridgeReference" type="Sprite2D" parent="." unique_id=89080816]
+position = Vector2(-0.9999981, 0)
+scale = Vector2(1.607, 1.473)
 texture = ExtResource("2")
 centered = false
 
 [node name="CompletedBridgeReference" type="Sprite2D" parent="." unique_id=1539491012]
-visible = false
-scale = Vector2(1.3758621, 1.2589743)
+position = Vector2(-2.9999993, -13.000004)
+scale = Vector2(2.2189655, 1.9641025)
 texture = ExtResource("5")
 centered = false
 
@@ -30,6 +56,7 @@ offset_left = 12.0
 offset_top = 10.0
 offset_right = 385.0
 offset_bottom = 58.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_snt2y")
 
 [node name="Instructions" type="Label" parent="CanvasLayer/Panel" unique_id=2077523699]
 layout_mode = 0
@@ -41,56 +68,60 @@ text = "Drag the 9 wooden planks into the bridge gap."
 
 [node name="CompleteLabel" type="Label" parent="CanvasLayer" unique_id=272847281]
 visible = false
-offset_left = 12.0
-offset_top = 64.0
-offset_right = 270.0
-offset_bottom = 96.0
+offset_left = 496.0
+offset_top = 315.0
+offset_right = 813.0
+offset_bottom = 392.0
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = SubResource("StyleBoxFlat_jt4y8")
 text = "Bridge repaired!"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="DropZones" type="Node2D" parent="." unique_id=1020612522]
 
 [node name="DropZone1" type="Marker2D" parent="DropZones" unique_id=154945993 groups=["bridge_zone", "zone"]]
-position = Vector2(271, 213)
+position = Vector2(438, 310)
 script = ExtResource("3")
 zone_id = 1
 
 [node name="DropZone2" type="Marker2D" parent="DropZones" unique_id=887955995 groups=["bridge_zone", "zone"]]
-position = Vector2(328, 246)
+position = Vector2(528, 356)
 script = ExtResource("3")
 zone_id = 2
 
 [node name="DropZone3" type="Marker2D" parent="DropZones" unique_id=1657435505 groups=["bridge_zone", "zone"]]
-position = Vector2(400, 277)
+position = Vector2(642, 407)
 script = ExtResource("3")
 zone_id = 3
 
 [node name="DropZone4" type="Marker2D" parent="DropZones" unique_id=691068216 groups=["bridge_zone", "zone"]]
-position = Vector2(396, 146)
+position = Vector2(629, 210)
 script = ExtResource("3")
 zone_id = 4
 
 [node name="DropZone5" type="Marker2D" parent="DropZones" unique_id=16482830 groups=["bridge_zone", "zone"]]
-position = Vector2(455, 182)
+position = Vector2(734, 262)
 script = ExtResource("3")
 zone_id = 5
 
 [node name="DropZone6" type="Marker2D" parent="DropZones" unique_id=292708879 groups=["bridge_zone", "zone"]]
-position = Vector2(511, 211)
+position = Vector2(833, 315)
 script = ExtResource("3")
 zone_id = 6
 
 [node name="DropZone7" type="Marker2D" parent="DropZones" unique_id=459232411 groups=["bridge_zone", "zone"]]
-position = Vector2(515, 79)
+position = Vector2(834, 112)
 script = ExtResource("3")
 zone_id = 7
 
 [node name="DropZone8" type="Marker2D" parent="DropZones" unique_id=193897755 groups=["bridge_zone", "zone"]]
-position = Vector2(578, 115)
+position = Vector2(936, 170)
 script = ExtResource("3")
 zone_id = 8
 
 [node name="DropZone9" type="Marker2D" parent="DropZones" unique_id=1214533624 groups=["bridge_zone", "zone"]]
-position = Vector2(636, 145)
+position = Vector2(1040, 215)
 script = ExtResource("3")
 zone_id = 9
 
@@ -98,7 +129,7 @@ zone_id = 9
 
 [node name="Plank1" type="Node2D" parent="Planks" unique_id=1425254102 groups=["bridge_plank"]]
 z_index = 50
-position = Vector2(512, 407)
+position = Vector2(942, 585)
 script = ExtResource("4")
 plank_id = 1
 
@@ -115,7 +146,7 @@ shape = SubResource("RectangleShape2D_plank")
 
 [node name="Plank2" type="Node2D" parent="Planks" unique_id=1358304740 groups=["bridge_plank"]]
 z_index = 50
-position = Vector2(587, 375)
+position = Vector2(1017, 553)
 script = ExtResource("4")
 plank_id = 2
 
@@ -133,7 +164,7 @@ shape = SubResource("RectangleShape2D_plank")
 
 [node name="Plank3" type="Node2D" parent="Planks" unique_id=791529028 groups=["bridge_plank"]]
 z_index = 50
-position = Vector2(646, 341)
+position = Vector2(1076, 519)
 script = ExtResource("4")
 plank_id = 3
 
@@ -149,7 +180,7 @@ shape = SubResource("RectangleShape2D_plank")
 
 [node name="Plank4" type="Node2D" parent="Planks" unique_id=323175314 groups=["bridge_plank"]]
 z_index = 50
-position = Vector2(582, 444)
+position = Vector2(1012, 622)
 script = ExtResource("4")
 plank_id = 4
 
@@ -166,7 +197,7 @@ shape = SubResource("RectangleShape2D_plank")
 
 [node name="Plank5" type="Node2D" parent="Planks" unique_id=2006935648 groups=["bridge_plank"]]
 z_index = 50
-position = Vector2(644, 409)
+position = Vector2(1074, 587)
 script = ExtResource("4")
 plank_id = 5
 
@@ -184,7 +215,7 @@ shape = SubResource("RectangleShape2D_plank")
 
 [node name="Plank6" type="Node2D" parent="Planks" unique_id=2145324013 groups=["bridge_plank"]]
 z_index = 50
-position = Vector2(706, 376)
+position = Vector2(1136, 554)
 script = ExtResource("4")
 plank_id = 6
 
@@ -201,7 +232,7 @@ shape = SubResource("RectangleShape2D_plank")
 
 [node name="Plank7" type="Node2D" parent="Planks" unique_id=880912488 groups=["bridge_plank"]]
 z_index = 50
-position = Vector2(645, 471)
+position = Vector2(1075, 649)
 script = ExtResource("4")
 plank_id = 7
 
@@ -219,7 +250,7 @@ shape = SubResource("RectangleShape2D_plank")
 
 [node name="Plank8" type="Node2D" parent="Planks" unique_id=1550549332 groups=["bridge_plank"]]
 z_index = 50
-position = Vector2(705, 443)
+position = Vector2(1135, 621)
 script = ExtResource("4")
 plank_id = 8
 
@@ -236,7 +267,7 @@ shape = SubResource("RectangleShape2D_plank")
 
 [node name="Plank9" type="Node2D" parent="Planks" unique_id=1954320538 groups=["bridge_plank"]]
 z_index = 50
-position = Vector2(770, 408)
+position = Vector2(1200, 586)
 script = ExtResource("4")
 plank_id = 9
 
@@ -252,3 +283,12 @@ position = Vector2(1, 0)
 position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_plank")
 
+[connection signal="input_event" from="Planks/Plank1/Area2D" to="Planks/Plank1" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="Planks/Plank2/Area2D" to="Planks/Plank2" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="Planks/Plank3/Area2D" to="Planks/Plank3" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="Planks/Plank4/Area2D" to="Planks/Plank4" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="Planks/Plank5/Area2D" to="Planks/Plank5" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="Planks/Plank6/Area2D" to="Planks/Plank6" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="Planks/Plank7/Area2D" to="Planks/Plank7" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="Planks/Plank8/Area2D" to="Planks/Plank8" method="_on_area_2d_input_event"]
+[connection signal="input_event" from="Planks/Plank9/Area2D" to="Planks/Plank9" method="_on_area_2d_input_event"]
