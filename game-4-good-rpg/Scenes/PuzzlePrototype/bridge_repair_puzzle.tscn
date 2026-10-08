@@ -252,12 +252,3 @@ position = Vector2(1, 0)
 position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_plank")
 
-[connection signal="input_event" from="Planks/Plank1/Area2D" to="Planks/Plank1" method="_on_area_2d_input_event"]
-[connection signal="input_event" from="Planks/Plank2/Area2D" to="Planks/Plank2" method="_on_area_2d_input_event"]
-[connection signal="input_event" from="Planks/Plank3/Area2D" to="Planks/Plank3" method="_on_area_2d_input_event"]
-[connection signal="input_event" from="Planks/Plank4/Area2D" to="Planks/Plank4" method="_on_area_2d_input_event"]
-[connection signal="input_event" from="Planks/Plank5/Area2D" to="Planks/Plank5" method="_on_area_2d_input_event"]
-[connection signal="input_event" from="Planks/Plank6/Area2D" to="Planks/Plank6" method="_on_area_2d_input_event"]
-[connection signal="input_event" from="Planks/Plank7/Area2D" to="Planks/Plank7" method="_on_area_2d_input_event"]
-[connection signal="input_event" from="Planks/Plank8/Area2D" to="Planks/Plank8" method="_on_area_2d_input_event"]
-[connection signal="input_event" from="Planks/Plank9/Area2D" to="Planks/Plank9" method="_on_area_2d_input_event"]
