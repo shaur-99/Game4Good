@@ -271,7 +271,7 @@ const CHAPTER1_CASTLE_GATE_SUMMARY := {
 # |---------|-------|---------------------|
 # | 1       | res://Chapter 1/Clear Stream Valley.tscn | begins_on_chapter1_map = true |
 # | 2       | res://Scenes/chapter_2.tscn              | begins_on_chapter2_map = true |
-# | 3       | res://Steven/main/Main.tscn (temporary)  | begins_on_chapter3_map = true |
+# | 3       | res://Scenes/chapter_3.tscn              | begins_on_chapter3_map = true |
 #
 # Autoplay (auto presses Space + panel): uncomment the block in _ready() (~line 280).
 # =============================================================================
@@ -307,14 +307,14 @@ const SKIP_TO_CHAPTER_3_TEST := false
 
 const CHAPTER_1_SCENE := "res://Chapter 1/Clear Stream Valley.tscn"
 const CHAPTER_2_SCENE := "res://Scenes/chapter_2.tscn"
-const CHAPTER_3_SCENE := "res://Steven/main/Main.tscn" # TODO: replace when a dedicated Ch3 scene is available
+const CHAPTER_3_SCENE := "res://Scenes/chapter_3.tscn"
 const MENU_SCENE := "res://Scenes/Menu/menu.tscn"
 
 ## F6 Ch1 map: skip Ch0 intro and open Ch1 Chapter Context.
 @export var begins_on_chapter1_map: bool = false
 ## F6 Ch2 map: skip Ch0-Ch1 and open Ch2 Chapter Context.
 @export var begins_on_chapter2_map: bool = false
-## F6 Ch3 map (temporary Main.tscn): skip Ch0-Ch2 and open Ch3 Chapter Context.
+## F6 Ch3 map (chapter_3.tscn): skip Ch0-Ch2 and open Ch3 Chapter Context.
 @export var begins_on_chapter3_map: bool = false
 
 enum PanelMode {

@@ -1,0 +1,151 @@
+[gd_scene format=3 uid="uid://c3starm00nch3"]
+
+[ext_resource type="PackedScene" uid="uid://47gn26hua6yj" path="res://character/Player/penguine.tscn" id="1_penguine"]
+[ext_resource type="PackedScene" uid="uid://cuy6xuu3igyi" path="res://character/Aurora/aurora.tscn" id="2_aurora"]
+[ext_resource type="PackedScene" uid="uid://dh1qb5ob7m828" path="res://character/Advaita/advaita.tscn" id="3_advaita"]
+[ext_resource type="PackedScene" path="res://character/Sarina/sarina.tscn" id="4_sarina"]
+[ext_resource type="PackedScene" uid="uid://00ek6snrodnk" path="res://character/Matt_Kai_Villagers/matt_kai_villagers.tscn" id="5_mkv"]
+[ext_resource type="PackedScene" path="res://character/StarMoonCouncilGroup/star_moon_council_group.tscn" id="6_smcg"]
+[ext_resource type="Script" uid="uid://dbwy243yfc0pn" path="res://Steven/main/story_guide_panel.gd" id="7_storyguide"]
+[ext_resource type="PackedScene" path="res://Scenes/ui/Minimap.tscn" id="8_minimap"]
+[ext_resource type="PackedScene" path="res://Scenes/ui/MinimapObjective.tscn" id="9_marker"]
+[ext_resource type="PackedScene" uid="uid://b3x47hqc2tfd1" path="res://Scenes/Menu/settings_menu.tscn" id="10_settings"]
+[ext_resource type="TileSet" uid="uid://yps8h3kuomvk" path="res://Sprites/tilemap1.tres" id="11_tileset"]
+[ext_resource type="AudioStream" uid="uid://rppq1u5vnrqv" path="res://Music/A Lonely Cherry Tree.mp3" id="12_music"]
+
+[node name="Chapter 3" type="Node2D" unique_id=1851929029]
+script = ExtResource("7_storyguide")
+
+[node name="Ground" type="TileMapLayer" parent="." unique_id=1856198380]
+y_sort_enabled = true
+tile_set = ExtResource("11_tileset")
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=1856198381]
+stream = ExtResource("12_music")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="MinimapLayer" parent="." unique_id=1856198372 instance=ExtResource("8_minimap")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=424880283]
+
+[node name="CanvasLayer2" parent="CanvasLayer" unique_id=1430209240 instance=ExtResource("10_settings")]
+
+[node name="Penguine" parent="." unique_id=336928026 instance=ExtResource("1_penguine")]
+z_index = 1
+
+[node name="Camera2D2" type="Camera2D" parent="Penguine" unique_id=1255284567]
+position_smoothing_enabled = true
+
+[node name="Advaita" parent="." unique_id=1971089223 instance=ExtResource("3_advaita")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(3168, 90)
+
+[node name="Quest1MinimapObjective" parent="Advaita" unique_id=1476299565 instance=ExtResource("9_marker")]
+objective_key = &"ch3_q1_advaita"
+
+[node name="Quest2MinimapObjective" parent="Advaita" unique_id=511224714 instance=ExtResource("9_marker")]
+objective_key = &"ch3_q2_advaita"
+
+[node name="Sarina" parent="." unique_id=802349899 instance=ExtResource("4_sarina")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(3168, 330)
+
+[node name="Quest1MinimapObjective" parent="Sarina" unique_id=839076709 instance=ExtResource("9_marker")]
+objective_key = &"ch3_q1_sarina"
+
+[node name="Quest2MinimapObjective" parent="Sarina" unique_id=1150318258 instance=ExtResource("9_marker")]
+objective_key = &"ch3_q2_sarina"
+
+[node name="Aurora" parent="." unique_id=1997513961 instance=ExtResource("2_aurora")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(1910, 82)
+
+[node name="Quest1MinimapObjective" parent="Aurora" unique_id=1385362973 instance=ExtResource("9_marker")]
+objective_key = &"ch3_q1_aurora"
+
+[node name="Quest2MinimapObjective" parent="Aurora" unique_id=967208685 instance=ExtResource("9_marker")]
+objective_key = &"ch3_q2_aurora"
+
+[node name="MattKaiVillagers" parent="." unique_id=1766484009 instance=ExtResource("5_mkv")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(3456, 336)
+
+[node name="StarMoonCouncilGroup" parent="." unique_id=431261155 instance=ExtResource("6_smcg")]
+z_index = 1
+y_sort_enabled = true
+position = Vector2(3805, 340)
+
+[node name="Quest3MinimapObjective" parent="StarMoonCouncilGroup" unique_id=933896018 instance=ExtResource("9_marker")]
+objective_key = &"ch3_q3_council"
+
+[node name="Quest4MinimapObjective" parent="StarMoonCouncilGroup" unique_id=872233602 instance=ExtResource("9_marker")]
+objective_key = &"ch3_q4_council"
+
+[node name="Quest5MinimapObjective" parent="StarMoonCouncilGroup" unique_id=591183825 instance=ExtResource("9_marker")]
+objective_key = &"ch3_q5_celebration"
+
+[node name="StoryGuideLayer" type="CanvasLayer" parent="." unique_id=836113593]
+layer = 100
+
+[node name="GuidePanel" type="PanelContainer" parent="StoryGuideLayer" unique_id=906313395]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -145.0
+offset_right = 270.0
+offset_bottom = 145.0
+
+[node name="ContentMargin" type="MarginContainer" parent="StoryGuideLayer/GuidePanel" unique_id=1851657184]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ContentVBox" type="VBoxContainer" parent="StoryGuideLayer/GuidePanel/ContentMargin" unique_id=171650618]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ChapterLabel" type="Label" parent="StoryGuideLayer/GuidePanel/ContentMargin/ContentVBox" unique_id=243774276]
+layout_mode = 2
+text = "Chapter"
+horizontal_alignment = 1
+
+[node name="TitleLabel" type="Label" parent="StoryGuideLayer/GuidePanel/ContentMargin/ContentVBox" unique_id=538838742]
+layout_mode = 2
+text = "Title"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="StoryGuideLayer/GuidePanel/ContentMargin/ContentVBox" unique_id=1790015145]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Description"
+autowrap_mode = 3
+
+[node name="FooterRow" type="HBoxContainer" parent="StoryGuideLayer/GuidePanel/ContentMargin/ContentVBox" unique_id=1365845944]
+layout_mode = 2
+alignment = 2
+
+[node name="PageLabel" type="Label" parent="StoryGuideLayer/GuidePanel/ContentMargin/ContentVBox/FooterRow" unique_id=380495179]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "1/1"
+
+[node name="NextButton" type="Button" parent="StoryGuideLayer/GuidePanel/ContentMargin/ContentVBox/FooterRow" unique_id=1781923390]
+layout_mode = 2
+text = "Next"
+
+[node name="AltButton" type="Button" parent="StoryGuideLayer/GuidePanel/ContentMargin/ContentVBox/FooterRow" unique_id=146728391]
+visible = false
+layout_mode = 2
+text = "Alt"
